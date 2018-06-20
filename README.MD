@@ -1,0 +1,3 @@
+# Jumpaï's website
+
+Website used to promote the game!
