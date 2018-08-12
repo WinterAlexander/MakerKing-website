@@ -1,0 +1,13 @@
+.header-bar {
+    background-color: #00000044;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.jumpai-btn {
+    border: 3px white solid;
+    padding: 15px;
+
+}
