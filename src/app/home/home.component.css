@@ -7,10 +7,28 @@
     background-color: #ffa31a;
     font-size: xx-large;
     padding: 15px 100px 10px 100px;
+    margin-top: 15px;
 }
 
 .btn-download:hover,
 .btn-download:focus,
 .btn-download:active {
     background-color: #cc7a00;
+}
+
+.java-icon {
+    padding-top: 10px;
+    width: 4em;
+    vertical-align: text-bottom;
+}
+
+.need-java {
+    display: inline-block;
+    padding-left: 15px;
+    font-size: 1.5em;
+    width: 200px;
+}
+
+.java8-warning {
+    padding-top: 15px;
 }
