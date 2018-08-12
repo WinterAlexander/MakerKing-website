@@ -6,8 +6,47 @@
     z-index: 100;
 }
 
-.jumpai-btn {
-    border: 3px white solid;
-    padding: 15px;
+.head-padding {
+    height: 200px;
+}
 
+.jumpai-logo {
+    max-width: 100%;
+}
+
+.head-btn {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: x-large;
+}
+
+.btn-home {
+    background-color: #33ff33;
+}
+
+.btn-home:hover,
+.btn-home:focus,
+.btn-home:active {
+    background-color: #009900;
+}
+
+.btn-donate {
+    background-color: #ff3385;
+}
+
+.btn-donate:hover,
+.btn-donate:focus,
+.btn-donate:active {
+    background-color: #99003d;
+}
+
+.btn-contact {
+    background-color: #3385ff;
+}
+
+.btn-contact:hover,
+.btn-contact:focus,
+.btn-contact:active {
+    background-color: #003d99;
 }

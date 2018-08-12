@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-@font-face {
-    font-family: 'balooregular';
-    src: url('assets/baloo-font.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+body {
+    font-family: 'Baloo', cursive;
 }
 
-git checkout -b h
+.btn-jumpai {
+    border: 3px white solid;
+    padding: 3px 10px 0 10px;
+    color: white;
+}
