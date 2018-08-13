@@ -1,7 +1,6 @@
 .site-container
 {
-    background: rgb(94, 218, 166) url("../assets/mountains.jpg") no-repeat;
+    background: rgb(94, 218, 166) url("../assets/mountains.jpg") no-repeat center;
     background-size: cover;
-    background-position: center;
-    height: 100vh;
+    min-height: 110vh;
 }
