@@ -1,0 +1,103 @@
+/**
+ * CSS of the reddit Jumpaï subreddit
+ *
+ * Created on 2018-02-25.
+ *
+ * @author Cedric Martens
+ * @author Alexander Winter
+ */
+
+#sr-header-area a {
+    color : #000;
+}
+.sr-bar .separator {
+    color : #000;
+}
+#header {
+    border-bottom-color : #a6f4a4;
+    background: url(%%banner-jumpai%%);
+    height: 150px;
+    background-size: cover;
+    background-color : #a0cdd0;
+    background-position: 0px -150px;
+}
+
+#sr-header-area {
+    border-bottom-color : #a6f4a4;
+    background-color : #8cd389;
+}
+
+div.titlebox span.word {
+    display:none;
+}
+div.titlebox span.number:after {
+    content: " frisbee jumpers";
+}
+.users-online .word {
+    display:none;
+}
+.users-online .word, .users-online .number:after {
+    content: " jumpers" !important;
+}
+#header .tabmenu {
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    padding: 5px;
+    padding-left: 5px;
+    padding-right: 0px;
+    background-color: #8cd389;
+    padding-top: 3px;
+    margin-left: 5px;
+    border: 1px solid #a6f4a4;
+    box-shadow: 0px 0px 5px #0dbd42;
+    bottom: 6px;
+}
+
+#header .tabmenu li {
+    margin: 0px; }
+
+#header .tabmenu li a {
+    padding: 3px;
+    color: #a6f4a4;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-weight: 100;
+    color: #efefef;
+    letter-spacing: 1px;
+    font-size: 10px;
+    transition: 0.4s;
+}
+
+#header .tabmenu li a:hover {
+    background-color: #a6f4a4;
+    color: #101823; }
+
+#header .tabmenu li:nth-child(n+6) {
+    display: none; }
+
+#header .tabmenu li::after {
+    content: "|";
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: #10px;
+    font-weight: 100;
+    color: a6f4a4;
+}
+
+#header .tabmenu li.selected a {
+    border: none;
+}
+
+span.redditname > a {
+    font-size: 4.8em;
+    vertical-align: text-bottom;
+    background: url(%%favicon%%);
+    background-size: 100%;
+    background-position-y: 60%;
+    display: inline-block;
+    width: 350px;
+    height: 84px;
+    text-indent: -999em;
+}
+
