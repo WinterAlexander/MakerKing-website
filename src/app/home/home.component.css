@@ -31,4 +31,13 @@
 
 .java8-warning {
     padding-top: 15px;
+    color: black;
+}
+
+.java8-warning:hover {
+    color: #2f2f2f;
+}
+
+.java8-warning:hover .java-icon {
+    filter: brightness(80%);
 }
