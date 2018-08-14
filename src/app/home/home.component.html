@@ -1,10 +1,10 @@
 <div class="home-container">
-	<iframe class="youtube-player" src="https://www.youtube.com/embed/cyBSe4lcki4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	<iframe class="youtube-player" [src]="sanitizer.bypassSecurityTrustResourceUrl(videoAddress)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	<br />
-	<a href="https://beartrapstudio.itch.io/jumpai">
+	<a href="{{downloadAddress}}">
 		<button type="button" class="btn btn-jumpai btn-download">Download</button>
 	</a>
-	<a href="https://java.com/download">
+	<a href="{{javaDownloadAddress}}">
 		<div class="java8-warning">
 			<img src="../../assets/java.png" class="java-icon"/>
 			<p class="need-java">
