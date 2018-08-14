@@ -1,0 +1,31 @@
+/**
+ * CSS of the itch.io page for Jumpaï
+ *
+ * Created on 2018-08-14.
+ *
+ * @author Alexander Winter
+ */
+
+#wrapper {
+    background-size: cover;
+    background-color: rgb(94, 218, 166)
+}
+
+#inner_column {
+    background-color: transparent;
+}
+
+div.view_game_page  {
+    background-color: #8cf288;
+    padding: 10px;
+    margin-top: 10px;
+    border: white 3px solid;
+}
+
+#view_game_footer {
+    display: none;
+}
+
+.download_btn {
+    font-size: 18px;
+}
