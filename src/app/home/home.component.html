@@ -1,0 +1,15 @@
+<div class="home-container">
+	<iframe class="youtube-player" [src]="sanitizer.bypassSecurityTrustResourceUrl(videoAddress)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	<br />
+	<a href="{{downloadAddress}}">
+		<button type="button" class="btn btn-jumpai btn-download">Download</button>
+	</a>
+	<a href="{{javaDownloadAddress}}">
+		<div class="java8-warning">
+			<img src="../../assets/java.png" class="java-icon"/>
+			<p class="need-java">
+					Requires Java 8 or higher to play
+			</p>
+		</div>
+	</a>
+</div>

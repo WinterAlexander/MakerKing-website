@@ -1,0 +1,48 @@
+.header-bar {
+    background-color: #00000044;
+}
+
+.head-padding {
+    height: 20px;
+}
+
+.jumpai-logo {
+    max-width: 100%;
+}
+
+.head-btn {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: x-large;
+}
+
+.btn-home {
+    background-color: #5cd65c;
+}
+
+.btn-home:hover,
+.btn-home:focus,
+.btn-home:active {
+    background-color: #258e25;
+}
+
+.btn-donate {
+    background-color: #ff3385;
+}
+
+.btn-donate:hover,
+.btn-donate:focus,
+.btn-donate:active {
+    background-color: #99003d;
+}
+
+.btn-contact {
+    background-color: #3385ff;
+}
+
+.btn-contact:hover,
+.btn-contact:focus,
+.btn-contact:active {
+    background-color: #003d99;
+}

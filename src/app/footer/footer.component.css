@@ -1,0 +1,26 @@
+.social-icons {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.social-icon {
+    width: 60px;
+    margin: 10px;
+}
+
+.social-icon:hover {
+    filter: brightness(80%);
+}
+
+.copyright {
+    text-align: center;
+    padding-bottom: 30px;
+    color: white;
+    margin-bottom: 0;
+}
+
+.footer-container {
+    background: linear-gradient(#00000000, #000000aa, #000000aa, #000000aa, #000000aa, #000000aa, #000000aa);
+    margin-top: 20px;
+    padding-top: 20px;
+}

@@ -1,2 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+    font-family: 'Baloo', cursive;
+}
+
+.btn-jumpai {
+    border: 3px white solid;
+    padding: 3px 10px 0 10px;
+    color: white;
+}
