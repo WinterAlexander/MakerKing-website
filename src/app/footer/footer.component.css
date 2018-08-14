@@ -8,6 +8,10 @@
     margin: 10px;
 }
 
+.social-icon:hover {
+    filter: brightness(80%);
+}
+
 .copyright {
     text-align: center;
     padding-bottom: 30px;

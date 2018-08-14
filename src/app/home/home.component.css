@@ -41,3 +41,11 @@
 .java8-warning:hover .java-icon {
     filter: brightness(80%);
 }
+
+.youtube-player {
+    width: calc((100vh - 330px) / 9 * 16);
+    height: calc(100vh - 330px);
+
+    min-width: 320px;
+    min-height: 180px;
+}
