@@ -19,6 +19,7 @@ import { ThankYouComponent } from "./donate/thankyou/thankyou.component";
 			{ path: '', component: HomeComponent },
 			{ path: 'donate', component: DonateComponent },
 			{ path: 'thankyou', component: ThankYouComponent },
+			{ path: '**', redirectTo: ''}
 		]),
 	],
 	providers: [],
