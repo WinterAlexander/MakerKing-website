@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { DISCORD_ADDRESS, TWITTER_ADDRESS, REDDIT_ADDRESS } from "../social-constants";
 
 @Component({
     selector: 'footer',
@@ -7,7 +8,7 @@ import { Component } from "@angular/core";
 })
 export class FooterComponent {
     currentYear: string = new Date().getFullYear() + "";
-	twitterAddress: string = "https://twitter.com/jumpaigame";
-	discordAddress: string = "https://discord.gg/r3v3WPM";
-	redditAddress: string = "https://www.reddit.com/r/jumpai/";
+	twitterAddress: string = TWITTER_ADDRESS;
+	discordAddress: string = DISCORD_ADDRESS;
+	redditAddress: string = REDDIT_ADDRESS;
 }
