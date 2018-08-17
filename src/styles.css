@@ -10,3 +10,15 @@ body {
     padding: 3px 10px 0 10px;
     color: white;
 }
+
+.content-container {
+    background-color: #8cf288;
+    color: black;
+    border: white 3px solid;
+    padding: 20px;
+    font-size: 1.3em;
+}
+
+.space-filler {
+    min-height: calc(100vh - 375px);
+}

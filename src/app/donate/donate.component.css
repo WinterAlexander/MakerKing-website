@@ -1,0 +1,13 @@
+h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+.paypal-container {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.donate-heart {
+    width: 80px;
+}
