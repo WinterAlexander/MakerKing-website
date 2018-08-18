@@ -20,5 +20,5 @@ body {
 }
 
 .space-filler {
-    min-height: calc(100vh - 375px);
+    min-height: calc(100vh - 368px);
 }

@@ -6,10 +6,11 @@ import { HomeComponent } from "./home/home.component";
 import { FooterComponent } from "./footer/footer.component";
 import { RouterModule } from "@angular/router";
 import { DonateComponent } from "./donate/donate.component";
+import { ThankYouComponent } from "./donate/thankyou/thankyou.component";
 
 @NgModule({
 	declarations: [
-		AppComponent, HeaderComponent, HomeComponent, FooterComponent, DonateComponent
+		AppComponent, HeaderComponent, HomeComponent, FooterComponent, DonateComponent, ThankYouComponent
 	],
 	imports: [
 		BrowserModule,
@@ -17,6 +18,8 @@ import { DonateComponent } from "./donate/donate.component";
 			{ path: 'home', redirectTo: '', pathMatch: 'full' },
 			{ path: '', component: HomeComponent },
 			{ path: 'donate', component: DonateComponent },
+			{ path: 'thankyou', component: ThankYouComponent },
+			{ path: '**', redirectTo: ''}
 		]),
 	],
 	providers: [],
