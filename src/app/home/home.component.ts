@@ -7,7 +7,7 @@ import { DomSanitizer } from "@angular/platform-browser";
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-    videoAddress:string = "https://www.youtube.com/embed/cyBSe4lcki4";
+    videoAddress:string = "https://www.youtube.com/embed/NgpSvalo2Lk";
     downloadAddress:string = "https://beartrapstudio.itch.io/jumpai";
     javaDownloadAddress: string = "https://java.com/download";
 
