@@ -15,7 +15,7 @@
     background-color: transparent;
 }
 
-div.view_game_page  {
+div.view_game_page, div.game_devlog_post_page  {
     background-color: #8cf288;
     padding: 10px;
     margin-top: 10px;
