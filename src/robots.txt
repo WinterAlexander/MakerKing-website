@@ -1,2 +1,5 @@
 User-agent: *
+
+Allow: /*.html$
 Disallow: /thankyou/
+Sitemap: http://jumpai.net/sitemap.xml
