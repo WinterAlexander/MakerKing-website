@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { DISCORD_ADDRESS, TWITTER_ADDRESS, REDDIT_ADDRESS } from "../social-constants";
+import { DISCORD_ADDRESS, TWITTER_ADDRESS, REDDIT_ADDRESS, FACEBOOK_ADDRESS } from "../social-constants";
 
 @Component({
     selector: 'footer',
@@ -11,4 +11,5 @@ export class FooterComponent {
 	twitterAddress: string = TWITTER_ADDRESS;
 	discordAddress: string = DISCORD_ADDRESS;
 	redditAddress: string = REDDIT_ADDRESS;
+	facebookAddress: string = FACEBOOK_ADDRESS;
 }
