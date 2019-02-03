@@ -26,6 +26,17 @@ div.view_game_page, div.game_devlog_post_page  {
     display: none;
 }
 
-.download_btn {
-    font-size: 18px;
+a.download_btn {
+    font-size: 22px !important;
+    padding-top: 2px !important;
+	font-weight: normal !important;
+}
+
+div.more_information_toggle {
+	display: none !important;
+}
+
+strong.name {
+	white-space: normal !important;
+	font-weight: normal !important;
 }
