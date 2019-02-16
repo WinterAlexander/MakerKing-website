@@ -1,0 +1,7 @@
+
+@media (min-width: 768px) {
+    .news-container {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
