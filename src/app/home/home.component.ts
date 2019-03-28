@@ -9,7 +9,11 @@ import {DeviceDetectorService} from 'ngx-device-detector';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    videoAddress:string = "https://www.youtube.com/embed/NgpSvalo2Lk";
+    videoAddress:string = "https://www.youtube.com/embed/NgpSvalo2Lk" +
+        "?autoplay=1" +
+        "&mute=1" +
+        "&modestbranding=1" +
+        "&rel=0";
     downloadAddress:string = "https://beartrapstudio.itch.io/jumpai";
     downloadText:string;
 
@@ -23,6 +27,6 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.title.setTitle('Jumpaï - Create your experience');
+        this.title.setTitle('Jumpaï - Create your levels!');
     }
 }
