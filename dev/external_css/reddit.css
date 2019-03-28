@@ -99,5 +99,6 @@ span.redditname > a {
     width: 350px;
     height: 84px;
     text-indent: -999em;
+    padding: 10px;
 }
 
