@@ -9,7 +9,7 @@ import {DeviceDetectorService} from 'ngx-device-detector';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    videoAddress:string = "https://www.youtube.com/embed/NgpSvalo2Lk" +
+    videoAddress:string = "https://www.youtube.com/embed/EusrNr85pTo" +
         "?autoplay=1" +
         "&mute=1" +
         "&modestbranding=1" +
