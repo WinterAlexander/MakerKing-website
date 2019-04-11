@@ -9,7 +9,8 @@ import {DonateComponent} from './donate/donate.component';
 import {ThankYouComponent} from './donate/thankyou/thankyou.component';
 import {NewsComponent} from './news/news.component';
 import {AboutComponent} from './about/about.component';
-import { DeviceDetectorModule } from 'ngx-device-detector';
+import {DeviceDetectorModule} from 'ngx-device-detector';
+import {PressComponent} from './press/press.component';
 
 @NgModule({
 	declarations: [
@@ -20,7 +21,8 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 		DonateComponent,
 		ThankYouComponent,
 		NewsComponent,
-		AboutComponent
+		AboutComponent,
+        PressComponent
 	],
 	imports: [
 		BrowserModule,
@@ -31,6 +33,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
             { path: 'about', component: AboutComponent },
 			{ path: 'thankyou', component: ThankYouComponent },
 			{ path: 'news', component: NewsComponent },
+			{ path: 'press', component: PressComponent },
 			{ path: '**', redirectTo: ''}
 		]),
         DeviceDetectorModule.forRoot()

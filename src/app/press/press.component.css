@@ -1,0 +1,17 @@
+ul.fact-sheet > li {
+    list-style: none;
+    padding-top: 5px;
+}
+
+ul.fact-sheet {
+    font-size: 0.9em;
+    padding: 0;
+}
+
+p, ul {
+    font-family: sans-serif;
+}
+
+h2 {
+    text-transform: uppercase;
+}
