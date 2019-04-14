@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
         "&mute=1" +
         "&modestbranding=1" +
         "&rel=0";
-    downloadAddress:string = "https://beartrapstudio.itch.io/jumpai";
+    downloadAddress:string = "https://frame-perfect.itch.io/jumpai";
     downloadText:string;
 
     constructor(public sanitizer: DomSanitizer,
