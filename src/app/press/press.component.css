@@ -4,14 +4,22 @@ ul.fact-sheet > li {
 }
 
 ul.fact-sheet {
-    font-size: 0.9em;
+    font-size: 0.8em;
     padding: 0;
 }
 
 p, ul {
-    font-family: sans-serif;
+    font-family: Lora, serif;
+    font-size: 0.9em;
+}
+
+ul.feature-list > b {
+    font-size: 1em;
+    font-weight: bolder;
 }
 
 h2 {
     text-transform: uppercase;
+    font-family: Molengo, sans-serif;
+    font-weight: bold;
 }
