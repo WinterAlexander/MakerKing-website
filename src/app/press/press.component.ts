@@ -19,6 +19,10 @@ export class PressComponent implements OnInit {
 	youtubeAddress: string = YOUTUBE_ADDRESS;
 	itchAddress: string = ITCHIO_ADDRESS;
 
+	screenshotPackage: string = "https://drive.google.com/open?id=1ufUaSsSVt4VXemVhjY1CPsKFHi4mQdDx";
+	gifPackage: string = "https://drive.google.com/open?id=1SjPtDbsAk9cpfjrpzn55yQIHMnKQAERJ";
+	logoPackage: string = "https://drive.google.com/open?id=1jUysbP-jTqk7RTF9Fmf9zkXfl43oMvCC";
+
 	screenshots: string[] = [
 		"assets/press/screenshots/chicken_race.png",
 		"assets/press/screenshots/cool_editing.png",
@@ -31,12 +35,14 @@ export class PressComponent implements OnInit {
 	];
 
 	gifs: string[] = [
+		"UnpleasantImmenseAdeliepenguin",
+		"NiceUnselfishBunting",
 		"ImprobableQuaintHuemul",
 		"DisfiguredUncommonGrizzlybear",
-		"SpryWhichCoyote",
 		"UnconsciousApprehensiveGonolek",
 		"WeirdRealBadger",
-		"GlossyUnequaledDrongo"
+		"GlossyUnequaledDrongo",
+		"SpryWhichCoyote"
 	];
     
     constructor(private title: Title) {}

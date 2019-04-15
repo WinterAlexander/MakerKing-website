@@ -131,7 +131,12 @@
 					</p>
 
 					<h2>Video</h2>
-					<iframe width="560" height="315" style="max-width: 100%;" src="https://www.youtube.com/embed/EusrNr85pTo" frameborder="0"
+					<p>0.5 trailer:</p>
+					<iframe width="560" height="315" style="max-width: 100%;" src="https://www.youtube.com/embed/EusrNr85pTo?modestbranding=1&rel=0" frameborder="0"
+					        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					        allowfullscreen></iframe>
+					<p>0.3 trailer:</p>
+					<iframe width="560" height="315" style="max-width: 100%;" src="https://www.youtube.com/embed/NgpSvalo2Lk?modestbranding=1&rel=0" frameborder="0"
 					        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 					        allowfullscreen></iframe>
 					<br />
@@ -139,7 +144,7 @@
 
 					<h2>Screenshots</h2>
 					<p>
-						<a href="/assets/press/screenshots/Jumpai_PressKit_screenshots.zip">Download all in a zip file.</a>
+						<a href="{{screenshotPackage}}" title="Download screenshots in a zip file" target="_blank">Download all in a zip file.</a>
 					</p>
 
 					<div class="row">
@@ -154,7 +159,7 @@
 
 					<h2>Gifs</h2>
 					<p>
-						<a href="/assets/press/gifs.zip">Download all in a zip file.</a>
+						<a href="{{gifPackage}}" title="Download gifs in a zip file" target="_blank">Download all in a zip file.</a>
 					</p>
 					<div class="row">
 						<div *ngFor="let gif of gifs" class="col-lg-6 col-md-12">
@@ -164,8 +169,13 @@
 
 					<h2>Logos</h2>
 					<p>
-						<a href="/assets/press/logos.zip">Download all in a zip file.</a>
+						<a href="{{logoPackage}}" title="Download logos in a zip file" target="_blank">Download all in a zip file.</a> (SVG and PNG included)
 					</p>
+					<div style="text-align: center">
+						<img src="../../assets/press/logos/title.png" alt="Title" title="Title" style="max-width: 100%" />
+						<br />
+						<img src="../../assets/press/logos/icon.png" alt="Icon" title="Icon" style="max-width: 100%" />
+					</div>
 				</div>
 			</div>
 		</div>
