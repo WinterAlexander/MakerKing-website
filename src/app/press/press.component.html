@@ -1,7 +1,7 @@
 <div class="container space-filler">
 	<div class="content-container">
 		<div class="row">
-			<div class="col-md-12 col-md-6 col-lg-3">
+			<div class="col-md-12 col-lg-3">
 				<h2>Factsheet</h2>
 				<ul class="fact-sheet">
 					<li><b>Developer:</b> Frame-Perfect Studio; Based in Montreal, Canada</li>
@@ -22,9 +22,9 @@
 					</li>
 				</ul>
 			</div>
-			<div class="col-sm-12 col-md-6 col-lg-9">
+			<div class="col-md-12 col-lg-9">
 				<div class="article-wrapper">
-					<h2>Jumpaï : Initial Press Kit</h2>
+					<h2>Jumpaï Press Kit</h2>
 					<p>
 						Welcome to Jumpaï’s press kit. On this page you should find any info you need to post articles or to learn
 						about Jumpaï. If you need any additional information let us know and we will make it available.
@@ -32,14 +32,20 @@
 
 					<h2>Description</h2>
 					<div class="row">
-						<div class="col-md-4">
-							<div class="desc-card desc-card-create"><span>Create</span></div>
+						<div class="col-lg-4">
+							<div class="desc-card desc-card-create">
+								<span>Create</span>
+							</div>
 						</div>
-						<div class="col-md-4">
-							<div class="desc-card desc-card-share"><span>Share</span></div>
+						<div class="col-lg-4">
+							<div class="desc-card desc-card-share">
+								<span>Share</span>
+							</div>
 						</div>
-						<div class="col-md-4">
-							<div class="desc-card desc-card-compete"><span>Compete</span></div>
+						<div class="col-lg-4">
+							<div class="desc-card desc-card-compete">
+								<span>Compete</span>
+							</div>
 						</div>
 					</div>
 					<p>
@@ -125,15 +131,26 @@
 					</p>
 
 					<h2>Video</h2>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/EusrNr85pTo" frameborder="0"
+					<iframe width="560" height="315" style="max-width: 100%;" src="https://www.youtube.com/embed/EusrNr85pTo" frameborder="0"
 					        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 					        allowfullscreen></iframe>
+					<br />
+					<br />
 
 					<h2>Screenshots</h2>
 					<p>
-						<a href="/assets/press/screenshots.zip">Download all in a zip file.</a>
-
+						<a href="/assets/press/screenshots/Jumpai_PressKit_screenshots.zip">Download all in a zip file.</a>
 					</p>
+
+					<div class="row">
+						<div *ngFor="let screenshot of screenshots" class="col-lg-6 col-md-12">
+							<a class="screenshot" href="../{{screenshot}}" target="_blank">
+								<img src="/{{screenshot}}" alt="{{nameOf(screenshot)}}" title="{{nameOf(screenshot)}}" />
+							</a>
+							<br />
+						</div>
+					</div>
+					<br />
 
 					<h2>Gifs</h2>
 					<p>

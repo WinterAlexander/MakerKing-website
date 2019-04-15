@@ -18,10 +18,27 @@ export class PressComponent implements OnInit {
 	redditAddress: string = REDDIT_ADDRESS;
 	youtubeAddress: string = YOUTUBE_ADDRESS;
 	itchAddress: string = ITCHIO_ADDRESS;
+
+	screenshots: string[] = [
+		"assets/press/screenshots/chicken_race.png",
+		"assets/press/screenshots/cool_editing.png",
+		"assets/press/screenshots/cool_level.png",
+		"assets/press/screenshots/crazy_level.png",
+		"assets/press/screenshots/social_umbrellas.png",
+		"assets/press/screenshots/title.png",
+		"assets/press/screenshots/biome_editor.png",
+		"assets/press/screenshots/biome_transition.png"
+	];
     
     constructor(private title: Title) {}
 
     ngOnInit() {
         this.title.setTitle('Jumpaï Press Kit');
     }
+
+	nameOf(screenshot: string): string {
+		return screenshot.split('/').pop().replace('_', ' ').replace('.png', '').replace(/\w\S*/g, function(txt){
+			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+		});
+	}
 }
