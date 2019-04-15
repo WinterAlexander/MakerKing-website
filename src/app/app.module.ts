@@ -11,6 +11,7 @@ import {NewsComponent} from './news/news.component';
 import {AboutComponent} from './about/about.component';
 import {DeviceDetectorModule} from 'ngx-device-detector';
 import {PressComponent} from './press/press.component';
+import {SafePipe} from '../util/safepipe';
 
 @NgModule({
 	declarations: [
@@ -22,7 +23,8 @@ import {PressComponent} from './press/press.component';
 		ThankYouComponent,
 		NewsComponent,
 		AboutComponent,
-        PressComponent
+        PressComponent,
+		SafePipe
 	],
 	imports: [
 		BrowserModule,

@@ -29,6 +29,15 @@ export class PressComponent implements OnInit {
 		"assets/press/screenshots/biome_editor.png",
 		"assets/press/screenshots/biome_transition.png"
 	];
+
+	gifs: string[] = [
+		"ImprobableQuaintHuemul",
+		"DisfiguredUncommonGrizzlybear",
+		"SpryWhichCoyote",
+		"UnconsciousApprehensiveGonolek",
+		"WeirdRealBadger",
+		"GlossyUnequaledDrongo"
+	];
     
     constructor(private title: Title) {}
 

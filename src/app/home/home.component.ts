@@ -18,8 +18,7 @@ export class HomeComponent implements OnInit {
     downloadAddress:string = ITCHIO_ADDRESS;
     downloadText:string;
 
-    constructor(public sanitizer: DomSanitizer,
-                private title: Title,
+    constructor(private title: Title,
                 private deviceService: DeviceDetectorService)
     {
         this.downloadText = this.deviceService.isDesktop()
