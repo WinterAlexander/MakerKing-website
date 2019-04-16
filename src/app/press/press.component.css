@@ -27,6 +27,8 @@ h2 {
 }
 
 div.desc-card {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
     border-radius: 20px;
     background-position-x: center;
     text-align: center;
@@ -41,6 +43,8 @@ div.desc-card span {
     width: 100%;
     font-size: 2em;
     background-color: rgba(255, 255, 255, 0.6);
+    -webkit-border-radius: 0 0 20px 20px;
+    -moz-border-radius: 0 0 20px 20px;
     border-radius: 0 0 20px 20px;
 }
 
@@ -141,4 +145,15 @@ a.screenshot {
 
 a.screenshot > img {
     width: 100%;
+}
+
+div.floating-card {
+    float: right;
+    padding-left: 20px;
+}
+
+div.floating-card > img {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
