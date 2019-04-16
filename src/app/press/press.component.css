@@ -147,13 +147,33 @@ a.screenshot > img {
     width: 100%;
 }
 
-div.floating-card {
+div.floating-card-right {
     float: right;
     padding-left: 20px;
 }
+
+div.floating-card-left {
+    float: left;
+    padding-right: 40px; /* Because it merge's with the ul's padding*/
+}
+
 
 div.floating-card > img {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    div.floating-card {
+        display: none;
+    }
+
+    ul.feature-list {
+        padding: 0;
+    }
+
+    ul.feature-list > li {
+        list-style: none;
+    }
 }
