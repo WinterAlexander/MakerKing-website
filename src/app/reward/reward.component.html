@@ -1,0 +1,31 @@
+<div class="container space-filler">
+	<div *ngIf="currentReward !== undefined" class="content-container">
+		<h1>{{currentReward.name}}</h1>
+		<p>
+			{{currentReward.description}}
+		</p>
+		
+		<h2>
+			Content of the reward:
+		</h2>
+		
+		<div class="reward-item-container">
+			<div *ngFor="let item of currentReward.items" class="reward-item">
+				<img [src]="item.image | safe" alt="{{item.name}}" title="{{item.name}}" />
+				<span>{{item.name}}</span>
+			</div>
+		</div>
+		
+		<p>
+			Enter your name to claim the reward
+		</p>
+		<form class="claim-form">
+			<input type="text" placeholder="Username" name="username" [(ngModel)]="formUsername" />
+			<button type="button" class="btn btn-jumpai reward-claim-button" (click)="claimReward()">Claim</button>
+		</form>
+		
+		<p *ngIf="response !== undefined">
+			{{response}}
+		</p>
+	</div>
+</div>

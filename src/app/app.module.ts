@@ -12,6 +12,10 @@ import {AboutComponent} from './about/about.component';
 import {DeviceDetectorModule} from 'ngx-device-detector';
 import {PressComponent} from './press/press.component';
 import {SafePipe} from '../util/safepipe';
+import {RewardComponent} from './reward/reward.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {RewardService} from './reward/reward.service';
 
 @NgModule({
 	declarations: [
@@ -24,6 +28,7 @@ import {SafePipe} from '../util/safepipe';
 		NewsComponent,
 		AboutComponent,
         PressComponent,
+		RewardComponent,
 		SafePipe
 	],
 	imports: [
@@ -36,11 +41,14 @@ import {SafePipe} from '../util/safepipe';
 			{ path: 'thankyou', component: ThankYouComponent },
 			{ path: 'news', component: NewsComponent },
 			{ path: 'press', component: PressComponent },
+			{ path: 'reward', component: RewardComponent },
 			{ path: '**', redirectTo: ''}
 		]),
-        DeviceDetectorModule.forRoot()
+        DeviceDetectorModule.forRoot(),
+		FormsModule,
+		HttpClientModule
 	],
-	providers: [],
+	providers: [ RewardService ],
 	bootstrap: [AppComponent]
 })
 export class AppModule {

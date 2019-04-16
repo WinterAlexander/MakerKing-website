@@ -1,0 +1,37 @@
+div.reward-item {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+
+div.reward-item > img {
+    border-radius: 15px 15px 0px 0px;
+    display: block;
+}
+
+div.reward-item > span {
+    display: block;
+    font-size: 25px;
+    background-color: rgb(255,255,255);
+    border-radius: 0px 0px 15px 15px;
+}
+
+div.reward-item-container {
+    text-align: center;
+}
+
+.claim-form {
+    text-align: center;
+}
+
+.reward-claim-button {
+    margin-left: 10px;
+    font-size: 20px;
+    background-color: #cb0073;
+}
+
+.reward-claim-button:hover,
+.reward-claim-button:focus,
+.reward-claim-button:active {
+    background-color: #940054;
+}

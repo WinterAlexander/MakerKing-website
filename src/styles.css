@@ -11,6 +11,14 @@ body {
     border: 3px white solid;
     padding: 3px 10px 0 10px;
     color: white;
+    background-color: #5cd65c;
+    border-radius: 0;
+}
+
+.btn-jumpai:hover,
+.btn-jumpai:focus,
+.btn-jumpai:active {
+    background-color: #258e25;
 }
 
 .content-container {
