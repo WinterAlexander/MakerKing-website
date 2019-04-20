@@ -1,0 +1,179 @@
+ul.fact-sheet > li {
+    list-style: none;
+    padding-top: 5px;
+}
+
+ul.fact-sheet {
+    font-size: 0.8em;
+    padding: 0;
+    text-align: left !important;
+}
+
+p, ul {
+    font-family: Lora, serif;
+    font-size: 0.9em;
+    text-align: justify;
+}
+
+ul.feature-list > b {
+    font-size: 1em;
+    font-weight: bolder;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-family: Molengo, sans-serif;
+    font-weight: bold;
+}
+
+div.desc-card {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background-position-x: center;
+    text-align: center;
+    height: 300px;
+    display: flex;
+    max-width: 240px;
+    margin: auto auto 10px;
+}
+
+div.desc-card span {
+    align-self: flex-end;
+    width: 100%;
+    font-size: 2em;
+    background-color: rgba(255, 255, 255, 0.6);
+    -webkit-border-radius: 0 0 20px 20px;
+    -moz-border-radius: 0 0 20px 20px;
+    border-radius: 0 0 20px 20px;
+}
+
+div.desc-card-create {
+    background-image: url("../../assets/press/create_card.png");
+    color: #ffe462;
+    text-shadow: 1px 1px 0 #6a571c, /* This is why we need SASS */
+    -1px 1px 0 #6a571c,
+    1px -1px 0 #6a571c,
+    -1px -1px 0 #6a571c,
+    0px 1px 0 #6a571c,
+    0px -1px 0 #6a571c,
+    -1px 0px 0 #6a571c,
+    1px 0px 0 #6a571c,
+    2px 2px 0 #6a571c,
+    -2px 2px 0 #6a571c,
+    2px -2px 0 #6a571c,
+    -2px -2px 0 #6a571c,
+    0px 2px 0 #6a571c,
+    0px -2px 0 #6a571c,
+    -2px 0px 0 #6a571c,
+    2px 0px 0 #6a571c,
+    1px 2px 0 #6a571c,
+    -1px 2px 0 #6a571c,
+    1px -2px 0 #6a571c,
+    -1px -2px 0 #6a571c,
+    2px 1px 0 #6a571c,
+    -2px 1px 0 #6a571c,
+    2px -1px 0 #6a571c,
+    -2px -1px 0 #6a571c;
+}
+
+div.desc-card-share {
+    background-image: url("../../assets/press/share_card.png");
+    color: #ff6162;
+    text-shadow: 1px 1px 0 #5d2323,
+    -1px 1px 0 #5d2323,
+    1px -1px 0 #5d2323,
+    -1px -1px 0 #5d2323,
+    0px 1px 0 #5d2323,
+    0px -1px 0 #5d2323,
+    -1px 0px 0 #5d2323,
+    1px 0px 0 #5d2323,
+    2px 2px 0 #5d2323,
+    -2px 2px 0 #5d2323,
+    2px -2px 0 #5d2323,
+    -2px -2px 0 #5d2323,
+    0px 2px 0 #5d2323,
+    0px -2px 0 #5d2323,
+    -2px 0px 0 #5d2323,
+    2px 0px 0 #5d2323,
+    1px 2px 0 #5d2323,
+    -1px 2px 0 #5d2323,
+    1px -2px 0 #5d2323,
+    -1px -2px 0 #5d2323,
+    2px 1px 0 #5d2323,
+    -2px 1px 0 #5d2323,
+    2px -1px 0 #5d2323,
+    -2px -1px 0 #5d2323;
+}
+
+div.desc-card-compete {
+    background-image: url("../../assets/press/compete_card.png");
+    color: #63ff58;
+    text-shadow: 1px 1px 0 #1c4919,
+    -1px 1px 0 #1c4919,
+    1px -1px 0 #1c4919,
+    -1px -1px 0 #1c4919,
+    0px 1px 0 #1c4919,
+    0px -1px 0 #1c4919,
+    -1px 0px 0 #1c4919,
+    1px 0px 0 #1c4919,
+    2px 2px 0 #1c4919,
+    -2px 2px 0 #1c4919,
+    2px -2px 0 #1c4919,
+    -2px -2px 0 #1c4919,
+    0px 2px 0 #1c4919,
+    0px -2px 0 #1c4919,
+    -2px 0px 0 #1c4919,
+    2px 0px 0 #1c4919,
+    1px 2px 0 #1c4919,
+    -1px 2px 0 #1c4919,
+    1px -2px 0 #1c4919,
+    -1px -2px 0 #1c4919,
+    2px 1px 0 #1c4919,
+    -2px 1px 0 #1c4919,
+    2px -1px 0 #1c4919,
+    -2px -1px 0 #1c4919;
+}
+
+div.article-wrapper {
+    padding: 20px;
+}
+
+a.screenshot {
+    display: block;
+}
+
+a.screenshot > img {
+    width: 100%;
+}
+
+div.floating-card-right {
+    float: right;
+    padding-left: 20px;
+}
+
+div.floating-card-left {
+    float: left;
+    padding-right: 40px; /* Because it merge's with the ul's padding*/
+}
+
+
+div.floating-card > img {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    div.floating-card {
+        display: none;
+    }
+
+    ul.feature-list {
+        padding: 0;
+    }
+
+    ul.feature-list > li {
+        list-style: none;
+    }
+}

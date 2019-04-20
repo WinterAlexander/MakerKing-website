@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
 import { Title } from '@angular/platform-browser';
 import {DeviceDetectorService} from 'ngx-device-detector';
+import { ITCHIO_ADDRESS } from "../social-constants";
 
 @Component({
     selector: 'home',
@@ -14,11 +15,10 @@ export class HomeComponent implements OnInit {
         "&mute=1" +
         "&modestbranding=1" +
         "&rel=0";
-    downloadAddress:string = "https://frame-perfect.itch.io/jumpai";
+    downloadAddress:string = ITCHIO_ADDRESS;
     downloadText:string;
 
-    constructor(public sanitizer: DomSanitizer,
-                private title: Title,
+    constructor(private title: Title,
                 private deviceService: DeviceDetectorService)
     {
         this.downloadText = this.deviceService.isDesktop()

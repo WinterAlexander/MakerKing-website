@@ -1,5 +1,5 @@
 <div class="home-container">
-	<iframe class="youtube-player" [src]="sanitizer.bypassSecurityTrustResourceUrl(videoAddress)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	<iframe class="youtube-player" [src]="videoAddress | safe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	<br />
 	<a href="{{downloadAddress}}">
 		<button type="button" class="btn btn-jumpai btn-download" [innerHtml]="downloadText"></button>
