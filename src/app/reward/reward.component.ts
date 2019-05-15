@@ -51,7 +51,18 @@ export class RewardComponent implements OnInit {
 		this.rewardService.claimReward(this.formUsername, this.currentReward.id).then(v => {
 			this.response = "It worked!";
 		}).catch(error => {
-			this.response = error;
+			switch(error.error) {
+				case 'reward_already_claimed':
+					this.response = 'You have already claimed this reward.';
+					break;
+
+				case 'user_not_found':
+					this.response = 'This username could not be found. Make sure you entered it correctly.';
+					break;
+
+				default:
+					this.response = error.error;
+			}
 		});
 	}
 }
