@@ -48,8 +48,8 @@ export class RewardComponent implements OnInit {
 	}
 
 	claimReward() {
-		this.rewardService.claimReward(this.formUsername, this.currentReward.id).then(v => {
-			this.response = "It worked!";
+		this.rewardService.claimReward(this.formUsername, this.currentReward.id).then(res => {
+			this.response = "You successfully obtained the reward! Logout and login again to refresh your in-game inventory.";
 		}).catch(error => {
 			switch(error.error) {
 				case 'reward_already_claimed':
