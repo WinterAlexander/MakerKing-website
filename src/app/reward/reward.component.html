@@ -6,7 +6,8 @@
 		</p>
 		
 		<h2>
-			Content of the reward:
+			<!--Content of the reward:-->
+			Contenu de la récompense:
 		</h2>
 		
 		<div class="reward-item-container">
@@ -17,11 +18,12 @@
 		</div>
 		
 		<p>
-			Enter your name to claim the reward
+			<!--Enter your name to claim the reward-->
+			Entrez votre nom pour réclamer votre récompense
 		</p>
 		<form class="claim-form">
 			<input type="text" placeholder="Username" name="username" [(ngModel)]="formUsername" />
-			<button type="button" class="btn btn-jumpai reward-claim-button" (click)="claimReward()">Claim</button>
+			<button type="button" class="btn btn-jumpai reward-claim-button" (click)="claimReward()"><!--Claim-->Réclamer</button>
 		</form>
 		
 		<p *ngIf="response !== undefined">
