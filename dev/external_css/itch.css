@@ -40,3 +40,16 @@ strong.name {
 	white-space: normal !important;
 	font-weight: normal !important;
 }
+
+div.after_download_lightbox_widget > h3 {
+    display: none;
+}
+
+div.game_grid_widget {
+    display: none;
+}
+
+div.browse_footer {
+    display: none;
+}
+
