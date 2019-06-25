@@ -14,6 +14,6 @@ export class TouchedcraftComponent implements OnInit {
 	            private router: Router) {}
 
 	ngOnInit() {
-
+		this.title.setTitle('Retrouvailles TouchedCraft');
 	}
 }
