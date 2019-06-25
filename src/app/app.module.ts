@@ -16,6 +16,7 @@ import {RewardComponent} from './reward/reward.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RewardService} from './reward/reward.service';
+import {TouchedcraftComponent} from './touchedcraft/touchedcraft.component';
 
 @NgModule({
 	declarations: [
@@ -29,6 +30,7 @@ import {RewardService} from './reward/reward.service';
 		AboutComponent,
         PressComponent,
 		RewardComponent,
+		TouchedcraftComponent,
 		SafePipe
 	],
 	imports: [
@@ -42,6 +44,7 @@ import {RewardService} from './reward/reward.service';
 			{ path: 'news', component: NewsComponent },
 			{ path: 'press', component: PressComponent },
 			{ path: 'reward', component: RewardComponent },
+			{ path: 'touchedcraft', component: TouchedcraftComponent },
 			{ path: '**', redirectTo: ''}
 		]),
         DeviceDetectorModule.forRoot(),
@@ -49,7 +52,7 @@ import {RewardService} from './reward/reward.service';
 		HttpClientModule
 	],
 	providers: [ RewardService ],
-	bootstrap: [AppComponent]
+	bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }
