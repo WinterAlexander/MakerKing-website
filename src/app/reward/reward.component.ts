@@ -18,6 +18,22 @@ export class RewardComponent implements OnInit {
 			items: [
 				{ name: "T-Shirt FariSun", image: "../assets/reward/farisun.png" }
 			]
+		},
+		{
+			id: "bluecoaster",
+			name: "Item for Blue's fans",
+			description: "Wear this shirt to show your support for Blue!",
+			items: [
+				{ name: "Blue's Shirt", image: "../assets/reward/bluecoaster.png" }
+			]
+		},
+		{
+			id: "akira",
+			name: "Item for Akira's fans",
+			description: "Wear this shirt to show your support for Akira!",
+			items: [
+				{ name: "Akira's Shirt", image: "../assets/reward/akira.png" }
+			]
 		}
 	];
 
@@ -48,18 +64,18 @@ export class RewardComponent implements OnInit {
 
 	claimReward() {
 		this.rewardService.claimReward(this.formUsername, this.currentReward.id).then(res => {
-			// this.response = "You successfully obtained the reward! Logout and login again to refresh your in-game inventory.";
-			this.response = "Vous avez obtenu la récompense! Déconnectez et reconnectez vous du jeu pour mettre à jour votre inventaire."
+			this.response = "You successfully obtained the reward! Logout and login again to refresh your in-game inventory.";
+			//this.response = "Vous avez obtenu la récompense! Déconnectez et reconnectez vous du jeu pour mettre à jour votre inventaire."
 		}).catch(error => {
 			switch(error.error) {
 				case 'reward_already_claimed':
-					// this.response = 'You have already claimed this reward.';
-					this.response = "Vous avez déjà réclamé cette récompense.";
+					this.response = 'You have already claimed this reward.';
+					//this.response = "Vous avez déjà réclamé cette récompense.";
 					break;
 
 				case 'user_not_found':
-					// this.response = 'This username could not be found. Make sure you entered it correctly.';
-					this.response = "Ce pseudonyme n'a pas pu être trouvé, assurez vous de l'avoir entré correctement.";
+					this.response = 'This username could not be found. Make sure you entered it correctly.';
+					//this.response = "Ce pseudonyme n'a pas pu être trouvé, assurez vous de l'avoir entré correctement.";
 					break;
 
 				default:
