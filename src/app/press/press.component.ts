@@ -24,6 +24,9 @@ export class PressComponent implements OnInit {
 	logoPackage: string = "https://drive.google.com/open?id=1jUysbP-jTqk7RTF9Fmf9zkXfl43oMvCC";
 
 	screenshots: string[] = [
+		"assets/press/screenshots/jungle_ruins.png",
+		"assets/press/screenshots/labyrinth.png",
+		"assets/press/screenshots/pyramid.png",
 		"assets/press/screenshots/chicken_race.png",
 		"assets/press/screenshots/cool_editing.png",
 		"assets/press/screenshots/cool_level.png",
@@ -31,18 +34,19 @@ export class PressComponent implements OnInit {
 		"assets/press/screenshots/social_umbrellas.png",
 		"assets/press/screenshots/title.png",
 		"assets/press/screenshots/biome_editor.png",
-		"assets/press/screenshots/biome_transition.png"
+		"assets/press/screenshots/biome_transition.png",
+		"assets/press/screenshots/rainbow.png"
 	];
 
 	gifs: string[] = [
-		"UnpleasantImmenseAdeliepenguin",
-		"NiceUnselfishBunting",
-		"ImprobableQuaintHuemul",
-		"DisfiguredUncommonGrizzlybear",
-		"UnconsciousApprehensiveGonolek",
-		"WeirdRealBadger",
-		"GlossyUnequaledDrongo",
-		"SpryWhichCoyote"
+		"coarsegratefuleuropeanfiresalamander",
+		"wiltedredchickadee",
+		"cheerfulforcefulgangesdolphin",
+		"warpedcalmbubblefish",
+		"qualifiedmiserablearcticseal",
+		"palatabledependentbeaver",
+		"glossyunequaleddrongo",
+		"forsakengleamingcommongonolek",
 	];
     
     constructor(private title: Title) {}
