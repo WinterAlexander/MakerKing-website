@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'touchedcraft',
@@ -14,6 +14,6 @@ export class TouchedcraftComponent implements OnInit {
 	            private router: Router) {}
 
 	ngOnInit() {
-
+		this.title.setTitle('Retrouvailles TouchedCraft');
 	}
 }
