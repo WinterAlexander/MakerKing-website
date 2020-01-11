@@ -5,8 +5,8 @@ import {HeaderComponent} from './header/header.component';
 import {HomeComponent} from './home/home.component';
 import {FooterComponent} from './footer/footer.component';
 import {RouterModule} from '@angular/router';
-import {DonateComponent} from './donate/donate.component';
-import {ThankYouComponent} from './donate/thankyou/thankyou.component';
+import {StoreComponent} from './store/donate.component';
+import {ThankYouComponent} from './store/thankyou/thankyou.component';
 import {NewsComponent} from './news/news.component';
 import {AboutComponent} from './about/about.component';
 import {DeviceDetectorModule} from 'ngx-device-detector';
@@ -24,7 +24,7 @@ import {TouchedcraftComponent} from './touchedcraft/touchedcraft.component';
 		HeaderComponent,
 		HomeComponent,
 		FooterComponent,
-		DonateComponent,
+		StoreComponent,
 		ThankYouComponent,
 		NewsComponent,
 		AboutComponent,
@@ -38,7 +38,7 @@ import {TouchedcraftComponent} from './touchedcraft/touchedcraft.component';
 		RouterModule.forRoot([
 			{ path: 'home', redirectTo: '', pathMatch: 'full' },
 			{ path: '', component: HomeComponent },
-			{ path: 'donate', component: DonateComponent },
+			{ path: 'donate', component: StoreComponent },
             { path: 'about', component: AboutComponent },
 			{ path: 'thankyou', component: ThankYouComponent },
 			{ path: 'news', component: NewsComponent },
