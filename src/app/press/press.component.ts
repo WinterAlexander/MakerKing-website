@@ -56,7 +56,7 @@ export class PressComponent implements OnInit {
     }
 
 	nameOf(screenshot: string): string {
-		return screenshot.split('/').pop().replace('_', ' ').replace('.png', '').replace(/\w\S*/g, function(txt){
+		return screenshot.split('/').pop().replace('_', ' ').replace('.png', '').replace(/\w\S*/g, function(txt) {
 			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 		});
 	}
