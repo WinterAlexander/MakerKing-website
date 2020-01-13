@@ -1,30 +1,28 @@
 <div class="container space-filler">
 	<div class="content-container">
-		<div class="row">
-			<!-- TODO ngFor -->
-			<div class="col-sm-12 col-md-6 col-lg-4">
-				<div class="item-container">
-					<span class="coin-title">1'100 coins</span>
-					<img src="../../assets/store/coins.png" />
-					<span class="price-tag">$3.49 USD</span>
+		<div *ngIf="">
+			<div class="row">
+				<p>
+					Use frisbee coins to buy cosmetics for your player and support Jumpaï at the same time!
+				</p>
+				<div *ngFor="let item of storeItems" class="col-sm-12 col-md-6 col-lg-4">
+					<div class="item-container" [ngClass]="{ 'selected-item' : selected == item }" (click)="select(item)">
+						<span class="item-title">{{item.title}}</span>
+						<span class="item-title">{{item.subTitle}}</span>
+						<img class="item-icon" src="{{item.iconPath}}" alt="{{item.title}}" />
+						<span class="item-price">{{item.price}}</span>
+					</div>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-6 col-lg-4">
-			
-			</div>
-			<div class="col-sm-12 col-md-6 col-lg-4">
-			
-			</div>
-			<div class="col-sm-12 col-md-6 col-lg-4">
-			
-			</div>
-			<div class="col-sm-12 col-md-6 col-lg-4">
-			
-			</div>
-			<div class="col-sm-12 col-md-6 col-lg-4">
-			
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-lg-8">
+					<span>You are logged as Winter. Items will be added to this account.</span>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-4">
+					<ngx-paypal *ngIf="selected" [config]="payPalConfig"></ngx-paypal>
+					<span *ngIf="!selected">Select an item to continue</span>
+				</div>
 			</div>
 		</div>
-		<ngx-paypal [config]="payPalConfig"></ngx-paypal>
 	</div>
 </div>

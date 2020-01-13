@@ -39,7 +39,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
 		RouterModule.forRoot([
 			{ path: 'home', redirectTo: '', pathMatch: 'full' },
 			{ path: '', component: HomeComponent },
-			{ path: 'donate', component: StoreComponent },
+			{ path: 'store', component: StoreComponent },
 			{ path: 'about', component: AboutComponent },
 			{ path: 'thankyou', component: ThankYouComponent },
 			{ path: 'news', component: NewsComponent },
@@ -56,5 +56,4 @@ import { NgxPayPalModule } from 'ngx-paypal';
 	providers: [ RewardService ],
 	bootstrap: [ AppComponent ]
 })
-export class AppModule {
-}
+export class AppModule {}

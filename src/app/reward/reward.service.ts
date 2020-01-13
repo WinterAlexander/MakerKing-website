@@ -1,5 +1,6 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class RewardService {
@@ -8,7 +9,7 @@ export class RewardService {
 
 	public claimReward(username: string, reward: string): Promise<string> {
 		return this.http.get(
-			'https://jumpai.net/api/claimreward?username=' + username + '&reward=' + reward,
+			environment.server + '/claimreward?username=' + username + '&reward=' + reward,
 			{ responseType: 'text' }).toPromise();
 	}
 }

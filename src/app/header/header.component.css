@@ -28,13 +28,13 @@
     background-color: #258e25;
 }
 
-.btn-donate {
+.btn-store {
     background-color: #ff3385;
 }
 
-.btn-donate:hover,
-.btn-donate:focus,
-.btn-donate:active {
+.btn-store:hover,
+.btn-store:focus,
+.btn-store:active {
     background-color: #99003d;
 }
 

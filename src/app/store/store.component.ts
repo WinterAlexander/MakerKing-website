@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {ICreateOrderRequest, IPayPalConfig} from 'ngx-paypal';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
+import { StoreItem } from './storeitem.component';
 
 @Component({
 	selector: 'app-store',
@@ -9,6 +10,16 @@ import {ICreateOrderRequest, IPayPalConfig} from 'ngx-paypal';
 })
 export class StoreComponent implements OnInit {
 	public payPalConfig?: IPayPalConfig;
+	storeItems: StoreItem[] = [
+		new StoreItem('1 100', 'frisbee coins', '../../assets/store/coins.png', '$3.49 USD'),
+		new StoreItem('1 900', 'frisbee coins', '../../assets/store/coins.png', '$6.49 USD'),
+		new StoreItem('4 900', 'frisbee coins', '../../assets/store/coins.png', '$15.99 USD'),
+		new StoreItem('7 300', 'frisbee coins', '../../assets/store/coins.png', '$22.99 USD'),
+		new StoreItem('14 700', 'frisbee coins', '../../assets/store/coins.png', '$43.99 USD'),
+		new StoreItem('35 000', 'frisbee coins', '../../assets/store/coins.png', '$91.99 USD')
+	];
+
+	selected?: StoreItem;
 
 	constructor(private title: Title) {}
 
@@ -72,5 +83,9 @@ export class StoreComponent implements OnInit {
 				console.log('onClick', data, actions);
 			},
 		};
+	}
+
+	public select(item: StoreItem) {
+		this.selected = item;
 	}
 }
