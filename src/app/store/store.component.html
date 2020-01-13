@@ -1,39 +1,30 @@
 <div class="container space-filler">
 	<div class="content-container">
-		<h1>Help Jumpaï grow! <img src="../../assets/heart.png" alt="Heart" class="donate-heart" /></h1>
-		<p>
-			<img src="../../assets/donate-crew.jpg" alt="Game screenshot - Donation crew" class="screenshot" />
-			Your donation will be used to :
-		</p>
-		<ul>
-			<li>Pay for better machines to offer you access to a flawless, lagless experience</li>
-			<li>Improve the art and add more objects</li>
-			<li>Advertise the game to expand our playerbase and find friends to play with you</li>
-		</ul>
-		<p>
-			In return you will get :
-		</p>
-		<ul>
-			<li>Exclusive cosmetics to customize your character to your liking</li>
-			<li>A special role and extra recognition on our <a href="{{discordAddress}}">discord</a> server</li>
-			<li>A warm feeling of love in your heart from the Jumpaï community</li>
-		</ul>
-		<p>
-			All donation counts! Make sure to include your username in the donation to receive goodies. :)
-		</p>
-		<div class="paypal-container">
-			<form #form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-				<input type="hidden" name="cmd" value="_s-xclick">
-				<input type="hidden" name="hosted_button_id" value="SNQH8QYDSU9ES">
-				<input (click)="form.submit()" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-				<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			</form>
+		<div class="row">
+			<!-- TODO ngFor -->
+			<div class="col-sm-12 col-md-6 col-lg-4">
+				<div class="item-container">
+					<span class="coin-title">1'100 coins</span>
+					<img src="../../assets/store/coins.png" />
+					<span class="price-tag">$3.49 USD</span>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-4">
+			
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-4">
+			
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-4">
+			
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-4">
+			
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-4">
+			
+			</div>
 		</div>
+		<ngx-paypal [config]="payPalConfig"></ngx-paypal>
 	</div>
 </div>
-
-<script src="https://www.paypal.com/sdk/js?client-id=AX91wn4oiEHoD-g0bL2yFguc1WC4PMcffleEPMOTEoyln_G5f0C99doFsSFIPoIzh2KDrwYT0P7KPBGN">
-</script>
-<script>
-    paypal.Buttons().render('#paypal-button-container');
-</script>
