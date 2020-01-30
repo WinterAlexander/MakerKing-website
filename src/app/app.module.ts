@@ -18,6 +18,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {RewardService} from './reward/reward.service';
 import {TouchedcraftComponent} from './touchedcraft/touchedcraft.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { StatsService } from './stats/stats.service';
+import { UserService } from './user/user.service';
 
 @NgModule({
 	declarations: [
@@ -53,7 +55,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
 		HttpClientModule,
 		NgxPayPalModule
 	],
-	providers: [ RewardService ],
+	providers: [ RewardService, UserService, StatsService ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}

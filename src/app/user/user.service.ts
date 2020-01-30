@@ -13,16 +13,12 @@ export class UserService {
 		params = params.append('username', username);
 		params = params.append('password', password);
 
-		return this.http.post(environment.server + 'login', params).toPromise()
+		return this.http.post(environment.server + '/login', params).toPromise()
 			.then((response: any) => {
-				if (response.status === 200) {
-					localStorage.setItem('token', response.json().token);
-					localStorage.setItem('username', response.json().username);
-					localStorage.setItem('userId', response.json().userId);
-
-					return Promise.resolve(true);
-				}
-				return Promise.resolve(false);
+				localStorage.setItem('token', response.token);
+				localStorage.setItem('username', response.username);
+				localStorage.setItem('userId', response.userId);
+				return Promise.resolve(true);
 			}).catch((e: any) => {
 				console.log(e);
 				return Promise.resolve(false);
@@ -43,11 +39,12 @@ export class UserService {
 		params = params.append('username', localStorage.getItem('username'));
 		params = params.append('userId', localStorage.getItem('userId'));
 
-		return this.http.post(environment.server + 'validateToken', params).toPromise()
+		return this.http.post(environment.server + '/validatetoken', params).toPromise()
 			.then((response: any) => {
-				return Promise.resolve(response.status === 200);
+				return Promise.resolve(true);
 			}).catch((e: any) => {
 				console.log(e);
+				this.logout();
 				return Promise.resolve(false);
 			});
 	}
@@ -59,8 +56,16 @@ export class UserService {
 	}
 
 	public isLogged(): boolean {
-		return localStorage.getItem('token') !== undefined &&
-			localStorage.getItem('username') !== undefined &&
-			localStorage.getItem('userId') !== undefined;
+		return localStorage.getItem('token') != null &&
+			localStorage.getItem('username') != null &&
+			localStorage.getItem('userId') != null;
+	}
+
+	public getUsername(): string {
+		return localStorage.getItem('username');
+	}
+
+	public getUserId(): string {
+		return localStorage.getItem('userId');
 	}
 }
