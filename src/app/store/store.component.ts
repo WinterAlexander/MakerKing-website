@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
-import { StoreItem } from './storeitem.component';
+import { StoreItem } from './storeitem';
+import { UserService } from '../user/user.service';
 
 @Component({
 	selector: 'app-store',
@@ -11,52 +12,26 @@ import { StoreItem } from './storeitem.component';
 export class StoreComponent implements OnInit {
 	public payPalConfig?: IPayPalConfig;
 	storeItems: StoreItem[] = [
-		new StoreItem('1 100', 'frisbee coins', '../../assets/store/coins.png', '$3.49 USD'),
-		new StoreItem('1 900', 'frisbee coins', '../../assets/store/coins.png', '$6.49 USD'),
-		new StoreItem('4 900', 'frisbee coins', '../../assets/store/coins.png', '$15.99 USD'),
-		new StoreItem('7 300', 'frisbee coins', '../../assets/store/coins.png', '$22.99 USD'),
-		new StoreItem('14 700', 'frisbee coins', '../../assets/store/coins.png', '$43.99 USD'),
-		new StoreItem('35 000', 'frisbee coins', '../../assets/store/coins.png', '$91.99 USD')
+		new StoreItem('700', 'frisbee coins', '../../assets/store/coins.png', '3.49'),
+		new StoreItem('1 350', 'frisbee coins', '../../assets/store/coins.png', '6.49'),
+		new StoreItem('3 200', 'frisbee coins', '../../assets/store/coins.png', '14.99'),
+		new StoreItem('5 400', 'frisbee coins', '../../assets/store/coins.png', '24.99'),
+		new StoreItem('10 000', 'frisbee coins', '../../assets/store/coins.png', '39.99'),
+		new StoreItem('25 000', 'frisbee coins', '../../assets/store/coins.png', '99.99')
 	];
 
 	selected?: StoreItem;
 
-	constructor(private title: Title) {}
+	constructor(private title: Title,
+					private userService: UserService) {}
 
 	ngOnInit() {
 		this.title.setTitle('Jumpaï - Buy coins for cosmetics');
 
 		this.payPalConfig = {
 			currency: 'USD',
-			clientId: 'sb',
-			createOrderOnClient: (data) => <ICreateOrderRequest>{
-				intent: 'CAPTURE',
-				purchase_units: [
-					{
-						amount: {
-							currency_code: 'USD',
-							value: '9.99',
-							breakdown: {
-								item_total: {
-									currency_code: 'USD',
-									value: '9.99'
-								}
-							}
-						},
-						items: [
-							{
-								name: 'Enterprise Subscription',
-								quantity: '1',
-								category: 'DIGITAL_GOODS',
-								unit_amount: {
-									currency_code: 'USD',
-									value: '9.99',
-								},
-							}
-						]
-					}
-				]
-			},
+			clientId: 'AX91wn4oiEHoD-g0bL2yFguc1WC4PMcffleEPMOTEoyln_G5f0C99doFsSFIPoIzh2KDrwYT0P7KPBGN',
+			createOrderOnClient: data => this.createOrder(data),
 			advanced: {
 				commit: 'true'
 			},
@@ -82,6 +57,37 @@ export class StoreComponent implements OnInit {
 			onClick: (data, actions) => {
 				console.log('onClick', data, actions);
 			},
+		};
+	}
+
+	private createOrder(data): ICreateOrderRequest {
+		return {
+			intent: 'CAPTURE',
+			purchase_units: [
+				{
+					amount: {
+						currency_code: 'USD',
+						value: this.selected.price,
+						breakdown: {
+							item_total: {
+								currency_code: 'USD',
+								value: this.selected.price
+							}
+						}
+					},
+					items: [
+						{
+							name: this.selected.getName(),
+							quantity: '1',
+							category: 'DIGITAL_GOODS',
+							unit_amount: {
+								currency_code: 'USD',
+								value: this.selected.price,
+							},
+						}
+					]
+				}
+			]
 		};
 	}
 

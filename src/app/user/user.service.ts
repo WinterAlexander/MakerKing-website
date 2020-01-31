@@ -68,4 +68,8 @@ export class UserService {
 	public getUserId(): string {
 		return localStorage.getItem('userId');
 	}
+
+	public getToken(): string {
+		return localStorage.getItem('token');
+	}
 }

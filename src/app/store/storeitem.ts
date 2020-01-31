@@ -3,4 +3,8 @@ export class StoreItem {
 				public subTitle: string,
 				public iconPath: string,
 				public price: string) {}
+
+	public getName(): string {
+		return this.title + ' ' + this.subTitle;
+	}
 }

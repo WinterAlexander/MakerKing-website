@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 	inputPassword: string;
 	loginReady = false;
 	error = false;
+	loggingIn = false;
 
 	constructor(private userService: UserService,
 					private statsService: StatsService) {}
@@ -24,7 +25,13 @@ export class HeaderComponent implements OnInit {
 	}
 
 	private login(): void {
+		if (this.loggingIn) {
+			return;
+		}
+
+		this.loggingIn = true;
 		this.userService.login(this.inputUsername, this.inputPassword).then(successful => {
+			this.loggingIn = false;
 			if (successful) {
 				this.inputUsername = '';
 				this.inputPassword = '';
@@ -33,5 +40,15 @@ export class HeaderComponent implements OnInit {
 				this.error = true;
 			}
 		});
+	}
+
+	private keytab(event): void {
+		const element = event.srcElement.nextElementSibling; // get the sibling element
+
+		if (element == null) {
+			return;
+		} else {
+			element.focus();
+		}
 	}
 }

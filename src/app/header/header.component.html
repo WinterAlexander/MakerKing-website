@@ -45,9 +45,9 @@
 						</span>
 						
 						<label class="login-form-label" for="username">Username:</label>
-	          <input class="login-form-field" type="text" id="username" [(ngModel)]="inputUsername" required>
+	          <input class="login-form-field" type="text" id="username" [(ngModel)]="inputUsername" (keyup.enter)="keytab($event)" required>
 						<label class="login-form-label" for="password">Password:</label>
-	          <input class="login-form-field" type="password" id="password" [(ngModel)]="inputPassword" required>
+	          <input class="login-form-field" type="password" id="password" [(ngModel)]="inputPassword" (keyup.enter)="login()" required>
 						
 						<button type="button" class="btn btn-jumpai btn-login" (click)="login()">Login</button>
 					</span>
