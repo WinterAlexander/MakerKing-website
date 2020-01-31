@@ -79,6 +79,7 @@
 .btn-login {
     font-size: large;
     margin-bottom: 5px;
+    padding-top: 0;
 }
 
 .login-error {
@@ -93,7 +94,7 @@
 .login-form-field {
     width: 120px;
     margin-right: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
     margin-bottom: 0;
+    padding: 0 5px;
+    font-size: medium;
 }
