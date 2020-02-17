@@ -6,9 +6,9 @@
 			</p>
 			<div *ngFor="let item of storeItems" class="col-sm-12 col-md-6 col-lg-4">
 				<div class="item-container" [ngClass]="{ 'selected-item' : selected == item }" (click)="select(item)">
-					<span class="item-title">{{item.title}}</span><br />
-					<span class="item-title">{{item.subTitle}}</span>
-					<img class="item-icon" src="{{item.iconPath}}" alt="{{item.title}}" />
+					<span class="item-title">{{item.quantity}}</span><br />
+					<span class="item-title">{{item.itemType}}</span>
+					<img class="item-icon" src="{{item.iconPath}}" alt="{{item.quantity}}" />
 					<span class="item-price">$ {{item.price}} USD</span>
 				</div>
 			</div>

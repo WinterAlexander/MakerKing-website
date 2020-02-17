@@ -1,10 +1,11 @@
 export class StoreItem {
-	constructor(public title: string,
-				public subTitle: string,
+	constructor(public offerId: number,
+				public quantity: string,
+				public itemType: string,
 				public iconPath: string,
 				public price: string) {}
 
 	public getName(): string {
-		return this.title + ' ' + this.subTitle;
+		return this.quantity + ' ' + this.itemType;
 	}
 }
