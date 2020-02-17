@@ -3,6 +3,8 @@ import { Title } from '@angular/platform-browser';
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
 import { StoreItem } from './storeitem';
 import { UserService } from '../user/user.service';
+import {Router} from "@angular/router";
+import {StoreService} from "./store.service";
 
 @Component({
 	selector: 'app-store',
@@ -23,7 +25,9 @@ export class StoreComponent implements OnInit {
 	selected?: StoreItem;
 
 	constructor(private title: Title,
-					private userService: UserService) {}
+				private userService: UserService,
+				private storeService: StoreService,
+				private router: Router) {}
 
 	ngOnInit() {
 		this.title.setTitle('Jumpaï - Buy coins for cosmetics');
@@ -46,17 +50,16 @@ export class StoreComponent implements OnInit {
 				});
 			},
 			onClientAuthorization: (data) => {
-				console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+				this.storeService.validatePurchase(this.userService.getToken(), data.id).then(success => {
+					if(success)
+						this.router.navigateByUrl('/thankyou');
+					else
+						console.log("FAILED");
+				});
 			},
-			onCancel: (data, actions) => {
-				console.log('OnCancel', data, actions);
-			},
-			onError: err => {
-				console.log('OnError', err);
-			},
-			onClick: (data, actions) => {
-				console.log('onClick', data, actions);
-			},
+			onCancel: (data, actions) => {},
+			onError: err => {},
+			onClick: (data, actions) => {},
 		};
 	}
 

@@ -20,6 +20,7 @@ import {TouchedcraftComponent} from './touchedcraft/touchedcraft.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { StatsService } from './stats/stats.service';
 import { UserService } from './user/user.service';
+import {StoreService} from "./store/store.service";
 
 @NgModule({
 	declarations: [
@@ -55,7 +56,7 @@ import { UserService } from './user/user.service';
 		HttpClientModule,
 		NgxPayPalModule
 	],
-	providers: [ RewardService, UserService, StatsService ],
+	providers: [ RewardService, UserService, StatsService, StoreService ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}
