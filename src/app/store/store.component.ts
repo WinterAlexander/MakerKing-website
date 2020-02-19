@@ -14,12 +14,12 @@ import { StoreService } from './store.service';
 export class StoreComponent implements OnInit {
 	public payPalConfig?: IPayPalConfig;
 	storeItems: StoreItem[] = [
-		new StoreItem(0, '700', 'frisbee coins', '../../assets/store/coins.png', '3.49'),
-		new StoreItem(1, '1 350', 'frisbee coins', '../../assets/store/coins.png', '6.49'),
-		new StoreItem(2, '3 200', 'frisbee coins', '../../assets/store/coins.png', '14.99'),
-		new StoreItem(3, '5 400', 'frisbee coins', '../../assets/store/coins.png', '24.99'),
-		new StoreItem(4, '10 000', 'frisbee coins', '../../assets/store/coins.png', '39.99'),
-		new StoreItem(5, '25 000', 'frisbee coins', '../../assets/store/coins.png', '99.99')
+		new StoreItem(0, 700, 'frisbee coins', '../../assets/store/coins.png', '3.49'),
+		new StoreItem(1, 1350, 'frisbee coins', '../../assets/store/coins.png', '6.49'),
+		new StoreItem(2, 3200, 'frisbee coins', '../../assets/store/coins.png', '14.99'),
+		new StoreItem(3, 5400, 'frisbee coins', '../../assets/store/coins.png', '24.99'),
+		new StoreItem(4, 10000, 'frisbee coins', '../../assets/store/coins.png', '39.99'),
+		new StoreItem(5, 25000, 'frisbee coins', '../../assets/store/coins.png', '99.99')
 	];
 
 	selected?: StoreItem;

@@ -1,11 +1,11 @@
 export class StoreItem {
 	constructor(public offerId: number,
-				public quantity: string,
+				public quantity: number,
 				public itemType: string,
 				public iconPath: string,
 				public price: string) {}
 
 	public getName(): string {
-		return this.quantity + ' ' + this.itemType;
+		return this.quantity.toLocaleString() + ' ' + this.itemType;
 	}
 }

@@ -12,13 +12,13 @@ export class StoreService {
 		let params = new HttpParams();
 		params = params.append('token', token);
 		params = params.append('offerId', item.offerId.toString());
-		params = params.append('quantity', item.quantity);
+		params = params.append('quantity', item.quantity.toString());
 		params = params.append('itemType', item.itemType);
 		params = params.append('price', item.price);
 
 		return this.http.post(environment.server + '/paypalcreateorder', params).toPromise()
 			.then((response: any) => {
-				return Promise.resolve(response.json().orderId);
+				return Promise.resolve(response.orderId);
 			});
 	}
 
