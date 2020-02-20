@@ -36,4 +36,19 @@ export class StoreService {
 				return Promise.resolve(false);
 			});
 	}
+
+	public cancelOrder(token: string, orderId: string): Promise<boolean> {
+
+		let params = new HttpParams();
+		params = params.append('token', token);
+		params = params.append('orderId', orderId);
+
+		return this.http.post(environment.server + '/paypalcancelorder', params).toPromise()
+			.then((response: any) => {
+				return Promise.resolve(true);
+			}).catch((e: any) => {
+				console.log(e);
+				return Promise.resolve(false);
+			});
+	}
 }

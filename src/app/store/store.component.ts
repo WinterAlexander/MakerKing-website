@@ -58,7 +58,15 @@ export class StoreComponent implements OnInit {
 					}
 				});
 			},
-			onCancel: (data, actions) => {},
+			onCancel: (data, actions) => {
+				this.storeService.cancelOrder(this.userService.getToken(), data.orderID).then(success => {
+					if (success) {
+						console.log('Cancel successful');
+					} else {
+						console.log('Cancel failed');
+					}
+				});
+			},
 			onError: err => {},
 			onClick: (data, actions) => {},
 		};
