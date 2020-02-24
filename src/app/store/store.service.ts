@@ -8,7 +8,6 @@ export class StoreService {
 	constructor(private http: HttpClient) {}
 
 	public createOrder(item: StoreItem, token: string): Promise<string> {
-
 		let params = new HttpParams();
 		params = params.append('token', token);
 		params = params.append('offerId', item.offerId.toString());
@@ -16,39 +15,36 @@ export class StoreService {
 		params = params.append('itemType', item.itemType);
 		params = params.append('price', item.price);
 
-		return this.http.post(environment.server + '/paypalcreateorder', params).toPromise()
+		return this.http.post(environment.server + '/paypalcreateorder', params)
+			.toPromise()
 			.then((response: any) => {
 				return Promise.resolve(response.orderId);
 			});
 	}
 
-	public processOrder(token: string, orderId: string): Promise<boolean> {
+	public processOrder(token: string, orderId: string): Promise<void> {
 
 		let params = new HttpParams();
 		params = params.append('token', token);
 		params = params.append('orderId', orderId);
 
-		return this.http.post(environment.server + '/paypalprocessorder', params).toPromise()
+		return this.http.post(environment.server + '/paypalprocessorder', params)
+			.toPromise()
 			.then((response: any) => {
-				return Promise.resolve(true);
-			}).catch((e: any) => {
-				console.log(e);
-				return Promise.resolve(false);
+				return Promise.resolve();
 			});
 	}
 
-	public cancelOrder(token: string, orderId: string): Promise<boolean> {
+	public cancelOrder(token: string, orderId: string): Promise<void> {
 
 		let params = new HttpParams();
 		params = params.append('token', token);
 		params = params.append('orderId', orderId);
 
-		return this.http.post(environment.server + '/paypalcancelorder', params).toPromise()
+		return this.http.post(environment.server + '/paypalcancelorder', params)
+			.toPromise()
 			.then((response: any) => {
-				return Promise.resolve(true);
-			}).catch((e: any) => {
-				console.log(e);
-				return Promise.resolve(false);
+				return Promise.resolve();
 			});
 	}
 }

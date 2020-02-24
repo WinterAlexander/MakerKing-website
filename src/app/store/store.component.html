@@ -29,3 +29,12 @@
 		</p>
 	</div>
 </div>
+
+<ng-template #errorDialog>
+	<h2 matDialogTitle>An error has occurred</h2>
+	<p matDialogContent></p>
+	<mat-dialog-actions align="end">
+		<button mat-button matDialogClose="retry">Retry</button>
+		<button mat-button matDialogClose="cancel">Cancel</button>
+	</mat-dialog-actions>
+</ng-template>

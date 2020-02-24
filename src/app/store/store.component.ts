@@ -5,6 +5,8 @@ import { StoreItem } from './storeitem';
 import { UserService } from '../user/user.service';
 import { Router } from '@angular/router';
 import { StoreService } from './store.service';
+import { ViewChild, TemplateRef } from '@angular/core';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 
 @Component({
 	selector: 'app-store',
@@ -24,10 +26,13 @@ export class StoreComponent implements OnInit {
 
 	selected?: StoreItem;
 
+	@ViewChild('errorDialog', {static: false}) errorDialog: TemplateRef<any>;
+
 	constructor(private title: Title,
 				private userService: UserService,
 				private storeService: StoreService,
-				private router: Router) {}
+				private router: Router,
+				private dialog: MatDialog) {}
 
 	ngOnInit() {
 		this.title.setTitle('Jumpaï - Buy coins for cosmetics');
@@ -43,29 +48,23 @@ export class StoreComponent implements OnInit {
 				label: 'paypal',
 				layout: 'vertical'
 			},
-			onApprove: (data, actions) => {
-				console.log('onApprove - transaction was approved, but not authorized', data, actions);
-				actions.order.get().then(details => {
-					console.log('onApprove - you can get full order details inside onApprove: ', details);
-				});
-			},
+			onApprove: (data, actions) => {},
 			onClientAuthorization: (data) => {
-				this.storeService.processOrder(this.userService.getToken(), data.id).then(success => {
-					if (success) {
+				this.storeService.processOrder(this.userService.getToken(), data.id)
+					.then(() => {
 						this.router.navigateByUrl('/thankyou');
-					} else {
-						console.log('FAILED');
-					}
-				});
+					}).catch(errorResponse => {
+						console.log('Process FAILED, error:');
+						console.log(errorResponse);
+					});
 			},
 			onCancel: (data, actions) => {
-				this.storeService.cancelOrder(this.userService.getToken(), data.orderID).then(success => {
-					if (success) {
+				this.storeService.cancelOrder(this.userService.getToken(), data.orderID)
+					.then(() => {
 						console.log('Cancel successful');
-					} else {
+					}).catch(errorResponse => {
 						console.log('Cancel failed');
-					}
-				});
+					});
 			},
 			onError: err => {},
 			onClick: (data, actions) => {},
@@ -73,7 +72,27 @@ export class StoreComponent implements OnInit {
 	}
 
 	private createOrder(data): Promise<string> {
-		return this.storeService.createOrder(this.selected, this.userService.getToken());
+		return this.storeService.createOrder(this.selected, this.userService.getToken())
+			.catch(errorResponse => {
+				const dialogConfig = new MatDialogConfig();
+
+				dialogConfig.data = {
+					title: errorResponse.error.error,
+					content: errorResponse.error.error
+				};
+
+				const dialogRef = this.dialog.open(this.errorDialog, dialogConfig);
+				console.log('Spawned dialog');
+
+				return new Promise((resolve, reject) =>
+					dialogRef.afterClosed().subscribe(result => {
+						if(result == 'retry')
+							resolve(this.createOrder(data));
+						reject('Cancelled');
+					}, (err) => {
+						reject(err)
+					}));
+			});
 	}
 
 	public select(item: StoreItem) {

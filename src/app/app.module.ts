@@ -21,6 +21,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import { StatsService } from './stats/stats.service';
 import { UserService } from './user/user.service';
 import { StoreService } from './store/store.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
 	declarations: [
@@ -54,7 +56,9 @@ import { StoreService } from './store/store.service';
 		DeviceDetectorModule.forRoot(),
 		FormsModule,
 		HttpClientModule,
-		NgxPayPalModule
+		NgxPayPalModule,
+		BrowserAnimationsModule,
+		MatDialogModule
 	],
 	providers: [ RewardService, UserService, StatsService, StoreService ],
 	bootstrap: [ AppComponent ]
