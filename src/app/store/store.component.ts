@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { IPayPalConfig } from 'ngx-paypal';
 import { StoreItem } from './storeitem';
 import { UserService } from '../user/user.service';
 import { Router } from '@angular/router';
 import { StoreService } from './store.service';
-import { ViewChild, TemplateRef } from '@angular/core';
-import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Component({
 	selector: 'app-store',
@@ -14,6 +14,20 @@ import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 	styleUrls: ['./store.component.css']
 })
 export class StoreComponent implements OnInit {
+
+	private static errorMap: Record<string, string> = {
+		'paypal_unreachable': 'Error code #1 Communication with paypal is not possible. Please refresh the page and try again or retry later.',
+		'invalid_token': 'Error code #2 You are no longer properly logged in. Please logout and login again.',
+		'invalid_offer': 'Error code #3 There is currently an issue with the store. Please try again later.',
+		'order_not_completed': 'Error code #4 The order is not yet complete or the payment hasn\'t been received. Please contact us so we can help you fix this problem.',
+		'order_cancelled': 'Error code #5 The order has been cancelled. No fund should have been deducted from your account. If this is not the case please contact us as soon as possible.',
+		'order_already_processed': 'Error code #6 The order has already been processed. This is not normal, please contact us.',
+		'order_doesnt_exists': 'Error code #7 The order couldn\'t be processed because it doesn\'t exist on our servers. Please contact us to signal this anormality.',
+		'order_already_cancelled': 'Error code #8 The order was already cancelled when trying to cancel it. This is not normal please contact us.'
+	};
+
+	private static unknownError = 'Error code #0 an unexpected error occurred with our servers.';
+
 	public payPalConfig?: IPayPalConfig;
 	storeItems: StoreItem[] = [
 		new StoreItem(0, 700, 'frisbee coins', '../../assets/store/coins.png', '3.49'),
@@ -25,10 +39,12 @@ export class StoreComponent implements OnInit {
 	];
 
 	selected?: StoreItem;
+	error?: string;
 
 	@ViewChild('errorDialog', {static: false}) errorDialog: TemplateRef<any>;
 
-	constructor(private title: Title,
+	constructor(private ngZone: NgZone,
+				private title: Title,
 				private userService: UserService,
 				private storeService: StoreService,
 				private router: Router,
@@ -52,18 +68,21 @@ export class StoreComponent implements OnInit {
 			onClientAuthorization: (data) => {
 				this.storeService.processOrder(this.userService.getToken(), data.id)
 					.then(() => {
-						this.router.navigateByUrl('/thankyou');
-					}).catch(errorResponse => {
-						console.log('Process FAILED, error:');
-						console.log(errorResponse);
+						this.ngZone.run(() => this.router.navigateByUrl('/thankyou'));
+					})
+					.catch(errorResponse => {
+						this.handle(errorResponse);
+						return Promise.reject(errorResponse);
 					});
 			},
 			onCancel: (data, actions) => {
 				this.storeService.cancelOrder(this.userService.getToken(), data.orderID)
 					.then(() => {
-						console.log('Cancel successful');
-					}).catch(errorResponse => {
-						console.log('Cancel failed');
+						console.log('Order cancelled');
+					})
+					.catch(errorResponse => {
+						this.handle(errorResponse);
+						return Promise.reject(errorResponse);
 					});
 			},
 			onError: err => {},
@@ -74,25 +93,18 @@ export class StoreComponent implements OnInit {
 	private createOrder(data): Promise<string> {
 		return this.storeService.createOrder(this.selected, this.userService.getToken())
 			.catch(errorResponse => {
-				const dialogConfig = new MatDialogConfig();
-
-				dialogConfig.data = {
-					title: errorResponse.error.error,
-					content: errorResponse.error.error
-				};
-
-				const dialogRef = this.dialog.open(this.errorDialog, dialogConfig);
-				console.log('Spawned dialog');
-
-				return new Promise((resolve, reject) =>
-					dialogRef.afterClosed().subscribe(result => {
-						if(result == 'retry')
-							resolve(this.createOrder(data));
-						reject('Cancelled');
-					}, (err) => {
-						reject(err)
-					}));
+				this.handle(errorResponse);
+				return Promise.reject(errorResponse);
 			});
+	}
+
+	private handle(errorResponse: HttpErrorResponse): void {
+		if (errorResponse.status === 400) {
+			this.error = StoreComponent.errorMap[errorResponse.error.error];
+		} else {
+			this.error = StoreComponent.unknownError;
+		}
+		this.dialog.open(this.errorDialog);
 	}
 
 	public select(item: StoreItem) {

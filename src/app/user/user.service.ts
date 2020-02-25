@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 export class UserService {
 	constructor(private http: HttpClient) {}
 
-	public login(username: string, password: string): Promise<boolean> {
+	public login(username: string, password: string): Promise<void> {
 		this.logout();
 
 		let params = new HttpParams();
@@ -18,10 +18,7 @@ export class UserService {
 				localStorage.setItem('token', response.token);
 				localStorage.setItem('username', response.username);
 				localStorage.setItem('userId', response.userId);
-				return Promise.resolve(true);
-			}).catch((e: any) => {
-				console.log(e);
-				return Promise.resolve(false);
+				return Promise.resolve();
 			});
 	}
 
@@ -43,7 +40,6 @@ export class UserService {
 			.then((response: any) => {
 				return Promise.resolve(true);
 			}).catch((e: any) => {
-				console.log(e);
 				this.logout();
 				return Promise.resolve(false);
 			});

@@ -41,7 +41,7 @@
 					</span>
 					<span *ngIf="!userService.isLogged()" class="under-header-text">
 						<span *ngIf="error" class="login-error">
-							Incorrect login
+							{{invalidLogin ? 'Incorrect login' : 'Cannot connect to server'}}
 						</span>
 						
 						<label class="login-form-label" for="username">Username:</label>

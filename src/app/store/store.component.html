@@ -31,10 +31,13 @@
 </div>
 
 <ng-template #errorDialog>
-	<h2 matDialogTitle>An error has occurred</h2>
-	<p matDialogContent></p>
+	<h2 matDialogTitle>An error has occurred while treating your request</h2>
+	<p matDialogContent>
+		{{this.error}}
+		<br />
+		Contact us in case of any issue at contact@jumpai.net or on our discord in the #support channel.
+	</p>
 	<mat-dialog-actions align="end">
-		<button mat-button matDialogClose="retry">Retry</button>
-		<button mat-button matDialogClose="cancel">Cancel</button>
+		<button mat-button matDialogClose="cancel">Ok</button>
 	</mat-dialog-actions>
 </ng-template>

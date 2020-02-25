@@ -13,13 +13,14 @@ export class HeaderComponent implements OnInit {
 	inputPassword: string;
 	loginReady = false;
 	error = false;
+	invalidLogin = false;
 	loggingIn = false;
 
 	constructor(private userService: UserService,
 					private statsService: StatsService) {}
 
 	ngOnInit(): void {
-		this.userService.validateToken().then(valid => this.loginReady = true);
+		this.userService.validateToken().then(() => this.loginReady = true);
 
 		this.statsService.getPlayersOnline().then(num => this.playersOnline = num);
 	}
@@ -30,24 +31,22 @@ export class HeaderComponent implements OnInit {
 		}
 
 		this.loggingIn = true;
-		this.userService.login(this.inputUsername, this.inputPassword).then(successful => {
+		this.userService.login(this.inputUsername, this.inputPassword).then(() => {
 			this.loggingIn = false;
-			if (successful) {
-				this.inputUsername = '';
-				this.inputPassword = '';
-				this.error = false;
-			} else {
-				this.error = true;
-			}
+			this.inputUsername = '';
+			this.inputPassword = '';
+			this.error = false;
+		}).catch(errorResponse => {
+			this.loggingIn = false;
+			this.error = true;
+			this.invalidLogin = errorResponse.status === 400;
 		});
 	}
 
 	private keytab(event): void {
 		const element = event.srcElement.nextElementSibling; // get the sibling element
 
-		if (element == null) {
-			return;
-		} else {
+		if (element != null) {
 			element.focus();
 		}
 	}
