@@ -71,7 +71,7 @@ export class StoreComponent implements OnInit {
 						this.ngZone.run(() => this.router.navigateByUrl('/thankyou'));
 					})
 					.catch(errorResponse => {
-						this.handle(errorResponse);
+						this.ngZone.run(() => this.handle(errorResponse));
 						return Promise.reject(errorResponse);
 					});
 			},
@@ -81,7 +81,7 @@ export class StoreComponent implements OnInit {
 						console.log('Order cancelled');
 					})
 					.catch(errorResponse => {
-						this.handle(errorResponse);
+						this.ngZone.run(() => this.handle(errorResponse));
 						return Promise.reject(errorResponse);
 					});
 			},
