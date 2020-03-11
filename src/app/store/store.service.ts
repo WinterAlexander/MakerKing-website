@@ -18,7 +18,7 @@ export class StoreService {
 		return this.http.post(environment.server + '/paypalcreateorder', params)
 			.toPromise()
 			.then((response: any) => {
-				return Promise.resolve(response.orderId);
+				return response.orderId;
 			});
 	}
 

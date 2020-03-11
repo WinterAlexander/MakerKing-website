@@ -6,7 +6,7 @@ import { UserService } from '../user/user.service';
 import { Router } from '@angular/router';
 import { StoreService } from './store.service';
 import { MatDialog } from '@angular/material/dialog';
-import { HttpErrorResponse } from "@angular/common/http";
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
 	selector: 'app-store',
@@ -30,12 +30,12 @@ export class StoreComponent implements OnInit {
 
 	public payPalConfig?: IPayPalConfig;
 	storeItems: StoreItem[] = [
-		new StoreItem(0, 700, 'frisbee coins', '../../assets/store/coins.png', '3.49'),
-		new StoreItem(1, 1350, 'frisbee coins', '../../assets/store/coins.png', '6.49'),
-		new StoreItem(2, 3200, 'frisbee coins', '../../assets/store/coins.png', '14.99'),
-		new StoreItem(3, 5400, 'frisbee coins', '../../assets/store/coins.png', '24.99'),
-		new StoreItem(4, 10000, 'frisbee coins', '../../assets/store/coins.png', '39.99'),
-		new StoreItem(5, 25000, 'frisbee coins', '../../assets/store/coins.png', '99.99')
+		new StoreItem(0, 700, 'frisbee coins', '../../assets/store/coins0.png', '3.49'),
+		new StoreItem(1, 1350, 'frisbee coins', '../../assets/store/coins1.png', '6.49'),
+		new StoreItem(2, 3200, 'frisbee coins', '../../assets/store/coins2.png', '14.99'),
+		new StoreItem(3, 5500, 'frisbee coins', '../../assets/store/coins3.png', '24.99'),
+		new StoreItem(4, 10000, 'frisbee coins', '../../assets/store/coins4.png', '39.99'),
+		new StoreItem(5, 30000, 'frisbee coins', '../../assets/store/coins5.png', '99.99')
 	];
 
 	selected?: StoreItem;

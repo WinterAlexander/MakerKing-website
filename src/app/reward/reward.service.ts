@@ -9,7 +9,9 @@ export class RewardService {
 
 	public claimReward(username: string, reward: string): Promise<string> {
 		return this.http.get(
-			environment.server + '/claimreward?username=' + username + '&reward=' + reward,
+			environment.server + '/claimreward?username=' +
+			encodeURIComponent(username) + '&reward=' +
+			encodeURIComponent(reward),
 			{ responseType: 'text' }).toPromise();
 	}
 }

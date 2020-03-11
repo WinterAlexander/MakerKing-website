@@ -9,10 +9,7 @@ export class StatsService {
 	public getPlayersOnline(): Promise<number> {
 		return this.http.get(environment.server + '/playersonline').toPromise()
 			.then((response: any) => {
-				return Promise.resolve(response);
-			}).catch((e: any) => {
-				console.log(e);
-				return Promise.resolve(null);
+				return response;
 			});
 	}
 }

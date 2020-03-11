@@ -22,7 +22,9 @@ export class HeaderComponent implements OnInit {
 	ngOnInit(): void {
 		this.userService.validateToken().then(() => this.loginReady = true);
 
-		this.statsService.getPlayersOnline().then(num => this.playersOnline = num);
+		this.statsService.getPlayersOnline()
+			.then(num => this.playersOnline = num)
+			.catch(err => this.playersOnline = null);
 	}
 
 	private login(): void {

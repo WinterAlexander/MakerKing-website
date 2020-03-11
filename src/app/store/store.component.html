@@ -6,7 +6,7 @@
 			</p>
 			<div *ngFor="let item of storeItems" class="col-sm-12 col-md-6 col-lg-4">
 				<div class="item-container" [ngClass]="{ 'selected-item' : selected == item }" (click)="select(item)">
-					<span class="item-title">{{item.quantity.toLocaleString()}}</span><br />
+					<span class="item-title">{{item.quantity.toLocaleString()}}</span>
 					<span class="item-title">{{item.itemType}}</span>
 					<img class="item-icon" src="{{item.iconPath}}" alt="{{item.getName()}}" />
 					<span class="item-price">$ {{item.price}} USD</span>

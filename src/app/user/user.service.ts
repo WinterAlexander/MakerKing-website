@@ -38,10 +38,10 @@ export class UserService {
 
 		return this.http.post(environment.server + '/validatetoken', params).toPromise()
 			.then((response: any) => {
-				return Promise.resolve(true);
+				return true;
 			}).catch((e: any) => {
 				this.logout();
-				return Promise.resolve(false);
+				return false;
 			});
 	}
 

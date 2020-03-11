@@ -1,5 +1,6 @@
 .item-title {
-    display: inline-block;
+    line-height: 75%;
+    display: block;
     padding: 3px 10px 0 10px;
     font-size: xx-large;
     color: white;
@@ -18,7 +19,7 @@
 
 .item-icon {
     display: block;
-    margin: 50px auto auto;
+    margin: auto;
 }
 
 .item-container {
