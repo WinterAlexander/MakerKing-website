@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { StoreService } from './store.service';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpErrorResponse } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
 	selector: 'app-store',
@@ -55,7 +56,7 @@ export class StoreComponent implements OnInit {
 
 		this.payPalConfig = {
 			currency: 'USD',
-			clientId: 'AX91wn4oiEHoD-g0bL2yFguc1WC4PMcffleEPMOTEoyln_G5f0C99doFsSFIPoIzh2KDrwYT0P7KPBGN',
+			clientId: environment.paypalClientId,
 			createOrderOnServer: data => this.createOrder(data),
 			advanced: {
 				commit: 'true'
@@ -109,5 +110,9 @@ export class StoreComponent implements OnInit {
 
 	public select(item: StoreItem) {
 		this.selected = item;
+	}
+
+	public getUserService(): UserService {
+		return this.userService;
 	}
 }

@@ -13,9 +13,9 @@
 				</div>
 			</div>
 		</div>
-		<div *ngIf="userService.isLogged()" class="row">
+		<div *ngIf="getUserService().isLogged()" class="row">
 			<div class="col-sm-12 col-md-6 col-lg-8">
-				<span>You are logged as {{userService.getUsername()}}. Items will be added to this account.</span>
+				<span>You are logged as {{getUserService().getUsername()}}. Items will be added to this account.</span>
 				<br />
 				<span *ngIf="selected">You have selected {{selected.getName()}}. Click on this button to complete your purchase:</span>
 			</div>
@@ -24,7 +24,7 @@
 				<ngx-paypal *ngIf="selected" [config]="payPalConfig"></ngx-paypal>
 			</div>
 		</div>
-		<p *ngIf="!userService.isLogged()">
+		<p *ngIf="!getUserService().isLogged()">
 			Please login to complete your purchase.
 		</p>
 	</div>
