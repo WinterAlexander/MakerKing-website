@@ -1,0 +1,43 @@
+<div class="container space-filler">
+	<div class="content-container">
+		<div class="row">
+			<p>
+				Use frisbee coins to buy cosmetics for your player and support Jumpaï at the same time!
+			</p>
+			<div *ngFor="let item of storeItems" class="col-sm-12 col-md-6 col-lg-4">
+				<div class="item-container" [ngClass]="{ 'selected-item' : selected == item }" (click)="select(item)">
+					<span class="item-title">{{item.quantity.toLocaleString()}}</span>
+					<span class="item-title">{{item.itemType}}</span>
+					<img class="item-icon" src="{{item.iconPath}}" alt="{{item.getName()}}" />
+					<span class="item-price">$ {{item.price}} USD</span>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="getUserService().isLogged()" class="row">
+			<div class="col-sm-12 col-md-6 col-lg-8">
+				<span>You are logged as {{getUserService().getUsername()}}. Items will be added to this account.</span>
+				<br />
+				<span *ngIf="selected">You have selected {{selected.getName()}}. Click on this button to complete your purchase:</span>
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-4">
+				<span *ngIf="!selected">Select an item to continue</span>
+				<ngx-paypal *ngIf="selected" [config]="payPalConfig"></ngx-paypal>
+			</div>
+		</div>
+		<p *ngIf="!getUserService().isLogged()">
+			Please login to complete your purchase.
+		</p>
+	</div>
+</div>
+
+<ng-template #errorDialog>
+	<h2 matDialogTitle>An error has occurred while treating your request</h2>
+	<p matDialogContent>
+		{{this.error}}
+		<br />
+		Contact us in case of any issue at contact@jumpai.net or on our discord in the #support channel.
+	</p>
+	<mat-dialog-actions align="end">
+		<button mat-button matDialogClose="cancel">Ok</button>
+	</mat-dialog-actions>
+</ng-template>

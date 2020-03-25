@@ -6,57 +6,57 @@ import {
 } from '../social-constants';
 
 @Component({
-    selector: 'press',
-    templateUrl: './press.component.html',
-    styleUrls: ['./press.component.css']
+	selector: 'app-press',
+	templateUrl: './press.component.html',
+	styleUrls: ['./press.component.css']
 })
 export class PressComponent implements OnInit {
-    twitterAddress: string = TWITTER_ADDRESS;
-    discordAddress: string = DISCORD_ADDRESS;
-    facebookAddress: string = FACEBOOK_ADDRESS;
-    emailAddress: string = EMAIL_ADDRESS;
+	twitterAddress: string = TWITTER_ADDRESS;
+	discordAddress: string = DISCORD_ADDRESS;
+	facebookAddress: string = FACEBOOK_ADDRESS;
+	emailAddress: string = EMAIL_ADDRESS;
 	redditAddress: string = REDDIT_ADDRESS;
 	youtubeAddress: string = YOUTUBE_ADDRESS;
 	itchAddress: string = ITCHIO_ADDRESS;
 
-	screenshotPackage: string = "https://drive.google.com/open?id=1ufUaSsSVt4VXemVhjY1CPsKFHi4mQdDx";
-	gifPackage: string = "https://drive.google.com/open?id=1SjPtDbsAk9cpfjrpzn55yQIHMnKQAERJ";
-	logoPackage: string = "https://drive.google.com/open?id=1jUysbP-jTqk7RTF9Fmf9zkXfl43oMvCC";
+	screenshotPackage = 'https://drive.google.com/open?id=1ufUaSsSVt4VXemVhjY1CPsKFHi4mQdDx';
+	gifPackage = 'https://drive.google.com/open?id=1SjPtDbsAk9cpfjrpzn55yQIHMnKQAERJ';
+	logoPackage = 'https://drive.google.com/open?id=1jUysbP-jTqk7RTF9Fmf9zkXfl43oMvCC';
 
 	screenshots: string[] = [
-		"assets/press/screenshots/jungle_ruins.png",
-		"assets/press/screenshots/labyrinth.png",
-		"assets/press/screenshots/pyramid.png",
-		"assets/press/screenshots/chicken_race.png",
-		"assets/press/screenshots/cool_editing.png",
-		"assets/press/screenshots/cool_level.png",
-		"assets/press/screenshots/crazy_level.png",
-		"assets/press/screenshots/social_umbrellas.png",
-		"assets/press/screenshots/title.png",
-		"assets/press/screenshots/biome_editor.png",
-		"assets/press/screenshots/biome_transition.png",
-		"assets/press/screenshots/rainbow.png"
+		'assets/press/screenshots/jungle_ruins.png',
+		'assets/press/screenshots/labyrinth.png',
+		'assets/press/screenshots/pyramid.png',
+		'assets/press/screenshots/chicken_race.png',
+		'assets/press/screenshots/cool_editing.png',
+		'assets/press/screenshots/cool_level.png',
+		'assets/press/screenshots/crazy_level.png',
+		'assets/press/screenshots/social_umbrellas.png',
+		'assets/press/screenshots/title.png',
+		'assets/press/screenshots/biome_editor.png',
+		'assets/press/screenshots/biome_transition.png',
+		'assets/press/screenshots/rainbow.png'
 	];
 
 	gifs: string[] = [
-		"coarsegratefuleuropeanfiresalamander",
-		"wiltedredchickadee",
-		"cheerfulforcefulgangesdolphin",
-		"warpedcalmbubblefish",
-		"qualifiedmiserablearcticseal",
-		"palatabledependentbeaver",
-		"glossyunequaleddrongo",
-		"forsakengleamingcommongonolek",
+		'coarsegratefuleuropeanfiresalamander',
+		'wiltedredchickadee',
+		'cheerfulforcefulgangesdolphin',
+		'warpedcalmbubblefish',
+		'qualifiedmiserablearcticseal',
+		'palatabledependentbeaver',
+		'glossyunequaleddrongo',
+		'forsakengleamingcommongonolek',
 	];
-    
-    constructor(private title: Title) {}
 
-    ngOnInit() {
-        this.title.setTitle('Jumpaï Press Kit');
-    }
+	constructor(private title: Title) {}
+
+	ngOnInit() {
+		this.title.setTitle('Jumpaï Press Kit');
+	}
 
 	nameOf(screenshot: string): string {
-		return screenshot.split('/').pop().replace('_', ' ').replace('.png', '').replace(/\w\S*/g, function(txt){
+		return screenshot.split('/').pop().replace('_', ' ').replace('.png', '').replace(/\w\S*/g, function(txt) {
 			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 		});
 	}

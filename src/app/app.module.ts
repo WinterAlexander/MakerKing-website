@@ -1,22 +1,28 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {AppComponent} from './app.component';
-import {HeaderComponent} from './header/header.component';
-import {HomeComponent} from './home/home.component';
-import {FooterComponent} from './footer/footer.component';
-import {RouterModule} from '@angular/router';
-import {DonateComponent} from './donate/donate.component';
-import {ThankYouComponent} from './donate/thankyou/thankyou.component';
-import {NewsComponent} from './news/news.component';
-import {AboutComponent} from './about/about.component';
-import {DeviceDetectorModule} from 'ngx-device-detector';
-import {PressComponent} from './press/press.component';
-import {SafePipe} from '../util/safepipe';
-import {RewardComponent} from './reward/reward.component';
-import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {RewardService} from './reward/reward.service';
-import {TouchedcraftComponent} from './touchedcraft/touchedcraft.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { RouterModule } from '@angular/router';
+import { StoreComponent } from './store/store.component';
+import { ThankYouComponent } from './store/thankyou/thankyou.component';
+import { NewsComponent } from './news/news.component';
+import { AboutComponent } from './about/about.component';
+import { DeviceDetectorModule } from 'ngx-device-detector';
+import { PressComponent } from './press/press.component';
+import { SafePipe } from '../util/safepipe';
+import { RewardComponent } from './reward/reward.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RewardService } from './reward/reward.service';
+import { TouchedcraftComponent } from './touchedcraft/touchedcraft.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { StatsService } from './stats/stats.service';
+import { UserService } from './user/user.service';
+import { StoreService } from './store/store.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
 	declarations: [
@@ -24,11 +30,11 @@ import {TouchedcraftComponent} from './touchedcraft/touchedcraft.component';
 		HeaderComponent,
 		HomeComponent,
 		FooterComponent,
-		DonateComponent,
+		StoreComponent,
 		ThankYouComponent,
 		NewsComponent,
 		AboutComponent,
-        PressComponent,
+		PressComponent,
 		RewardComponent,
 		TouchedcraftComponent,
 		SafePipe
@@ -38,8 +44,8 @@ import {TouchedcraftComponent} from './touchedcraft/touchedcraft.component';
 		RouterModule.forRoot([
 			{ path: 'home', redirectTo: '', pathMatch: 'full' },
 			{ path: '', component: HomeComponent },
-			{ path: 'donate', component: DonateComponent },
-            { path: 'about', component: AboutComponent },
+			{ path: 'store', component: StoreComponent },
+			{ path: 'about', component: AboutComponent },
 			{ path: 'thankyou', component: ThankYouComponent },
 			{ path: 'news', component: NewsComponent },
 			{ path: 'press', component: PressComponent },
@@ -47,12 +53,14 @@ import {TouchedcraftComponent} from './touchedcraft/touchedcraft.component';
 			{ path: 'touchedcraft', component: TouchedcraftComponent },
 			{ path: '**', redirectTo: ''}
 		]),
-        DeviceDetectorModule.forRoot(),
+		DeviceDetectorModule.forRoot(),
 		FormsModule,
-		HttpClientModule
+		HttpClientModule,
+		NgxPayPalModule,
+		BrowserAnimationsModule,
+		MatDialogModule
 	],
-	providers: [ RewardService ],
+	providers: [ RewardService, UserService, StatsService, StoreService ],
 	bootstrap: [ AppComponent ]
 })
-export class AppModule {
-}
+export class AppModule {}

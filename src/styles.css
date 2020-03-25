@@ -13,12 +13,14 @@ body {
     color: white;
     background-color: #5cd65c;
     border-radius: 0;
+    text-shadow: 1px 1px #00000099;
 }
 
 .btn-jumpai:hover,
 .btn-jumpai:focus,
 .btn-jumpai:active {
     background-color: #258e25;
+    color: white;
 }
 
 .content-container {

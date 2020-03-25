@@ -10,11 +10,20 @@
     max-width: 100%;
 }
 
+@media (min-width: 992px) {
+    .jumpai-logo {
+        margin-bottom: -20px
+    }
+}
+
+.jumpai-logo-wrapper {
+    text-align: center;
+}
+
 .head-btn {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-bottom: 10px;
     font-size: x-large;
 }
 
@@ -28,13 +37,13 @@
     background-color: #258e25;
 }
 
-.btn-donate {
+.btn-store {
     background-color: #ff3385;
 }
 
-.btn-donate:hover,
-.btn-donate:focus,
-.btn-donate:active {
+.btn-store:hover,
+.btn-store:focus,
+.btn-store:active {
     background-color: #99003d;
 }
 
@@ -56,4 +65,36 @@
 .btn-about:focus,
 .btn-about:active {
     background-color: #003d99;
+}
+
+.under-header-text {
+    color: white;
+    text-shadow: 1px 1px #00000099;
+    font-size: large;
+    display: block;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.btn-login {
+    font-size: large;
+    margin-bottom: 5px;
+    padding-top: 0;
+}
+
+.login-error {
+    margin-right: 10px;
+    color: #ff3344;
+}
+
+.login-form-label {
+    margin-right: 5px;
+}
+
+.login-form-field {
+    width: 120px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    padding: 0 5px;
+    font-size: medium;
 }
