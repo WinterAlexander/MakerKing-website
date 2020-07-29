@@ -16,13 +16,13 @@ import { RewardComponent } from './reward/reward.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RewardService } from './reward/reward.service';
-import { TouchedcraftComponent } from './touchedcraft/touchedcraft.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { StatsService } from './stats/stats.service';
 import { UserService } from './user/user.service';
 import { StoreService } from './store/store.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { LeaderboardComponent } from './stats/leaderboard.component';
 
 @NgModule({
 	declarations: [
@@ -36,7 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 		AboutComponent,
 		PressComponent,
 		RewardComponent,
-		TouchedcraftComponent,
+		LeaderboardComponent,
 		SafePipe
 	],
 	imports: [
@@ -50,7 +50,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 			{ path: 'news', component: NewsComponent },
 			{ path: 'press', component: PressComponent },
 			{ path: 'reward', component: RewardComponent },
-			{ path: 'touchedcraft', component: TouchedcraftComponent },
+			{ path: 'leaderboard', component: LeaderboardComponent },
 			{ path: '**', redirectTo: ''}
 		]),
 		DeviceDetectorModule.forRoot(),

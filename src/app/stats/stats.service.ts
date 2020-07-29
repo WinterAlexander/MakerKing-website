@@ -14,10 +14,12 @@ export class StatsService {
 			});
 	}
 
-	public getLeaderboard(): Promise<LeaderboardEntry[]> {
-		return this.http.get(environment.server + '/leaderboard').toPromise()
+	public getLeaderboard(startIndex: number, count: number): Promise<LeaderboardEntry[]> {
+		return this.http.get(environment.server + '/leaderboard' +
+			'?startIndex=' + startIndex +
+			'&count=' + count).toPromise()
 			.then((response: any) => {
-				return response.json;
+				return response;
 			});
 	}
 }

@@ -24,3 +24,11 @@
     margin-top: 20px;
     padding-top: 20px;
 }
+
+.about-link {
+    color: white;
+}
+
+.about-link:hover {
+    color: white;
+}

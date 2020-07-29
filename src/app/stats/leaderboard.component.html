@@ -1,7 +1,29 @@
 <div class="container space-filler">
 	<div class="content-container">
-		<div class="row">
+		<h1>Leaderboard</h1>
+		<p>
+			The leaderboard shows the best Jumpaï players in term of score. Score is obtained by getting getting good positions in popular levels.
+		</p>
 
+		<div class="row entry-container" *ngFor="let entry of entries" [ngClass]="{'own-entry': entry.username === userService.getUsername() }">
+			<div class="col-2">
+				<span>#{{entry.rank}}</span>
+			</div>
+			<div class="col-7">
+				<span>{{entry.username}}</span>
+			</div>
+			<div class="col-3">
+				<span class="score-span">{{entry.score | number: '1.0-0'}}</span>
+			</div>
+		</div>
+
+		<div class="row" style="padding-top: 10px">
+			<div class="col-6">
+				<button *ngIf="getPageNumber() > 1" type="button" class="btn btn-jumpai page-btn" (click)="prevPage()">Previous</button>
+			</div>
+			<div class="col-6" style="text-align: right">
+				<button *ngIf="!isLastPage()" type="button" class="btn btn-jumpai page-btn" (click)="nextPage()">Next</button>
+			</div>
 		</div>
 	</div>
 </div>
