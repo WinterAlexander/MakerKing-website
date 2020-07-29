@@ -5,6 +5,18 @@
 			The leaderboard shows the best Jumpaï players in terms of score. Score is obtained by getting good positions in popular levels.
 		</p>
 
+		<div class="row leaderboard-header">
+			<div class="col-2">
+				<span>Rank</span>
+			</div>
+			<div class="col-7">
+				<span>Username</span>
+			</div>
+			<div class="col-3">
+				<span class="score-span">Score</span>
+			</div>
+		</div>
+
 		<div class="row entry-container" *ngFor="let entry of entries" [ngClass]="{'own-entry': entry.username === userService.getUsername() }">
 			<div class="col-2">
 				<span>#{{entry.rank}}</span>

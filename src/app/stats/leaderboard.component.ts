@@ -30,7 +30,7 @@ export class LeaderboardComponent implements OnInit {
 		this.title.setTitle('Jumpaï - Leaderboard');
 
 		this.activatedRoute.queryParams.subscribe(params => {
-			if (params['page'] !== undefined) {
+			if (params['page'] !== undefined && !isNaN(+params['page'])) {
 				this.page = params['page'] - 1;
 			}
 
@@ -80,6 +80,7 @@ export class LeaderboardComponent implements OnInit {
 		}
 
 		this.page--;
+		this.end = false;
 
 		if (this.page < 0) {
 			this.page = 0;

@@ -1,17 +1,22 @@
-.entry-container {
-    background-color: #3385ff;
+.leaderboard-header {
+    background-color: #194380;
     color: white;
     padding: 3px;
     border: solid white 3px;
     text-shadow: 1px 1px #00000099;
 }
 
-.own-entry {
-    background-color: #ff3385;
+.entry-container {
+    background-color: #3385ff;
+    color: white;
+    padding: 3px;
+    border: solid white 3px;
+    border-top: 0;
+    text-shadow: 1px 1px #00000099;
 }
 
-.entry-container + .entry-container {
-    border-top: 0;
+.own-entry {
+    background-color: #ff3385;
 }
 
 .score-span {
