@@ -57,13 +57,13 @@
     background-color: #896900;
 }
 
-.btn-about {
+.btn-leaderboard {
     background-color: #3385ff;
 }
 
-.btn-about:hover,
-.btn-about:focus,
-.btn-about:active {
+.btn-leaderboard:hover,
+.btn-leaderboard:focus,
+.btn-leaderboard:active {
     background-color: #003d99;
 }
 

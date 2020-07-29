@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/jumpai-web",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -32,6 +33,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -127,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "jumpai-web"
+  "defaultProject": "jumpai-web",
+  "cli": {
+    "analytics": "49de2914-52ac-463a-88e6-6a6a1dd0467b"
+  }
 }

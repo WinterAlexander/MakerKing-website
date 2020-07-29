@@ -42,7 +42,7 @@ export class StoreComponent implements OnInit {
 	selected?: StoreItem;
 	error?: string;
 
-	@ViewChild('errorDialog', {static: false}) errorDialog: TemplateRef<any>;
+	@ViewChild('errorDialog') errorDialog: TemplateRef<any>;
 
 	constructor(private ngZone: NgZone,
 				private title: Title,

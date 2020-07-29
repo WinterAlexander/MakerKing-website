@@ -50,7 +50,7 @@ export class RewardComponent implements OnInit {
 	ngOnInit() {
 		this.activatedRoute.queryParams.subscribe(params => {
 			const rewardId = params['id'];
-			const reward = this.rewards.find(r => r.id == rewardId);
+			const reward = this.rewards.find(r => r.id === rewardId);
 
 			if (reward === undefined) {
 				this.router.navigate(['/']);
