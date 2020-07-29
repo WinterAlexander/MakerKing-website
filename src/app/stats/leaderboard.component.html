@@ -2,7 +2,7 @@
 	<div class="content-container">
 		<h1>Leaderboard</h1>
 		<p>
-			The leaderboard shows the best Jumpaï players in term of score. Score is obtained by getting getting good positions in popular levels.
+			The leaderboard shows the best Jumpaï players in term of score. Score is obtained by getting good positions in popular levels.
 		</p>
 
 		<div class="row entry-container" *ngFor="let entry of entries" [ngClass]="{'own-entry': entry.username === userService.getUsername() }">
