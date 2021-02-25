@@ -10,7 +10,7 @@ export class NewsComponent implements OnInit, AfterViewInit {
 	constructor(private title: Title) {}
 
 	ngOnInit(): void {
-		this.title.setTitle('Jumpaï - News and updates');
+		this.title.setTitle('MakerKing - News and updates');
 	}
 
 	ngAfterViewInit(): void {

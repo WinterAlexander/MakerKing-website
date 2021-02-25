@@ -25,6 +25,6 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.title.setTitle('Jumpaï - Create your levels!');
+		this.title.setTitle('MakerKing - Create your levels!');
 	}
 }

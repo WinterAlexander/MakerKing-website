@@ -52,7 +52,7 @@ export class StoreComponent implements OnInit {
 				private dialog: MatDialog) {}
 
 	ngOnInit() {
-		this.title.setTitle('Jumpaï - Buy coins for cosmetics');
+		this.title.setTitle('MakerKing - Buy coins for cosmetics');
 
 		this.payPalConfig = {
 			currency: 'USD',

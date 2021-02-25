@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /*.html$
 Disallow: /thankyou/
-Sitemap: http://jumpai.net/sitemap.xml
+Sitemap: http://makerkinggame.com/sitemap.xml

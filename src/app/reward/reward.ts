@@ -1,6 +1,6 @@
 /**
- * Represents a Jumpaï reward to be described on the reward page and awarded by
- * the Jumpaï server backend
+ * Represents a MakerKing reward to be described on the reward page and awarded by
+ * the MakerKing server backend
  */
 export class Reward {
 	id: string;

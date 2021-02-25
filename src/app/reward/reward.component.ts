@@ -58,7 +58,7 @@ export class RewardComponent implements OnInit {
 			}
 
 			this.currentReward = reward;
-			this.title.setTitle('Jumpaï - ' + reward.name);
+			this.title.setTitle('MakerKing - ' + reward.name);
 		});
 	}
 

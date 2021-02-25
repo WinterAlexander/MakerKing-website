@@ -27,7 +27,7 @@ export class LeaderboardComponent implements OnInit {
 
 
 	ngOnInit() {
-		this.title.setTitle('Jumpaï - Leaderboard');
+		this.title.setTitle('MakerKing - Leaderboard');
 
 		this.activatedRoute.queryParams.subscribe(params => {
 			if (params['page'] !== undefined && !isNaN(+params['page'])) {
@@ -38,7 +38,7 @@ export class LeaderboardComponent implements OnInit {
 				this.end = params['end'];
 			}
 
-			this.title.setTitle('Jumpaï - Leaderboard' + (this.getPageNumber() === 1 ? '' : ' Page ' + this.getPageNumber()));
+			this.title.setTitle('MakerKing - Leaderboard' + (this.getPageNumber() === 1 ? '' : ' Page ' + this.getPageNumber()));
 
 			this.statsService.getLeaderboard(PAGE_SIZE * this.page, PAGE_SIZE).then(
 				entries => {
@@ -62,7 +62,7 @@ export class LeaderboardComponent implements OnInit {
 	}
 
 	private reloadBoard() {
-		this.title.setTitle('Jumpaï - Leaderboard Page ' + this.getPageNumber());
+		this.title.setTitle('MakerKing - Leaderboard Page ' + this.getPageNumber());
 		const queryParams: Params = { page: this.getPageNumber(), end: this.end ? true : null };
 
 		this.router.navigate(

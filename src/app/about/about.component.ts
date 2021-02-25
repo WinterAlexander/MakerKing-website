@@ -14,6 +14,6 @@ export class AboutComponent implements OnInit {
 	constructor(private title: Title) {}
 
 	ngOnInit() {
-		this.title.setTitle('Jumpaï - About us');
+		this.title.setTitle('MakerKing - About us');
 	}
 }

@@ -3,7 +3,7 @@
 		<h1>Store</h1>
 		<div class="row">
 			<p>
-				Use frisbee coins to buy cosmetics for your player and support Jumpaï at the same time!
+				Use frisbee coins to buy cosmetics for your player and support MakerKing at the same time!
 			</p>
 			<div *ngFor="let item of storeItems" class="col-sm-12 col-md-6 col-lg-4">
 				<div class="item-container" [ngClass]="{ 'selected-item' : selected == item }" (click)="select(item)">
@@ -36,7 +36,7 @@
 	<p matDialogContent>
 		{{this.error}}
 		<br />
-		Contact us in case of any issue at contact@jumpai.net or on our discord in the #support channel.
+		Contact us in case of any issue at contact@makerkinggame.com or on our discord in the #support channel.
 	</p>
 	<mat-dialog-actions align="end">
 		<button mat-button matDialogClose="cancel">Ok</button>

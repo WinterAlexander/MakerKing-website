@@ -52,7 +52,7 @@ export class PressComponent implements OnInit {
 	constructor(private title: Title) {}
 
 	ngOnInit() {
-		this.title.setTitle('Jumpaï Press Kit');
+		this.title.setTitle('MakerKing Press Kit');
 	}
 
 	nameOf(screenshot: string): string {

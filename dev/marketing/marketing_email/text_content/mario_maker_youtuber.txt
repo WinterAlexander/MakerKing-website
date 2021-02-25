@@ -1,6 +1,6 @@
 Hello there $name !
 
-Did the idea of a live multiplayer Mario Maker ever crossed your mind? Introducing Jumpaï! An indie platformer made with the heart of a single dev and a lot of inspiration from Mario Maker!
+Did the idea of a live multiplayer Mario Maker ever crossed your mind? Introducing MakerKing! An indie platformer made with the heart of a single dev and a lot of inspiration from Mario Maker!
 
 Restart from checkpoint? No level size limit? Watch WR in game? We've got that! On the plus side, the game is fully multiplayer and you can customize your character. Not convinced yet? We even have our own kaizo-like advanced tech.
 
@@ -8,7 +8,7 @@ But we need your help! The pitfall of any community game is... the lack of commu
 
 Don't hesitate, give it a try and you won't regret it. ;)
 
-http://jumpai.net/
+http://makerkinggame.com/
 
 Cheers,
 Winter

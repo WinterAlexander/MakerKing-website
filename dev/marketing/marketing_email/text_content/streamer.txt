@@ -1,6 +1,6 @@
 Hello there $name !
 
-Introducing Jumpaï! A live-multiplayer platformer game where you can make your own levels and compete for first place!
+Introducing MakerKing! A live-multiplayer platformer game where you can make your own levels and compete for first place!
 
 Yes, yes, make your own levels! Today is now the time to become the level designer you always wanted to be! Or just make very hard level to make your friends suffer!
 
@@ -10,7 +10,7 @@ Oh and did I mention this game is perfect for you stream? Play live with your vi
 
 Don't hesitate, give it a try and you won't regret it. ;)
 
-http://jumpai.net/
+http://makerkinggame.com/
 
 Cheers,
 Winter
