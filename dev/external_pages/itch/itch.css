@@ -16,11 +16,9 @@
 
 h2 {
     text-shadow: 2px 2px #454545;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
     text-transform: uppercase;
-    margin-top: 30px !important;
     text-align: center;
+    margin: 30px 0 !important;
 }
 
 h2 > img.custom-icon {
@@ -38,7 +36,7 @@ h2#download, section#devlog > h2, div.game_comments_widget > h2 {
 }
 
 div.custom-spacer {
-    height: 50px;
+    height: 80px;
 }
 
 img.custom-img-flipped {
@@ -142,28 +140,29 @@ div.game_grid_widget {
 
 @media only screen and (min-width: 482px) {
 
-    div.custom-gfycat_container {
+    div.custom-gfycat-container {
         position: relative;
         width: 480px;
-        height: 314px;
+        height: 270px;
+        overflow: hidden;
         margin: auto;
-        margin-bottom: -44px;
         z-index: 0;
+        box-shadow: 7px 7px 5px 0 rgba(0, 0, 0, 0.3);
     }
 
-    div.custom-gfycat_overlay {
-        background: #a87847;
-        width: 100%;
-        height: 45px;
-        position: absolute;
-        top: 270px;
-        left: 0;
+    div.custom-gfycat-container-square {
+        width: 270px;
+    }
+
+
+    div.custom-gfycat-container-43 {
+        width: 360px;
     }
 }
 
 @media only screen and (max-width: 481px) {
 
-    div.custom-gfycat_container {
+    div.custom-gfycat-container {
         width: 100%;
     }
 }
@@ -181,13 +180,26 @@ p.custom-discord {
     position: relative;
 }
 
+p.custom-desc {
+    text-align: center;
+}
+
 p, ul {
     padding-left: 15px;
     font-size: 24px;
 }
 
+p, ul, strong {
+    text-shadow: 1px 2px 3px black;
+    font-weight: bold;
+}
+
 .custom-yt-player {
     text-align: center;
+}
+
+.custom-yt-player > iframe {
+    box-shadow: 7px 7px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
 div.right_col {
@@ -243,11 +255,6 @@ div.upload_name {
 div.upload_name > strong {
     font-weight: bolder !important;
     margin-left: 10px !important;
-}
-
-
-h2 {
-    margin-bottom: 0 !important;
 }
 
 html {
