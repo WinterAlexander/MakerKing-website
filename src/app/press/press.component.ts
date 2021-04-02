@@ -20,33 +20,30 @@ export class PressComponent implements OnInit {
 	itchAddress: string = ITCHIO_ADDRESS;
 
 	screenshotPackage = 'https://drive.google.com/open?id=1ufUaSsSVt4VXemVhjY1CPsKFHi4mQdDx';
-	gifPackage = 'https://drive.google.com/open?id=1SjPtDbsAk9cpfjrpzn55yQIHMnKQAERJ';
 	logoPackage = 'https://drive.google.com/open?id=1jUysbP-jTqk7RTF9Fmf9zkXfl43oMvCC';
 
 	screenshots: string[] = [
-		'assets/press/screenshots/jungle_ruins.png',
-		'assets/press/screenshots/labyrinth.png',
-		'assets/press/screenshots/pyramid.png',
-		'assets/press/screenshots/chicken_race.png',
-		'assets/press/screenshots/cool_editing.png',
-		'assets/press/screenshots/cool_level.png',
-		'assets/press/screenshots/crazy_level.png',
-		'assets/press/screenshots/social_umbrellas.png',
-		'assets/press/screenshots/title.png',
-		'assets/press/screenshots/biome_editor.png',
-		'assets/press/screenshots/biome_transition.png',
-		'assets/press/screenshots/rainbow.png'
+		'assets/press/screenshots/friendly_ride.png',
+		'assets/press/screenshots/makerking_editor.png',
+		'assets/press/screenshots/mob_swarm.png',
+		'assets/press/screenshots/puzzle_editor.png',
+		'assets/press/screenshots/puzzles.png',
+		'assets/press/screenshots/stats.png',
+		'assets/press/screenshots/titlescreen.png',
+		'assets/press/screenshots/achievements.png',
+		'assets/press/screenshots/cosmetics.png',
+		'assets/press/screenshots/levelbrowser.png',
 	];
 
 	gifs: string[] = [
 		'coarsegratefuleuropeanfiresalamander',
-		'wiltedredchickadee',
-		'cheerfulforcefulgangesdolphin',
-		'warpedcalmbubblefish',
-		'qualifiedmiserablearcticseal',
-		'palatabledependentbeaver',
-		'glossyunequaleddrongo',
-		'forsakengleamingcommongonolek',
+		'fineheftydragonfly',
+		'pertinentfaintchital',
+		'remotetimelyarcticfox',
+		'caringtintedhypacrosaurus',
+		'glitteringtartasianpiedstarling',
+		'wealthysleepyastrangiacoral',
+		'directediblekatydid',
 	];
 
 	constructor(private title: Title) {}
