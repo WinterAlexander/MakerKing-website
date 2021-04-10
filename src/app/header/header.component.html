@@ -30,6 +30,7 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<span *ngIf="playersOnline != null" class="under-header-text">
+					{{playersRegistered}} player{{playersRegistered > 1 ? "s" : ""}} registered,
 					{{playersOnline}} player{{playersOnline > 1 ? "s" : ""}} online
 				</span>
 			</div>

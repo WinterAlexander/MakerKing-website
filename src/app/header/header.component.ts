@@ -9,6 +9,7 @@ import { StatsService } from '../stats/stats.service';
 })
 export class HeaderComponent implements OnInit {
 	playersOnline: number = null;
+	playersRegistered: number = null;
 	inputUsername: string;
 	inputPassword: string;
 	loginReady = false;
@@ -22,9 +23,16 @@ export class HeaderComponent implements OnInit {
 	ngOnInit(): void {
 		this.userService.validateToken().then(() => this.loginReady = true);
 
-		this.statsService.getPlayersOnline()
-			.then(num => this.playersOnline = num)
-			.catch(err => this.playersOnline = null);
+		this.statsService.getGlobalPlayerStats()
+			.then(json => {
+				this.playersOnline = json.onlinePlayers;
+				this.playersRegistered = json.registeredPlayers;
+			})
+			.catch(err => {
+				this.playersOnline = null;
+				this.playersRegistered = null;
+				console.log(err);
+			});
 	}
 
 	private login(): void {
