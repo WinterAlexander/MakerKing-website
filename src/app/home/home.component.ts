@@ -9,7 +9,7 @@ import {ITCHIO_ADDRESS} from '../social-constants';
 	styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-	videoAddress: string = 'https://www.youtube.com/embed/8XzRDlDkOyg' +
+	videoAddress: string = 'https://www.youtube.com/embed/RIf3geGWJVA' +
 		'?autoplay=1' +
 		'&mute=1' +
 		'&modestbranding=1' +
