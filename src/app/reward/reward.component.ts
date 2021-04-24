@@ -34,7 +34,15 @@ export class RewardComponent implements OnInit {
 			items: [
 				{ name: 'Akira\'s Shirt', image: '../assets/reward/akira.png' }
 			]
-		}
+		},
+		{
+			id: 'igl',
+			name: 'Item for IndieGameLover\'s fans',
+			description: 'Wear this shirt to show your support for IndieGameLover!',
+			items: [
+				{ name: 'IndieGameLover\'s Shirt', image: '../assets/reward/indiegamelover.png' }
+			]
+		},
 	];
 
 	currentReward: Reward = undefined;
