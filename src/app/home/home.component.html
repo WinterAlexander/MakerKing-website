@@ -2,6 +2,19 @@
 	<iframe class="youtube-player" [src]="videoAddress | safe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	<br />
 	<a href="{{downloadAddress}}">
-		<button type="button" class="btn btn-jumpai btn-download" [innerHtml]="downloadText"></button>
+		<button type="button" class="btn btn-jumpai btn-cta btn-download">
+			<span class="store-text">
+				Download <br />on itch.io
+			</span>
+			<img src="assets/itch.png" class="store-icon" alt="Itch.io" />
+		</button>
+	</a>
+	<a href="{{wishlistAddress}}">
+		<button type="button" class="btn btn-jumpai btn-cta btn-wishlist">
+			<span class="store-text">
+				Wishlist <br />on Steam
+			</span>
+			<img src="assets/steam.png" class="store-icon" alt="Steam" />
+		</button>
 	</a>
 </div>

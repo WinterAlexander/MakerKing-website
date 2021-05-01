@@ -12,25 +12,29 @@ body {
     padding: 3px 10px 0 10px;
     color: white;
     background-color: #5cd65c;
-    border-radius: 0;
-    text-shadow: 1px 1px #00000099;
+    text-shadow: 1px 1px 3px black;
 }
 
 .btn-jumpai:hover,
 .btn-jumpai:focus,
 .btn-jumpai:active {
     background-color: #258e25;
-    color: white;
+    color: lightgray;
 }
 
 .content-container {
-    background-color: #8cf288;
-    color: black;
-    border: white 3px solid;
+    background-color: #5cd65c;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    border: white 2px solid;
     padding: 20px;
     font-size: 1.3em;
 }
 
 .space-filler {
     min-height: calc(100vh - 368px);
+}
+
+a {
+    color: #79e270;
 }

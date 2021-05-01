@@ -3,18 +3,14 @@
     display: block;
     padding: 3px 10px 0 10px;
     font-size: xx-large;
-    color: white;
-    text-shadow: 2px 2px #00000099;
 }
 
 .item-price {
     display: inline-block;
     border: 3px white solid;
     padding: 3px 10px 0 10px;
-    color: white;
     background-color: #67C261FF;
-    text-shadow: 1px 1px #00000099;
-    border-radius: 0;
+    border-radius: 2px;
 }
 
 .item-icon {
@@ -42,6 +38,5 @@
 
 p {
     padding: 0 20px;
-    color: black;
     font-size: x-large;
 }

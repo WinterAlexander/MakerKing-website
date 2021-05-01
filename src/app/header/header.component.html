@@ -1,61 +1,76 @@
 <div class="header-bar">
-	<div class="container-fluid">
-		<div class="row align-items-center justify-content-center">
+	
+	<div class="head-padding">
+	
+	</div>
+	<div class="container">
+		<div class="header-first-row row">
 			<div class="col-lg-4 col-md-12">
-				<div class="jumpai-logo-wrapper">
-					<a href="/">
-						<img src="../../assets/logo.png" alt="MakerKing" class="jumpai-logo" />
-					</a>
+				<div class="header-logo-section">
+					<div class="logo-wrapper">
+						<a href="/">
+							<img src="../../assets/logo.png" alt="MakerKing" class="logo" />
+						</a>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-2 col-md-3">
-				<a href="/">
-					<button type="button" class="btn btn-jumpai btn-home head-btn">Home</button>
-				</a>
-			</div>
-			<div class="col-lg-2 col-md-3">
-				<a href="/store">
-					<button type="button" class="btn btn-jumpai btn-store head-btn">Store</button>
-				</a>
-			</div>
-			<div class="col-lg-2 col-md-3">
-				<a href="/news">
-					<button type="button" class="btn btn-jumpai btn-news head-btn">News</button>
-				</a>
-			</div>
-			<div class="col-lg-2 col-md-3">
-				<a href="/leaderboard">
-					<button type="button" class="btn btn-jumpai btn-leaderboard head-btn">Leaderboard</button>
-				</a>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<span *ngIf="playersOnline != null" class="under-header-text">
-					{{playersRegistered}} player{{playersRegistered > 1 ? "s" : ""}} registered,
-					{{playersOnline}} player{{playersOnline > 1 ? "s" : ""}} online
-				</span>
-			</div>
-			<div class="col-lg-8 col-md-6">
-				<div *ngIf="loginReady">
-					<span *ngIf="userService.isLogged()" class="under-header-text">
-						Logged in as {{userService.getUsername()}}.
-						<button type="button" class="btn btn-jumpai btn-login" (click)="userService.logout()">Logout</button>
-					</span>
-					<span *ngIf="!userService.isLogged()" class="under-header-text">
-						<span *ngIf="error" class="login-error">
-							{{invalidLogin ? 'Incorrect login' : 'Cannot connect to server'}}
+			<div class="col-lg-8 col-md-12">
+				<div class="header-login-section">
+					<span *ngIf="playersOnline != null" class="header-text-container">
+						<span class="stats-element">
+							{{playersRegistered}} player{{playersRegistered > 1 ? "s" : ""}} registered
 						</span>
-						
-						<label class="login-form-label" for="username">Username:</label>
-	          <input class="login-form-field" type="text" id="username" [(ngModel)]="inputUsername" (keyup.enter)="keytab($event)" required>
-						<label class="login-form-label" for="password">Password:</label>
-	          <input class="login-form-field" type="password" id="password" [(ngModel)]="inputPassword" (keyup.enter)="login()" required>
-						
-						<button type="button" class="btn btn-jumpai btn-login" (click)="login()">Login</button>
+						<span class="stats-comma">
+							,&nbsp;
+						</span>
+						<span class="stats-element">
+							{{playersOnline}} player{{playersOnline > 1 ? "s" : ""}} online
+						</span>
 					</span>
+					<div *ngIf="loginReady" class="login-container">
+						<span *ngIf="userService.isLogged()" class="header-text-container">
+							<span class="logged-text">
+								Logged in as
+								<br />
+								{{userService.getUsername()}}.
+							</span>
+							<button type="button" class="btn btn-jumpai btn-login" (click)="userService.logout()">Logout</button>
+						</span>
+						<span *ngIf="!userService.isLogged()" class="header-text-container">
+							<span *ngIf="error" class="login-error">
+								{{invalidLogin ? 'Incorrect login' : 'Cannot connect to server'}}
+							</span>
+					
+							<span class="form-field-container">
+								<label class="login-form-label" for="username">Username:</label>
+				        <input class="login-form-field" type="text" id="username" [(ngModel)]="inputUsername" (keyup.enter)="keytab($event)" required>
+								<br />
+								<label class="login-form-label" for="password">Password:</label>
+				        <input class="login-form-field" type="password" id="password" [(ngModel)]="inputPassword" (keyup.enter)="login()" required>
+							</span>
+							<button type="button" class="btn btn-jumpai btn-login" (click)="login()">Login</button>
+						</span>
+					</div>
 				</div>
 			</div>
 		</div>
+		
+		<div class="header-btn-section">
+			<a class="header-btn-link" href="/store">
+				<button type="button" class="btn btn-jumpai btn-store head-btn">Store</button>
+			</a>
+			<a class="header-btn-link" href="/news">
+				<button type="button" class="btn btn-jumpai btn-news head-btn">News</button>
+			</a>
+			<a class="header-btn-link" href="/leaderboard">
+				<button type="button" class="btn btn-jumpai btn-leaderboard head-btn">Leaderboard</button>
+			</a>
+			<a class="header-btn-link" href="/press">
+				<button type="button" class="btn btn-jumpai head-btn">Press Kit</button>
+			</a>
+		</div>
 	</div>
+	
 </div>
 <div class="head-padding">
 

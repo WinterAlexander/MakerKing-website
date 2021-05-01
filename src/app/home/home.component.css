@@ -2,18 +2,53 @@
     text-align: center;
 }
 
-.btn-download {
-    border-width: 5px;
-    background-color: #ffa31a;
-    font-size: xx-large;
-    padding: 15px 100px 10px 100px;
+.btn-cta {
+    border-width: 3px;
+    font-size: x-large;
+    padding: 15px 0 10px 0;
     margin-top: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    min-width: 300px;
+    line-height: 100%;
+    border-radius: 8px;
+}
+
+.btn-cta:hover .store-icon,
+.btn-cta:focus .store-icon,
+.btn-cta:active .store-icon {
+    filter: brightness(0.8);
+}
+
+.store-text {
+    display: inline-block;
+}
+
+.store-icon {
+    width: 48px;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: top;
+}
+
+.btn-download {
+    background-color: #fa5c5c;
 }
 
 .btn-download:hover,
 .btn-download:focus,
 .btn-download:active {
-    background-color: #cc7a00;
+    background-color: #9c3838;
+}
+
+.btn-wishlist {
+    background-color: #363636;
+}
+
+.btn-wishlist:hover,
+.btn-wishlist:focus,
+.btn-wishlist:active {
+    background-color: #000000;
 }
 
 .java-icon {
@@ -31,7 +66,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .btn-download {
+    .btn-cta {
         font-size: large;
         width: 80%;
         padding: 15px 0 10px 0;

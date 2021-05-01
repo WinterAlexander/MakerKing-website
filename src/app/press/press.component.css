@@ -26,6 +26,20 @@ h2 {
     font-weight: bold;
 }
 
+
+.content-container {
+    background-color: #8cf288;
+    color: black;
+    text-shadow: none;
+    border: white 2px solid;
+    padding: 20px;
+    font-size: 1.3em;
+}
+
+a {
+    color: #007bff;
+}
+
 div.desc-card {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -36,103 +50,6 @@ div.desc-card {
     display: flex;
     max-width: 240px;
     margin: auto auto 10px;
-}
-
-div.desc-card span {
-    align-self: flex-end;
-    width: 100%;
-    font-size: 2em;
-    background-color: rgba(255, 255, 255, 0.6);
-    -webkit-border-radius: 0 0 20px 20px;
-    -moz-border-radius: 0 0 20px 20px;
-    border-radius: 0 0 20px 20px;
-}
-
-div.desc-card-create {
-    background-image: url("../../assets/press/create_card.png");
-    color: #ffe462;
-    text-shadow: 1px 1px 0 #6a571c, /* This is why we need SASS */
-    -1px 1px 0 #6a571c,
-    1px -1px 0 #6a571c,
-    -1px -1px 0 #6a571c,
-    0px 1px 0 #6a571c,
-    0px -1px 0 #6a571c,
-    -1px 0px 0 #6a571c,
-    1px 0px 0 #6a571c,
-    2px 2px 0 #6a571c,
-    -2px 2px 0 #6a571c,
-    2px -2px 0 #6a571c,
-    -2px -2px 0 #6a571c,
-    0px 2px 0 #6a571c,
-    0px -2px 0 #6a571c,
-    -2px 0px 0 #6a571c,
-    2px 0px 0 #6a571c,
-    1px 2px 0 #6a571c,
-    -1px 2px 0 #6a571c,
-    1px -2px 0 #6a571c,
-    -1px -2px 0 #6a571c,
-    2px 1px 0 #6a571c,
-    -2px 1px 0 #6a571c,
-    2px -1px 0 #6a571c,
-    -2px -1px 0 #6a571c;
-}
-
-div.desc-card-share {
-    background-image: url("../../assets/press/share_card.png");
-    color: #ff6162;
-    text-shadow: 1px 1px 0 #5d2323,
-    -1px 1px 0 #5d2323,
-    1px -1px 0 #5d2323,
-    -1px -1px 0 #5d2323,
-    0px 1px 0 #5d2323,
-    0px -1px 0 #5d2323,
-    -1px 0px 0 #5d2323,
-    1px 0px 0 #5d2323,
-    2px 2px 0 #5d2323,
-    -2px 2px 0 #5d2323,
-    2px -2px 0 #5d2323,
-    -2px -2px 0 #5d2323,
-    0px 2px 0 #5d2323,
-    0px -2px 0 #5d2323,
-    -2px 0px 0 #5d2323,
-    2px 0px 0 #5d2323,
-    1px 2px 0 #5d2323,
-    -1px 2px 0 #5d2323,
-    1px -2px 0 #5d2323,
-    -1px -2px 0 #5d2323,
-    2px 1px 0 #5d2323,
-    -2px 1px 0 #5d2323,
-    2px -1px 0 #5d2323,
-    -2px -1px 0 #5d2323;
-}
-
-div.desc-card-compete {
-    background-image: url("../../assets/press/compete_card.png");
-    color: #63ff58;
-    text-shadow: 1px 1px 0 #1c4919,
-    -1px 1px 0 #1c4919,
-    1px -1px 0 #1c4919,
-    -1px -1px 0 #1c4919,
-    0px 1px 0 #1c4919,
-    0px -1px 0 #1c4919,
-    -1px 0px 0 #1c4919,
-    1px 0px 0 #1c4919,
-    2px 2px 0 #1c4919,
-    -2px 2px 0 #1c4919,
-    2px -2px 0 #1c4919,
-    -2px -2px 0 #1c4919,
-    0px 2px 0 #1c4919,
-    0px -2px 0 #1c4919,
-    -2px 0px 0 #1c4919,
-    2px 0px 0 #1c4919,
-    1px 2px 0 #1c4919,
-    -1px 2px 0 #1c4919,
-    1px -2px 0 #1c4919,
-    -1px -2px 0 #1c4919,
-    2px 1px 0 #1c4919,
-    -2px 1px 0 #1c4919,
-    2px -1px 0 #1c4919,
-    -2px -1px 0 #1c4919;
 }
 
 div.article-wrapper {

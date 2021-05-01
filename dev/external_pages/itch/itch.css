@@ -271,3 +271,7 @@ div.upload_name > strong {
 html {
     scroll-behavior: smooth;
 }
+
+.custom-discord-btn-container {
+    text-align: center;
+}

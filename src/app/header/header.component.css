@@ -1,29 +1,75 @@
 .header-bar {
     background-color: #00000044;
+    border-bottom: 2px solid #00000012;
+    padding-bottom: 10px;
+}
+
+.header-btn-link {
+    display: inline-block;
+    margin: 2px;
 }
 
 .head-padding {
     height: 20px;
 }
 
-.jumpai-logo {
+.logo {
     max-width: 100%;
 }
 
-@media (min-width: 992px) {
-    .jumpai-logo {
-        margin-bottom: -20px
-    }
+.stats-element {
+    display: block;
 }
 
-.jumpai-logo-wrapper {
+.stats-comma {
+    display: none;
+}
+
+.header-text-container {
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    font-size: large;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.login-form-label {
+    width: 90px;
+    text-align: right;
+}
+
+.login-form-field {
+    border-radius: 1px;
+    border: 2px;
+}
+
+.login-form-label {
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
+.login-form-field {
+    width: 120px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    padding: 0 5px;
+    font-size: medium;
+}
+
+.logged-text {
+    display: inline-block;
+    padding-right: 10px;
     text-align: center;
+}
+
+.logo-wrapper {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
 }
 
 .head-btn {
     width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
     font-size: x-large;
 }
 
@@ -67,34 +113,105 @@
     background-color: #003d99;
 }
 
-.under-header-text {
-    color: white;
-    text-shadow: 1px 1px #00000099;
-    font-size: large;
-    display: block;
-    text-align: right;
-    padding-right: 20px;
+
+.header-login-section {
+    text-align: center;
+}
+
+.form-field-container {
+    display: inline-block;
+}
+
+.login-container {
+    display: inline-block;
 }
 
 .btn-login {
     font-size: large;
-    margin-bottom: 5px;
     padding-top: 0;
+    margin-bottom: 25px;
 }
 
 .login-error {
     margin-right: 10px;
     color: #ff3344;
+    vertical-align: middle;
 }
 
-.login-form-label {
-    margin-right: 5px;
+.header-btn-section {
+    text-align: center;
 }
 
-.login-form-field {
-    width: 120px;
-    margin-right: 10px;
-    margin-bottom: 0;
-    padding: 0 5px;
-    font-size: medium;
+
+@media (min-width: 768px) {
+
+    .header-btn-link {
+        min-width: 150px;
+    }
+
+    .header-text-container {
+        padding-right: 20px;
+        text-align: right;
+    }
+}
+
+@media (max-width: 991px) {
+    .logo {
+        max-height: 130px;
+    }
+}
+
+@media (max-width: 380px) {
+    .header-text-container {
+        font-size: small;
+    }
+}
+
+@media (max-width: 290px) {
+    .header-text-container {
+        font-size: x-small;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .stats-element {
+        display: inline-block;
+    }
+
+    .stats-comma {
+        display: inline-block;
+    }
+
+    .header-btn-link {
+        width: 100%;
+        display: block;
+    }
+}
+
+@media (max-width: 326px) {
+    .btn-login {
+        width: 80%;
+        display: block;
+        margin: 5px auto auto;
+    }
+
+    .header-text-container {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 254px) {
+    .login-form-label {
+        text-align: center;
+        margin-right: 0;
+    }
+
+
+    .login-form-field {
+        width: 80px;
+        margin-right: 0;
+        font-size: small;
+    }
 }

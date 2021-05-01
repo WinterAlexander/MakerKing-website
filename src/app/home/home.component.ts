@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {ITCHIO_ADDRESS} from '../social-constants';
+import {STEAM_ADDRESS} from '../social-constants';
 
 @Component({
 	selector: 'app-home',
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
 		'&modestbranding=1' +
 		'&rel=0';
 	downloadAddress: string = ITCHIO_ADDRESS;
+	wishlistAddress: string = STEAM_ADDRESS;
 	downloadText: string;
 
 	constructor(private title: Title,
@@ -25,6 +27,5 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.title.setTitle('MakerKing - Create your levels!');
 	}
 }

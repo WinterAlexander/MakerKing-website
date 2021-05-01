@@ -1,11 +1,12 @@
 .social-icons {
     text-align: center;
-    padding-top: 20px;
 }
 
 .social-icon {
     width: 60px;
     margin: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
 }
 
 .social-icon:hover {
@@ -20,9 +21,11 @@
 }
 
 .footer-container {
-    background: linear-gradient(#00000000, #000000aa, #000000aa, #000000aa, #000000aa, #000000aa, #000000aa);
+    background-color: #01310f8f;
+    border-top: 2px solid #01310f40;
     margin-top: 20px;
     padding-top: 20px;
+    text-shadow: 1px 1px 3px black;
 }
 
 .about-link {
