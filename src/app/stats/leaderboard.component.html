@@ -31,10 +31,10 @@
 
 		<div class="row" style="padding-top: 10px">
 			<div class="col-6">
-				<button *ngIf="getPageNumber() > 1" type="button" class="btn btn-jumpai page-btn" (click)="prevPage()">Previous</button>
+				<button *ngIf="getPageNumber() > 1" type="button" class="btn regular-btn page-btn" (click)="prevPage()">Previous</button>
 			</div>
 			<div class="col-6" style="text-align: right">
-				<button *ngIf="!isLastPage()" type="button" class="btn btn-jumpai page-btn" (click)="nextPage()">Next</button>
+				<button *ngIf="!isLastPage()" type="button" class="btn regular-btn page-btn" (click)="nextPage()">Next</button>
 			</div>
 		</div>
 	</div>

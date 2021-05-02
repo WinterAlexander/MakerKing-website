@@ -34,7 +34,7 @@
 								<br />
 								{{userService.getUsername()}}.
 							</span>
-							<button type="button" class="btn btn-jumpai btn-login" (click)="userService.logout()">Logout</button>
+							<button type="button" class="btn regular-btn btn-login" (click)="userService.logout()">Logout</button>
 						</span>
 						<span *ngIf="!userService.isLogged()" class="header-text-container">
 							<span *ngIf="error" class="login-error">
@@ -48,7 +48,7 @@
 								<label class="login-form-label" for="password">Password:</label>
 				        <input class="login-form-field" type="password" id="password" [(ngModel)]="inputPassword" (keyup.enter)="login()" required>
 							</span>
-							<button type="button" class="btn btn-jumpai btn-login" (click)="login()">Login</button>
+							<button type="button" class="btn regular-btn btn-login" (click)="login()">Login</button>
 						</span>
 					</div>
 				</div>
@@ -57,16 +57,16 @@
 		
 		<div class="header-btn-section">
 			<a class="header-btn-link" href="/store">
-				<button type="button" class="btn btn-jumpai btn-store head-btn">Store</button>
+				<button type="button" class="btn regular-btn btn-store head-btn">Store</button>
 			</a>
 			<a class="header-btn-link" href="/news">
-				<button type="button" class="btn btn-jumpai btn-news head-btn">News</button>
+				<button type="button" class="btn regular-btn btn-news head-btn">News</button>
 			</a>
 			<a class="header-btn-link" href="/leaderboard">
-				<button type="button" class="btn btn-jumpai btn-leaderboard head-btn">Leaderboard</button>
+				<button type="button" class="btn regular-btn btn-leaderboard head-btn">Leaderboard</button>
 			</a>
 			<a class="header-btn-link" href="/press">
-				<button type="button" class="btn btn-jumpai head-btn">Press Kit</button>
+				<button type="button" class="btn regular-btn head-btn">Press Kit</button>
 			</a>
 		</div>
 	</div>

@@ -32,17 +32,17 @@
 }
 
 .btn-download {
-    background-color: #fa5c5c;
+    background: radial-gradient(circle at bottom, #fa5c5c, #f67a7a);
 }
 
 .btn-download:hover,
 .btn-download:focus,
 .btn-download:active {
-    background-color: #9c3838;
+    background: radial-gradient(circle at bottom, #9c3838, #6c2828);
 }
 
 .btn-wishlist {
-    background-color: #363636;
+    background: radial-gradient(circle at bottom, #4c4c4c, #171717);
 }
 
 .btn-wishlist:hover,

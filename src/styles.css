@@ -7,17 +7,18 @@ body {
     font-family: 'Baloo', cursive;
 }
 
-.btn-jumpai {
+.regular-btn {
     border: 3px white solid;
     padding: 3px 10px 0 10px;
     color: white;
     background-color: #5cd65c;
-    text-shadow: 1px 1px 3px black;
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 3px #0000008a;
 }
 
-.btn-jumpai:hover,
-.btn-jumpai:focus,
-.btn-jumpai:active {
+.regular-btn:hover,
+.regular-btn:focus,
+.regular-btn:active {
     background-color: #258e25;
     color: lightgray;
 }
@@ -25,7 +26,7 @@ body {
 .content-container {
     background-color: #5cd65c;
     color: white;
-    text-shadow: 1px 1px 3px black;
+    text-shadow: 1px 1px 2px black;
     border: white 2px solid;
     padding: 20px;
     font-size: 1.3em;
