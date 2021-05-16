@@ -7,6 +7,7 @@ export class Reward {
 	name: string;
 	description: string;
 	items: RewardItem[];
+	needKey: boolean;
 }
 
 export class RewardItem {

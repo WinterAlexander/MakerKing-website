@@ -7,7 +7,16 @@ export class RewardService {
 
 	constructor(private http: HttpClient) {}
 
-	public claimReward(username: string, reward: string): Promise<string> {
+	public claimReward(username: string, reward: string, key?: string): Promise<string> {
+		if (key !== undefined) {
+			return this.http.get(
+				environment.server + '/claimreward?username=' +
+				encodeURIComponent(username) + '&reward=' +
+				encodeURIComponent(reward) + '&key=' +
+				encodeURIComponent(key),
+				{ responseType: 'text' }).toPromise();
+		}
+
 		return this.http.get(
 			environment.server + '/claimreward?username=' +
 			encodeURIComponent(username) + '&reward=' +

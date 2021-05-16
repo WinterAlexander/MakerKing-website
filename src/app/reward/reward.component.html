@@ -17,12 +17,17 @@
 			</div>
 		</div>
 		
-		<p>
-			Enter your name to claim the reward
+		<p *ngIf="!currentReward.needKey" >
+			Please enter your MakerKing username to claim the reward
+			<!--Entrez votre nom pour réclamer votre récompense-->
+		</p>
+		<p *ngIf="currentReward.needKey" >
+			Please enter your MakerKing username and giveaway key to claim the reward
 			<!--Entrez votre nom pour réclamer votre récompense-->
 		</p>
 		<form class="claim-form">
 			<input type="text" placeholder="Username" name="username" [(ngModel)]="formUsername" />
+			<input *ngIf="currentReward.needKey" type="text" placeholder="Key" name="key" [(ngModel)]="formKey" />
 			<button type="button" class="btn regular-btn reward-claim-button" (click)="claimReward()">Claim<!--Réclamer--></button>
 		</form>
 		
