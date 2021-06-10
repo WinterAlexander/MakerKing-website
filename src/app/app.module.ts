@@ -23,6 +23,7 @@ import { StoreService } from './store/store.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LeaderboardComponent } from './stats/leaderboard.component';
+import { PlayerListComponent } from './stats/playerlist.component';
 
 @NgModule({
 	declarations: [
@@ -37,6 +38,7 @@ import { LeaderboardComponent } from './stats/leaderboard.component';
 		PressComponent,
 		RewardComponent,
 		LeaderboardComponent,
+		PlayerListComponent,
 		SafePipe
 	],
 	imports: [
@@ -51,6 +53,7 @@ import { LeaderboardComponent } from './stats/leaderboard.component';
 			{ path: 'press', component: PressComponent },
 			{ path: 'reward', component: RewardComponent },
 			{ path: 'leaderboard', component: LeaderboardComponent },
+			{ path: 'playerlist', component: PlayerListComponent },
 			{ path: '**', redirectTo: ''}
 		]),
 		DeviceDetectorModule.forRoot(),

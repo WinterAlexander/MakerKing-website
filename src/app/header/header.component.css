@@ -118,6 +118,10 @@
     text-align: center;
 }
 
+.player-list-link {
+    color: white;
+}
+
 .form-field-container {
     display: inline-block;
 }

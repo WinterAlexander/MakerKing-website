@@ -1,0 +1,27 @@
+<div class="container space-filler">
+	<div class="content-container">
+		<h1>Online players</h1>
+
+		<div class="row playerlist-header" *ngIf="players != null && players.length > 0">
+			<div class="col-3">
+				<span>Username</span>
+			</div>
+			<div class="col-9">
+				<span>Level</span>
+			</div>
+		</div>
+		
+		<p *ngIf="players == null || players.length == 0">
+			No player is currently online.
+		</p>
+		
+		<div class="row player-box" *ngFor="let player of players">
+			<div class="col-3">
+				<span>{{player.username}}</span>
+			</div>
+			<div class="col-9">
+				<span>{{player.editing ? "Editing" : "Playing on"}} {{player.levelName}} #{{player.levelId}}</span>
+			</div>
+		</div>
+	</div>
+</div>

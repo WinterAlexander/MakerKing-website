@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import {LeaderboardEntry} from './leaderboardentry';
+import { LeaderboardEntry } from './leaderboardentry';
 import { GlobalPlayerStats } from './globalplayerstats';
+import { OnlinePlayer } from './onlineplayer';
 
 @Injectable()
 export class StatsService {
@@ -13,6 +14,12 @@ export class StatsService {
 			.then((response: any) => {
 				return response;
 			});
+	}
+
+	public getPlayerList(): Promise<OnlinePlayer[]> {
+		return this.http.get(environment.server + '/playerlist').toPromise().then((response: any) => {
+			return response;
+		});
 	}
 
 	public getLeaderboard(startIndex: number, count: number): Promise<LeaderboardEntry[]> {

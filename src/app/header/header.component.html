@@ -23,9 +23,11 @@
 						<span class="stats-comma">
 							,&nbsp;
 						</span>
-						<span class="stats-element">
-							{{playersOnline}} player{{playersOnline > 1 ? "s" : ""}} online
-						</span>
+						<a class="player-list-link" href="/playerlist">
+							<span class="stats-element">
+								{{playersOnline}} player{{playersOnline > 1 ? "s" : ""}} online
+							</span>
+						</a>
 					</span>
 					<div *ngIf="loginReady" class="login-container">
 						<span *ngIf="userService.isLogged()" class="header-text-container">

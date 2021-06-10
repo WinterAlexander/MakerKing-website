@@ -1,0 +1,17 @@
+.playerlist-header {
+    background-color: #194380;
+    color: white;
+    padding: 3px;
+    border: solid white 3px;
+    text-shadow: 1px 1px #00000099;
+}
+
+.player-box {
+    background-color: #3385ff;
+    color: white;
+    padding: 3px;
+    border: solid white 3px;
+    border-top: 0;
+    text-shadow: 1px 1px #00000099;
+}
+
