@@ -1,4 +1,4 @@
-export class LeaderboardEntry {
+export class GlobalLeaderboardEntry {
 	constructor(public userId: number,
 				public username: string,
 				public rank: number,

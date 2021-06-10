@@ -2,12 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {StatsService} from './stats.service';
-import {LeaderboardEntry} from './leaderboardentry';
-import {UserService} from '../user/user.service';
+import {GlobalLeaderboardEntry} from '../leaderboard/globalleaderboardentry';
+import {AccountService} from '../user/account.service';
 import { OnlinePlayer } from './onlineplayer';
 
 @Component({
-	selector: 'app-leaderboard',
+	selector: 'app-playerlist',
 	templateUrl: './playerlist.component.html',
 	styleUrls: ['./playerlist.component.css']
 })

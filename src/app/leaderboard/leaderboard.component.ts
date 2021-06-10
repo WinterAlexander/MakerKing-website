@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {StatsService} from './stats.service';
-import {LeaderboardEntry} from './leaderboardentry';
-import {UserService} from '../user/user.service';
+import {StatsService} from '../stats/stats.service';
+import {GlobalLeaderboardEntry} from './globalleaderboardentry';
+import {AccountService} from '../user/account.service';
 
 const PAGE_SIZE = 25;
 
@@ -17,13 +17,13 @@ export class LeaderboardComponent implements OnInit {
 	private page = 0;
 	private end = false;
 
-	public entries: LeaderboardEntry[] = null;
+	public entries: GlobalLeaderboardEntry[] = null;
 
 	constructor(private title: Title,
 			private statsService: StatsService,
 			private router: Router,
 			private activatedRoute: ActivatedRoute,
-			public userService: UserService) {}
+			public accountService: AccountService) {}
 
 
 	ngOnInit() {

@@ -1,0 +1,70 @@
+<div class="container space-filler">
+	<div class="content-container" *ngIf="level != null">
+		<h1>{{level.levelName}}</h1>
+		<ul class="level-details">
+			<li>
+				Author: <a class="white-link" href="/player?id={{level.ownerId}}">{{level.ownerName}}</a>
+			</li>
+			<li>
+				Type: {{level.type}}
+			</li>
+			<li *ngIf="level.type == 'RACE'">
+				Tags: {{level.tags.join(", ")}}
+			</li>
+		</ul>
+
+		<div class="row leaderboard-header" *ngIf="entries != null && level.type == 'RACE'">
+			<div class="col-1">
+				<span>Rank</span>
+			</div>
+			<div class="col-2">
+				<span>Username</span>
+			</div>
+			<div class="col-5">
+				<span>Time</span>
+			</div>
+			<div class="col-1">
+				<span>Deaths</span>
+			</div>
+			<div class="col-1">
+				<span>Blind?</span>
+			</div>
+			<div class="col-2">
+				<span class="score-span">Score</span>
+			</div>
+		</div>
+
+		<div class="row entry-container" *ngFor="let entry of entries" [ngClass]="{'own-entry': entry.playerName === accountService.getUsername() }">
+			<div class="col-1">
+				<span>#{{entry.position}}</span>
+			</div>
+			<div class="col-2">
+				<a class="white-link" href="/player?id={{entry.playerId}}"><span>{{entry.playerName}}</span></a>
+			</div>
+			<div class="col-5">
+				<span>{{displayTime(entry)}}</span>
+			</div>
+			<div class="col-1">
+				<span>{{entry.deaths}}</span>
+			</div>
+			<div class="col-1">
+				<span>{{entry.blind ? 'Yes' : 'No'}}</span>
+			</div>
+			<div class="col-2">
+				<span class="score-span">{{entry.score | number: '1.0-0'}}</span>
+			</div>
+		</div>
+
+		<div class="row" style="padding-top: 10px">
+			<div class="col-6">
+				<button *ngIf="getPageNumber() > 1" type="button" class="btn regular-btn page-btn" (click)="prevPage()">Previous</button>
+			</div>
+			<div class="col-6" style="text-align: right">
+				<button *ngIf="!isLastPage()" type="button" class="btn regular-btn page-btn" (click)="nextPage()">Next</button>
+			</div>
+		</div>
+	</div>
+	<div class="content-container" *ngIf="level == null">
+		<span>Loading...</span>
+	</div>
+</div>

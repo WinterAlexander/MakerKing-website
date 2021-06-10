@@ -2,7 +2,7 @@ import { Component, NgZone, OnInit, TemplateRef, ViewChild } from '@angular/core
 import { Title } from '@angular/platform-browser';
 import { IPayPalConfig } from 'ngx-paypal';
 import { StoreItem } from './storeitem';
-import { UserService } from '../user/user.service';
+import { AccountService } from '../user/account.service';
 import { Router } from '@angular/router';
 import { StoreService } from './store.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -46,7 +46,7 @@ export class StoreComponent implements OnInit {
 
 	constructor(private ngZone: NgZone,
 				private title: Title,
-				private userService: UserService,
+				private userService: AccountService,
 				private storeService: StoreService,
 				private router: Router,
 				private dialog: MatDialog) {}
@@ -112,7 +112,7 @@ export class StoreComponent implements OnInit {
 		this.selected = item;
 	}
 
-	public getUserService(): UserService {
+	public getUserService(): AccountService {
 		return this.userService;
 	}
 }

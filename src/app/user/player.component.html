@@ -1,0 +1,16 @@
+<div class="container space-filler">
+	<div class="content-container" *ngIf="stats != null">
+		<h1>{{stats.playerName}}</h1>
+		<ul class="player-details">
+			<li *ngIf="stats.score > 0">
+				Rank: {{stats.scoreRank}} (Best: {{stats.bestRank}})
+			</li>
+			<li>
+				Score: {{stats.score}} (Best: {{stats.bestScore}})
+			</li>
+		</ul>
+	</div>
+	<div class="content-container" *ngIf="stats == null">
+		<span>Loading...</span>
+	</div>
+</div>

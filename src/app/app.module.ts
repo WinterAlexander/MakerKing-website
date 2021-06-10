@@ -18,12 +18,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { RewardService } from './reward/reward.service';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { StatsService } from './stats/stats.service';
-import { UserService } from './user/user.service';
+import { AccountService } from './user/account.service';
 import { StoreService } from './store/store.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import { LeaderboardComponent } from './stats/leaderboard.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { PlayerListComponent } from './stats/playerlist.component';
+import { LevelComponent } from './level/level.component';
+import { PlayerComponent } from './user/player.component';
 
 @NgModule({
 	declarations: [
@@ -39,6 +41,8 @@ import { PlayerListComponent } from './stats/playerlist.component';
 		RewardComponent,
 		LeaderboardComponent,
 		PlayerListComponent,
+		LevelComponent,
+		PlayerComponent,
 		SafePipe
 	],
 	imports: [
@@ -54,6 +58,8 @@ import { PlayerListComponent } from './stats/playerlist.component';
 			{ path: 'reward', component: RewardComponent },
 			{ path: 'leaderboard', component: LeaderboardComponent },
 			{ path: 'playerlist', component: PlayerListComponent },
+			{ path: 'level', component: LevelComponent },
+			{ path: 'player', component: PlayerComponent },
 			{ path: '**', redirectTo: ''}
 		]),
 		DeviceDetectorModule.forRoot(),
@@ -63,7 +69,7 @@ import { PlayerListComponent } from './stats/playerlist.component';
 		BrowserAnimationsModule,
 		MatDialogModule
 	],
-	providers: [ RewardService, UserService, StatsService, StoreService ],
+	providers: [ RewardService, AccountService, StatsService, StoreService ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}

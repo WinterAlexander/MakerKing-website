@@ -17,10 +17,10 @@
 		
 		<div class="row player-box" *ngFor="let player of players">
 			<div class="col-3">
-				<span>{{player.username}}</span>
+				<a class="white-link" href="/player?id={{player.userId}}"><span>{{player.username}}</span></a>
 			</div>
 			<div class="col-9">
-				<span>{{player.editing ? "Editing" : "Playing on"}} {{player.levelName}} #{{player.levelId}}</span>
+				<span>{{player.editing ? "Editing" : "Playing on"}} <a class="white-link" href="/level?id={{player.levelId}}">{{player.levelName}} #{{player.levelId}}</a></span>
 			</div>
 		</div>
 	</div>

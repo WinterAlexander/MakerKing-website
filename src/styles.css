@@ -39,3 +39,7 @@ body {
 a {
     color: #79e270;
 }
+
+.white-link {
+    color: white;
+}

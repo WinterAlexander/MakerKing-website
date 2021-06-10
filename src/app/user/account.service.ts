@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class UserService {
+export class AccountService {
 	constructor(private http: HttpClient) {}
 
 	public login(username: string, password: string): Promise<void> {
