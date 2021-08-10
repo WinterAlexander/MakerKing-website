@@ -26,6 +26,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { PlayerListComponent } from './stats/playerlist.component';
 import { LevelComponent } from './level/level.component';
 import { PlayerComponent } from './user/player.component';
+import { SupportUsComponent } from './supportus/support-us.component';
 
 @NgModule({
 	declarations: [
@@ -43,7 +44,8 @@ import { PlayerComponent } from './user/player.component';
 		PlayerListComponent,
 		LevelComponent,
 		PlayerComponent,
-		SafePipe
+		SafePipe,
+		SupportUsComponent
 	],
 	imports: [
 		BrowserModule,
@@ -60,6 +62,7 @@ import { PlayerComponent } from './user/player.component';
 			{ path: 'playerlist', component: PlayerListComponent },
 			{ path: 'level', component: LevelComponent },
 			{ path: 'player', component: PlayerComponent },
+			{ path: 'supportus', component: SupportUsComponent },
 			{ path: '**', redirectTo: ''}
 		]),
 		DeviceDetectorModule.forRoot(),
