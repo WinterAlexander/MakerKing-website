@@ -1,0 +1,19 @@
+
+.content-container {
+    background: #ce667e;
+}
+
+p {
+    padding: 0 20px;
+    font-size: x-large;
+}
+
+
+.img-container {
+    width: 100%;
+}
+
+.img-container > img {
+    margin: auto;
+    display: block;
+}
