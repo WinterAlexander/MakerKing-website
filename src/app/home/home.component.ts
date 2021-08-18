@@ -15,15 +15,11 @@ export class HomeComponent implements OnInit {
 		'&mute=1' +
 		'&modestbranding=1' +
 		'&rel=0';
-	downloadAddress: string = ITCHIO_ADDRESS;
-	wishlistAddress: string = STEAM_ADDRESS;
-	downloadText: string;
+	itchAddress: string = ITCHIO_ADDRESS;
+	steamAddress: string = STEAM_ADDRESS;
 
 	constructor(private title: Title,
 				private deviceService: DeviceDetectorService) {
-		this.downloadText = this.deviceService.isDesktop()
-			? 'Download'
-			: 'Download<br/>(for desktops only)';
 	}
 
 	ngOnInit() {

@@ -1,20 +1,20 @@
 <div class="home-container">
 	<iframe class="youtube-player" [src]="videoAddress | safe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	<br />
-	<a href="{{downloadAddress}}">
-		<button type="button" class="btn regular-btn btn-cta btn-download">
-			<span class="store-text">
-				Download <br />on itch.io
-			</span>
-			<img src="assets/itch.png" class="store-icon" alt="Itch.io" />
-		</button>
-	</a>
-	<a href="{{wishlistAddress}}">
+	<a href="{{steamAddress}}">
 		<button type="button" class="btn regular-btn btn-cta btn-wishlist">
 			<span class="store-text">
-				Wishlist <br />on Steam
+				Play <br />on Steam
 			</span>
 			<img src="assets/steam.png" class="store-icon" alt="Steam" />
+		</button>
+	</a>
+	<a href="{{itchAddress}}">
+		<button type="button" class="btn regular-btn btn-cta btn-download">
+			<span class="store-text">
+				Play <br />on itch.io
+			</span>
+			<img src="assets/itch.png" class="store-icon" alt="Itch.io" />
 		</button>
 	</a>
 </div>
