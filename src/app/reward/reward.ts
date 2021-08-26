@@ -4,6 +4,7 @@
  */
 export class Reward {
 	id: string;
+	url: string;
 	name: string;
 	description: string;
 	items: RewardItem[];

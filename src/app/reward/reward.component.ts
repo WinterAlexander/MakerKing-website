@@ -13,6 +13,7 @@ export class RewardComponent implements OnInit {
 	rewards: Reward[] = [
 		{
 			id: 'farisun',
+			url: 'farisun',
 			name: 'Item pour les joueurs de FariSun',
 			description: 'Voici un cosmétique spécialement pour vous, joueurs de FariSun.',
 			items: [
@@ -22,6 +23,7 @@ export class RewardComponent implements OnInit {
 		},
 		{
 			id: 'bluecoaster',
+			url: 'bluecoaster',
 			name: 'Item for Blue\'s fans',
 			description: 'Wear this shirt to show your support for Blue!',
 			items: [
@@ -31,6 +33,7 @@ export class RewardComponent implements OnInit {
 		},
 		{
 			id: 'akira',
+			url: 'akira',
 			name: 'Item for Akira\'s fans',
 			description: 'Wear this shirt to show your support for Akira!',
 			items: [
@@ -40,6 +43,7 @@ export class RewardComponent implements OnInit {
 		},
 		{
 			id: 'igl',
+			url: 'igl',
 			name: 'Item for IndieGameLover\'s fans',
 			description: 'Wear this shirt to show your support for IndieGameLover!',
 			items: [
@@ -48,7 +52,28 @@ export class RewardComponent implements OnInit {
 			needKey: false
 		},
 		{
+			id: 'artega',
+			url: 'artega',
+			name: 'Item for Artega Omega\'s fans',
+			description: 'Wear this shirt to show your support for Artega Omega!',
+			items: [
+				{ name: 'Artega\'s Shirt', image: '../assets/reward/artega.png' }
+			],
+			needKey: false
+		},
+		{
+			id: 'zsuat',
+			url: 'tenekekafalar',
+			name: 'Teneke Kafalar hayranları için eşya',
+			description: 'Teneke Kafalar\'a olan desteğinizi göstermek için bu şapkayı takabilirsin!',
+			items: [
+				{ name: 'Teneke Kafalar\'ın şapkası', image: '../assets/reward/zsuat.png' }
+			],
+			needKey: false
+		},
+		{
 			id: 'alienware',
+			url: 'alienware',
 			name: 'Alienware giveaway Skin',
 			description: 'Exclusive skin for Alienware users and frisbee coins',
 			items: [
@@ -59,6 +84,7 @@ export class RewardComponent implements OnInit {
 		},
 		{
 			id: 'intel',
+			url: 'intel',
 			name: 'Intel giveaway Skin',
 			description: 'Exclusive skin for Intel users and frisbee coins',
 			items: [
@@ -83,7 +109,7 @@ export class RewardComponent implements OnInit {
 	ngOnInit() {
 		this.activatedRoute.queryParams.subscribe(params => {
 			const rewardId = params['id'];
-			const reward = this.rewards.find(r => r.id === rewardId);
+			const reward = this.rewards.find(r => r.url === rewardId);
 
 			if (reward === undefined) {
 				this.router.navigate(['/']);
