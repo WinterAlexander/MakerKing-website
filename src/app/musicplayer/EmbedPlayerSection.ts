@@ -1,6 +1,6 @@
-import { MusicOption } from 'MusicOption';
-import { HttpClient, newHttpClient, Request } from 'typescript-http-client';
-import { BandcampId } from 'BandcampId';
+import { MusicOption } from './MusicOption';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { BandcampId } from './BandcampId';
 import { MusicPlayerComponent } from './music-player.component';
 
 /**
@@ -8,20 +8,16 @@ import { MusicPlayerComponent } from './music-player.component';
  */
 export class EmbedPlayerSection {
 
-	constructor(window: MusicPlayerComponent) {
-		this.embedPlayer = document.getElementById('player-container');
-		this.httpClient = newHttpClient();
-		this.window = window;
-	}
-
 	private readonly embedPlayer: HTMLElement;
 
 	private soundcloudIdMap: Map<string, string> = new Map<string, string>();
 	private bandcampIdMap: Map<string, BandcampId> = new Map<string, BandcampId>();
 
-	private readonly httpClient: HttpClient;
 
-	private readonly window: MusicPlayerComponent;
+	constructor(private readonly window: MusicPlayerComponent,
+				private readonly http: HttpClient) {
+		this.embedPlayer = document.getElementById('player-container');
+	}
 
 	private static getYouTubeID(url: string): string {
 		return new URL(url).searchParams.get('v');
@@ -59,9 +55,7 @@ export class EmbedPlayerSection {
 			return Promise.resolve(this.soundcloudIdMap.get(url));
 		}
 
-		const request: Request = new Request(url, { responseType: 'text' });
-
-		return this.httpClient.execute<string>(request).then(responseBody => {
+		return this.http.get(url).toPromise().then((responseBody: any) => {
 
 			const el = document.createElement('html');
 			el.innerHTML = responseBody;
@@ -92,9 +86,7 @@ export class EmbedPlayerSection {
 			return Promise.resolve(this.bandcampIdMap.get(url));
 		}
 
-		const request: Request = new Request(url, { responseType: 'text' });
-
-		return this.httpClient.execute<string>(request).then(responseBody => {
+		return this.http.get(url).toPromise().then((responseBody: any) => {
 
 			const el = document.createElement('html');
 			el.innerHTML = responseBody;
