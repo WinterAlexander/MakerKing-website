@@ -27,6 +27,7 @@ import { PlayerListComponent } from './stats/playerlist.component';
 import { LevelComponent } from './level/level.component';
 import { PlayerComponent } from './user/player.component';
 import { SupportUsComponent } from './supportus/support-us.component';
+import { MusicPlayerComponent } from './musicplayer/music-player.component';
 
 @NgModule({
 	declarations: [
@@ -45,7 +46,8 @@ import { SupportUsComponent } from './supportus/support-us.component';
 		LevelComponent,
 		PlayerComponent,
 		SafePipe,
-		SupportUsComponent
+		SupportUsComponent,
+		MusicPlayerComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -63,6 +65,7 @@ import { SupportUsComponent } from './supportus/support-us.component';
 			{ path: 'level', component: LevelComponent },
 			{ path: 'player', component: PlayerComponent },
 			{ path: 'supportus', component: SupportUsComponent },
+			{ path: 'musicplayer', component: MusicPlayerComponent },
 			{ path: '**', redirectTo: ''}
 		]),
 		DeviceDetectorModule.forRoot(),
