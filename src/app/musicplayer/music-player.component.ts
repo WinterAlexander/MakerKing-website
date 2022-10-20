@@ -11,11 +11,15 @@ import { HttpClient } from '@angular/common/http';
 
 
 @Component({
-	selector: 'app-leaderboard',
+	selector: 'app-music-player',
 	templateUrl: './music-player.component.html',
 	styleUrls: ['./music-player.component.css']
 })
 export class MusicPlayerComponent implements OnInit {
+
+	private loadingMessage: HTMLElement;
+	private gameNotRunningMessage: HTMLElement;
+	private playerContainer: HTMLElement;
 
 	private levelInfoContainer: HTMLElement;
 	private notInALevel: HTMLElement;
@@ -31,9 +35,6 @@ export class MusicPlayerComponent implements OnInit {
 	private playerIcons: Map<string, HTMLElement> = new Map<string, HTMLElement>();
 
 	private emptyMessage: HTMLElement;
-
-	private saveSongButton: HTMLElement;
-	private songListButton: HTMLElement;
 
 	private webSocket: WebSocket;
 
@@ -60,6 +61,10 @@ export class MusicPlayerComponent implements OnInit {
 	ngOnInit(): void {
 		this.title.setTitle('MakerKing - Music Player');
 
+		this.loadingMessage = document.getElementById('loading-message');
+		this.gameNotRunningMessage = document.getElementById('gamenotrunning-message');
+		this.playerContainer = document.getElementById('player-container');
+
 		this.levelInfoContainer = document.getElementById('level-info-container');
 		this.notInALevel = document.getElementById('not-in-a-level');
 		this.gameStateLine = document.getElementById('game-state-line');
@@ -78,16 +83,13 @@ export class MusicPlayerComponent implements OnInit {
 
 		this.emptyMessage = document.getElementById('empty-message');
 
-		this.saveSongButton = document.getElementById('save-button');
-		this.songListButton = document.getElementById('song-list-button');
-
 		this.musicOptions = [];
 
 		this.checkboxSection = new CheckboxSection();
 		this.dragger = new PlayerPreferenceSection(this.updateUI.bind(this));
 		this.player = new EmbedPlayerSection(this, this.http);
 
-		this.run();
+		this.connect();
 	}
 
 	public setLevel(level: any): void {
@@ -157,11 +159,19 @@ export class MusicPlayerComponent implements OnInit {
 		}
 	}
 
-	public run(): void {
+	public connect(): void {
 		this.webSocket = new WebSocket('ws://localhost:1770');
 
+		this.webSocket.onerror = event => {
+			this.gameNotRunningMessage.classList.remove('hidden');
+			this.loadingMessage.classList.add('hidden');
+			setInterval(this.connect.bind(this), 1000);
+		};
+
 		this.webSocket.onopen = event => {
-			this.webSocket.send('Overwolf');
+			this.webSocket.send('WebPlayer');
+			this.playerContainer.classList.remove('hidden');
+			this.loadingMessage.classList.add('hidden');
 		};
 
 		this.webSocket.onmessage = event => {
@@ -212,10 +222,6 @@ export class MusicPlayerComponent implements OnInit {
 
 				this.setLevel(level);
 			}
-		};
-
-		this.saveSongButton.onclick = () => {
-
 		};
 	}
 

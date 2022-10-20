@@ -23,55 +23,48 @@ img.player-icon.selected {
 
 div.draggable-player {
     width: 96%;
-    background-color: #8d8d8d;
+    background-color: #3385ff;
     padding: 2%;
     margin: 2%;
+    border: 3px white solid;
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 3px #0000008a;
+    border-radius: 3px;
 }
 
 div.draggable-player > span {
-    font-family: "Roboto Mono", Helvetica, sans-serif;
+    /* font-family: "Roboto Mono", Helvetica, sans-serif; */
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     color: white;
     width: 76%;
     display: inline-block;
+    margin-left: 4px;
 }
 
 img.draggable-icon {
     width: 10%;
+    background-color: white;
+    border: 3px white solid;
+    box-shadow: 1px 1px 3px #0000008a;
+    border-radius: 3px;
 }
 
-
 span.drag-info {
-    font-family: "Roboto Mono", Helvetica, sans-serif;
+    /* font-family: "Roboto Mono", Helvetica, sans-serif; */
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
-    color: #999999;
+    /* color: #999999; */
 }
 
 div.player-drag-container {
-    background-color: #5a5a5a;
+    /* background-color: #5a5a5a; */
 }
 
 /* Main */
 
-.in-game {
-    font-family: "Roboto", Helvetica, sans-serif;
-}
-
-html {
-    height: 100%;
-}
-
-body {
-    background-color: #333333;
-    margin: 0;
-    font-size: 14px;
-    height: 100%;
-    overflow: hidden;
-}
 
 main {
     height: 100%;
@@ -79,7 +72,7 @@ main {
     color: #d5d5d5;
 }
 
-div.settings-container, div.settings-container > div.row {
+div#player-container, div#player-container > div.row {
     height: 100%;
 }
 
@@ -90,7 +83,7 @@ div.main-column, div.secondary-column {
 }
 
 h1 {
-    font-family: "Roboto Mono", Helvetica, sans-serif;
+    /* font-family: "Roboto Mono", Helvetica, sans-serif; */
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -98,7 +91,7 @@ h1 {
 }
 
 h2 {
-    font-family: "Roboto Mono", Helvetica, sans-serif;
+    /* font-family: "Roboto Mono", Helvetica, sans-serif; */
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -116,9 +109,9 @@ div.column-spacer {
 }
 
 div.music-settings-container {
-    background-color: #5a5a5a;
+    /* background-color: #5a5a5a; */
     color: white;
-    font-family: "Roboto Mono", Helvetica, sans-serif;
+    /* font-family: "Roboto Mono", Helvetica, sans-serif; */
     font-size: 18px;
     padding: 10px;
 }
@@ -141,7 +134,7 @@ p.level-info-line {
 }
 
 div.level-info-box {
-    background-color: #5a5a5a;
+    /* background-color: #5a5a5a; */
     padding: 5px;
 }
 
@@ -151,37 +144,4 @@ div.level-info-box {
 
 .hidden {
     display: none;
-}
-
-/* Ad */
-
-div.player-ad-container {
-    display: flex;
-    flex-grow: 1;
-}
-
-
-/*
-#ad {
-    height: 150px;
-    line-height: 150px;
-    width: 100%;
-    background-color: #5a5a5a;
-    text-align: center;
-
-    font-family: "Roboto Mono", Helvetica, sans-serif;
-    font-size: 18px;
-}
- */
-
-/* Song saving */
-
-div.song-save-container {
-    text-align: right;
-}
-
-div.song-save-container > button {
-    background-color: #5a5a5a;
-    border-radius: 0;
-    border: 0;
 }

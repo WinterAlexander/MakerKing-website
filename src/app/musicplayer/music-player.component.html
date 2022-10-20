@@ -1,8 +1,15 @@
 <div class="container space-filler">
 	<div class="content-container">
-		<h1>Music Player</h1>
 		
-		<div class="settings-container">
+		<span id="loading-message">
+			Loading...
+		</span>
+		
+		<span id="gamenotrunning-message" class="hidden">
+			MakerKing not detected. You must have MakerKing running to use the music player.
+		</span>
+		
+		<div id="player-container" class="hidden">
 			<div class="row">
 				<div class="col-md-6 col-lg-8 main-column">
 					
@@ -32,36 +39,11 @@
 						<h2 class="level-info-title">Not in a Level</h2>
 						<div class="level-info-box">
 							<p class="level-info-line">
-								To use the Overwolf music player, join a level that has external music sources enabled.
+								To use the MakerKing music player, make sure the game is running and join a level that has external music sources enabled.
 							</p>
 							<p class="level-info-line" id="game-state-line">
 							
 							</p>
-						</div>
-					</div>
-					<div class="row player-ad-container">
-						<div class="col-sm-7 secondary-column">
-							<div class="column-container">
-								<div class="column-spacer"></div>
-								<p id="empty-message" style="display: none">
-									When a level with external music is joined, the prefered music player will appear
-									here!
-								</p>
-								<div id="player-container" class="embed-player-container">
-									<!-- Embed player injected here -->
-								</div>
-								<div class="song-save-container">
-									<button id="save-button" type="button" class="btn btn-dark">Save</button>
-									<button id="song-list-button" type="button" class="btn btn-dark">Saved songs</button>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-5 secondary-column">
-							<div class="column-container">
-								<div class="column-spacer"></div>
-								<div id="ad">Ad</div>
-								<!-- ad -->
-							</div>
 						</div>
 					</div>
 				</div>
