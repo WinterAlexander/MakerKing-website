@@ -2,6 +2,7 @@ import { MusicOption } from './MusicOption';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { BandcampId } from './BandcampId';
 import { MusicPlayerComponent } from './music-player.component';
+import { environment } from '../../environments/environment';
 
 /**
  * Section of the overview window that contains embed players
@@ -55,29 +56,12 @@ export class EmbedPlayerSection {
 			return Promise.resolve(this.soundcloudIdMap.get(url));
 		}
 
-		return this.http.get(url).toPromise().then((responseBody: any) => {
+		return this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=soundcloud')
+			.toPromise()
+			.then((responseBody: string) => {
 
-			const el = document.createElement('html');
-			el.innerHTML = responseBody;
-
-			const metaTags: HTMLCollectionOf<HTMLMetaElement> = el.getElementsByTagName('meta');
-			let tag: HTMLMetaElement = null;
-
-			for (let i = 0; i < metaTags.length; i++) {
-				if (metaTags.item(i).getAttribute('property') === 'twitter:app:url:googleplay') {
-					tag = metaTags.item(i);
-					break;
-				}
-			}
-
-			if (tag == null) {
-				throw new Error('Failed to find meta tag in soundcloud page (bad URL?)');
-			}
-
-			const id = tag.getAttribute('content').split(':')[2];
-			this.soundcloudIdMap.set(url, id);
-
-			return id;
+			this.soundcloudIdMap.set(url, responseBody);
+			return responseBody;
 		});
 	}
 
@@ -86,30 +70,13 @@ export class EmbedPlayerSection {
 			return Promise.resolve(this.bandcampIdMap.get(url));
 		}
 
-		return this.http.get(url).toPromise().then((responseBody: any) => {
+		return this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=bandcamp')
+			.toPromise()
+			.then((responseBody: string) => {
 
-			const el = document.createElement('html');
-			el.innerHTML = responseBody;
+			const parts = responseBody.split(',');
 
-			const divs: HTMLCollectionOf<HTMLDivElement> = el.getElementsByTagName('div');
-			let pagedata: HTMLDivElement = null;
-
-			for (let i = 0; i < divs.length; i++) {
-				if (divs.item(i).getAttribute('id') === 'pagedata') {
-					pagedata = divs.item(i);
-					break;
-				}
-			}
-
-			if (pagedata == null) {
-				throw new Error('Failed to find pagedata in bandcamp page (bad URL?)');
-			}
-
-			const dataBlob = pagedata.getAttribute('data-blob');
-
-			const json = JSON.parse(unescape(dataBlob));
-
-			const id = new BandcampId(json.track_id, json.album_id);
+			const id = new BandcampId(parts[0], parts[1]);
 			this.bandcampIdMap.set(url, id);
 
 			return id;
