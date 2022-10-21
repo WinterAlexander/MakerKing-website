@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core'
+import { environment } from '../../environments/environment'
 
 @Injectable()
 export class RewardService {
@@ -14,13 +14,13 @@ export class RewardService {
 				encodeURIComponent(username) + '&reward=' +
 				encodeURIComponent(reward) + '&key=' +
 				encodeURIComponent(key),
-				{ responseType: 'text' }).toPromise();
+				{ responseType: 'text' }).toPromise()
 		}
 
 		return this.http.get(
 			environment.server + '/claimreward?username=' +
 			encodeURIComponent(username) + '&reward=' +
 			encodeURIComponent(reward),
-			{ responseType: 'text' }).toPromise();
+			{ responseType: 'text' }).toPromise()
 	}
 }

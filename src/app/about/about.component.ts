@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import { DISCORD_ADDRESS, EMAIL_ADDRESS } from '../social-constants';
+import {Component, OnInit} from '@angular/core'
+import {Title} from '@angular/platform-browser'
+import { DISCORD_ADDRESS, EMAIL_ADDRESS } from '../social-constants'
 
 @Component({
 	selector: 'app-about',
@@ -8,12 +8,12 @@ import { DISCORD_ADDRESS, EMAIL_ADDRESS } from '../social-constants';
 	styleUrls: [ './about.component.css' ]
 })
 export class AboutComponent implements OnInit {
-	discordAddress: string = DISCORD_ADDRESS;
-	emailAddress: string = EMAIL_ADDRESS;
+	discordAddress: string = DISCORD_ADDRESS
+	emailAddress: string = EMAIL_ADDRESS
 
 	constructor(private title: Title) {}
 
 	ngOnInit() {
-		this.title.setTitle('MakerKing - About us');
+		this.title.setTitle('MakerKing - About us')
 	}
 }

@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {DISCORD_ADDRESS} from '../../social-constants';
+import {Component} from '@angular/core'
+import {DISCORD_ADDRESS} from '../../social-constants'
 
 @Component({
 	selector: 'app-thankyou',
@@ -7,5 +7,5 @@ import {DISCORD_ADDRESS} from '../../social-constants';
 	styleUrls: ['./thankyou.component.css']
 })
 export class ThankYouComponent {
-	discordAddress: string = DISCORD_ADDRESS;
+	discordAddress: string = DISCORD_ADDRESS
 }

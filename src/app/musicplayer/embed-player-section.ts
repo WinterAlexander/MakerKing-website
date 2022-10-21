@@ -1,86 +1,86 @@
-import { MusicOption } from './MusicOption';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { BandcampId } from './BandcampId';
-import { MusicPlayerComponent } from './music-player.component';
-import { environment } from '../../environments/environment';
+import { MusicOption } from './music-option'
+import { HttpClient } from '@angular/common/http'
+import { BandcampId } from './bandcamp-id'
+import { MusicPlayerComponent } from './music-player.component'
+import { environment } from '../../environments/environment'
 
 /**
  * Section of the overview window that contains embed players
  */
 export class EmbedPlayerSection {
 
-	private readonly embedPlayer: HTMLElement;
+	private readonly embedPlayer: HTMLElement
 
-	private soundcloudIdMap: Map<string, string> = new Map<string, string>();
-	private bandcampIdMap: Map<string, BandcampId> = new Map<string, BandcampId>();
+	private soundcloudIdMap: Map<string, string> = new Map<string, string>()
+	private bandcampIdMap: Map<string, BandcampId> = new Map<string, BandcampId>()
 
 
 	constructor(private readonly window: MusicPlayerComponent,
 				private readonly http: HttpClient) {
-		this.embedPlayer = document.getElementById('player-container');
+		this.embedPlayer = document.getElementById('player-container')
 	}
 
 	private static getYouTubeID(url: string): string {
-		return new URL(url).searchParams.get('v');
+		return new URL(url).searchParams.get('v')
 	}
 
 	public updatePlayer(option: MusicOption) {
 		if (option == null) {
-			this.embedPlayer.innerHTML = '';
-			return;
+			this.embedPlayer.innerHTML = ''
+			return
 		}
 
 		if (option.provider === 'soundcloud') {
 			this.getSoundCloudID(option.url).then(id => {
-				this.embedPlayer.innerHTML = this.getSoundCloudPlayerSource(id);
+				this.embedPlayer.innerHTML = this.getSoundCloudPlayerSource(id)
 			}).catch(err => {
-				console.log('Error getting SoundCloud ID: ');
-				console.log(err);
-			});
+				console.log('Error getting SoundCloud ID: ')
+				console.log(err)
+			})
 		} else if (option.provider === 'bandcamp') {
 			this.getBandcampID(option.url).then(id => {
-				this.embedPlayer.innerHTML = this.getBandcampPlayerSource(id);
+				this.embedPlayer.innerHTML = this.getBandcampPlayerSource(id)
 			}).catch(err => {
-				console.log('Error getting Bandcamp ID: ');
-				console.log(err);
-			});
+				console.log('Error getting Bandcamp ID: ')
+				console.log(err)
+			})
 		} else if (option.provider === 'youtube') {
-			const id = EmbedPlayerSection.getYouTubeID(option.url);
-			this.embedPlayer.innerHTML = this.getYouTubePlayerSource(id);
+			const id = EmbedPlayerSection.getYouTubeID(option.url)
+			this.embedPlayer.innerHTML = this.getYouTubePlayerSource(id)
 		}
 	}
 
 
 	private getSoundCloudID(url: string): Promise<string> {
 		if (this.soundcloudIdMap.has(url)) {
-			return Promise.resolve(this.soundcloudIdMap.get(url));
+			return Promise.resolve(this.soundcloudIdMap.get(url))
 		}
 
 		return this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=soundcloud')
 			.toPromise()
 			.then((responseBody: string) => {
 
-			this.soundcloudIdMap.set(url, responseBody);
-			return responseBody;
-		});
+			this.soundcloudIdMap.set(url, responseBody)
+			return responseBody
+		})
 	}
 
 	private getBandcampID(url: string): Promise<BandcampId> {
 		if (this.bandcampIdMap.has(url)) {
-			return Promise.resolve(this.bandcampIdMap.get(url));
+			return Promise.resolve(this.bandcampIdMap.get(url))
 		}
 
 		return this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=bandcamp')
 			.toPromise()
 			.then((responseBody: string) => {
 
-			const parts = responseBody.split(',');
+			const parts = responseBody.split(',')
 
-			const id = new BandcampId(parts[0], parts[1]);
-			this.bandcampIdMap.set(url, id);
+			const id = new BandcampId(parts[0], parts[1])
+			this.bandcampIdMap.set(url, id)
 
-			return id;
-		});
+			return id
+		})
 	}
 
 	private getBandcampPlayerSource(id: BandcampId): string {
@@ -89,7 +89,7 @@ export class EmbedPlayerSection {
 				'/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=' +
 				id.trackId + '/transparent=true/" ' +
 			'       seamless>' +
-			'</iframe>';
+			'</iframe>'
 	}
 
 	private getSoundCloudPlayerSource(id: string): string {
@@ -101,7 +101,7 @@ export class EmbedPlayerSection {
 			'       src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' +
 				id + '&color=%23ff5500&auto_play=' + this.window.isAutoplay() +
 				'&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">\n' +
-			'</iframe>';
+			'</iframe>'
 	}
 
 	private getYouTubePlayerSource(id: string): string {
@@ -110,8 +110,8 @@ export class EmbedPlayerSection {
 			'    src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=' + (this.window.isAutoplay() ? '1' : '0') + '" ' +
 			'    title="YouTube video player" ' +
 			'    frameborder="0" ' +
-			'    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+			'    allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" ' +
 			'    allowfullscreen>' +
-			'</iframe>';
+			'</iframe>'
 	}
 }

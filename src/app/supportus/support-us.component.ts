@@ -1,5 +1,5 @@
-import { Component, NgZone, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, NgZone, OnInit } from '@angular/core'
+import { Title } from '@angular/platform-browser'
 
 @Component({
 	selector: 'app-support-us',
@@ -12,6 +12,6 @@ export class SupportUsComponent implements OnInit {
 				private title: Title) {}
 
 	ngOnInit() {
-		this.title.setTitle('MakerKing - Support us with frisbee coins');
+		this.title.setTitle('MakerKing - Support us with frisbee coins')
 	}
 }

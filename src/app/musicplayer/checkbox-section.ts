@@ -1,15 +1,15 @@
 /**
- * Section of the OverviewWindow meant to let the user configure its experience
+ * Section of the music player meant to let the user configure its experience
  * with checkbox options
  */
-import { AppSettings } from './AppSettings';
+import { PlayerSettings } from './player-settings';
 
 export class CheckboxSection {
 
 	private readonly autoPlayCheckbox: HTMLInputElement;
 	private readonly restartSongCheckbox: HTMLInputElement;
 
-	private readonly settings: AppSettings = new AppSettings();
+	private readonly settings: PlayerSettings = new PlayerSettings();
 
 	constructor() {
 		this.autoPlayCheckbox = <HTMLInputElement>document.getElementById('music_autoplay');
