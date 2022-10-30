@@ -1,5 +1,5 @@
 import { MusicOption } from './music-option'
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { BandcampId } from './bandcamp-id'
 import { MusicPlayerComponent } from './music-player.component'
 import { environment } from '../../environments/environment'
