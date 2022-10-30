@@ -1,5 +1,5 @@
 import { MusicOption } from './music-option'
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { BandcampId } from './bandcamp-id'
 import { MusicPlayerComponent } from './music-player.component'
 import { environment } from '../../environments/environment'
@@ -45,7 +45,7 @@ export class EmbedPlayerSection {
 			})
 		} else if (option.provider === 'bandcamp') {
 			this.getBandcampID(option.url).then(id => {
-				this.embedPlayer.innerHTML = this.getBandcampPlayerSource(id)
+				this.embedPlayer.innerHTML = EmbedPlayerSection.getBandcampPlayerSource(id)
 			}).catch(err => {
 				console.log('Error getting Bandcamp ID: ')
 				console.log(err)
@@ -75,8 +75,6 @@ export class EmbedPlayerSection {
 			return Promise.resolve(this.bandcampIdMap.get(url))
 		}
 
-		const httpOptions = { headers: new HttpHeaders(), responseType: 'text' }
-
 		return this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=bandcamp', { responseType: 'text' })
 			.toPromise()
 			.then((responseBody: string) => {
@@ -90,20 +88,19 @@ export class EmbedPlayerSection {
 		})
 	}
 
-	private getBandcampPlayerSource(id: BandcampId): string {
+	private static getBandcampPlayerSource(id: BandcampId): string {
 		return '<iframe style="border: 0 width: 400px height: 120px" ' +
 			'       src="https://bandcamp.com/EmbeddedPlayer/album=' + id.albumId +
 				'/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=' +
-				id.trackId + '/transparent=true/" ' +
-			'       seamless>' +
+				id.trackId + '/transparent=true/">' +
 			'</iframe>'
 	}
 
 	private getSoundCloudPlayerSource(id: string): string {
 		return '<iframe width="100%"\n' +
 			'       height="166"\n' +
-			'       scrolling="no"\n' +
-			'       frameborder="no"\n' +
+			// '       scrolling="no"\n' +
+			// '       frameborder="no"\n' +
 			(this.window.isAutoplay() ? '     allow="autoplay"\n' : '') +
 			'       src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' +
 				id + '&color=%23ff5500&auto_play=' + this.window.isAutoplay() +
@@ -116,7 +113,7 @@ export class EmbedPlayerSection {
 			'    height="200px"' +
 			'    src="https://www.youtube.com/embed/' + id + '?autoplay=' + (this.window.isAutoplay() ? '1' : '0') + '" ' +
 			'    title="YouTube video player" ' +
-			'    frameborder="0" ' +
+			// '    frameborder="0" ' +
 			'    allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" ' +
 			'    allowfullscreen>' +
 			'</iframe>'
