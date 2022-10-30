@@ -29,20 +29,22 @@ export class PlayerPreferenceSection {
 			this.container.appendChild(player)
 		}
 
+		this.setupListeners()
+		this.dragging = null
+	}
+
+	private setupListeners(): void {
 		for (const draggable of this.players) {
-			draggable.draggable = true
 			draggable.addEventListener('dragstart', this.startDrag.bind(this))
 			draggable.addEventListener('dragenter', this.dragOver.bind(this))
-			draggable.addEventListener('drop', this.endDrag.bind(this))
+			draggable.addEventListener('dragend', this.endDrag.bind(this))
 
-			for (const child of draggable.children[Symbol.iterator]) {
+			for (const child of Array.from(draggable.children)) {
 				if (child instanceof HTMLElement) {
 					child.draggable = false
 				}
 			}
 		}
-
-		this.dragging = null
 	}
 
 	private startDrag(event: DragEvent): void {
@@ -56,11 +58,12 @@ export class PlayerPreferenceSection {
 		if (event.target instanceof HTMLElement
 			&& event.target === this.dragging) {
 			this.dragging = null
+			this.updateSettings()
+			this.updateCallback()
 		}
 	}
 
 	private dragOver(event: DragEvent): void {
-
 		if (this.dragging == null
 			|| event.target === this.dragging
 			|| !(event.target instanceof HTMLElement)
@@ -75,14 +78,12 @@ export class PlayerPreferenceSection {
 		} else {
 			this.container.insertBefore(event.target, this.dragging)
 		}
-		this.updateSettings()
-		this.updateCallback()
 	}
 
 	private updateSettings(): void {
 
 		const providers = []
-		for (const child of this.container.children[Symbol.iterator]) {
+		for (const child of Array.from(this.container.children)) {
 			if (child instanceof HTMLElement && this.players.includes(child)) {
 				providers.push(child.id.substring('draggable-'.length))
 			}

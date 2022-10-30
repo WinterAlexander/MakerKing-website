@@ -1,5 +1,5 @@
 import { MusicOption } from './music-option'
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BandcampId } from './bandcamp-id'
 import { MusicPlayerComponent } from './music-player.component'
 import { environment } from '../../environments/environment'
@@ -14,6 +14,7 @@ export class EmbedPlayerSection {
 	private soundcloudIdMap: Map<string, string> = new Map<string, string>()
 	private bandcampIdMap: Map<string, BandcampId> = new Map<string, BandcampId>()
 
+	private currentOption: MusicOption = null
 
 	constructor(private readonly window: MusicPlayerComponent,
 				private readonly http: HttpClient) {
@@ -25,6 +26,11 @@ export class EmbedPlayerSection {
 	}
 
 	public updatePlayer(option: MusicOption) {
+		if (option === this.currentOption)
+			return
+
+		this.currentOption = option
+
 		if (option == null) {
 			this.embedPlayer.innerHTML = ''
 			return
@@ -52,11 +58,10 @@ export class EmbedPlayerSection {
 
 
 	private getSoundCloudID(url: string): Promise<string> {
-		if (this.soundcloudIdMap.has(url)) {
+		if (this.soundcloudIdMap.has(url))
 			return Promise.resolve(this.soundcloudIdMap.get(url))
-		}
 
-		return this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=soundcloud')
+		return this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=soundcloud', { responseType: 'text' })
 			.toPromise()
 			.then((responseBody: string) => {
 
@@ -70,7 +75,9 @@ export class EmbedPlayerSection {
 			return Promise.resolve(this.bandcampIdMap.get(url))
 		}
 
-		return this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=bandcamp')
+		const httpOptions = { headers: new HttpHeaders(), responseType: 'text' }
+
+		return this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=bandcamp', { responseType: 'text' })
 			.toPromise()
 			.then((responseBody: string) => {
 
@@ -105,9 +112,9 @@ export class EmbedPlayerSection {
 	}
 
 	private getYouTubePlayerSource(id: string): string {
-		return '<iframe width="295"' +
-			'    height="166" ' +
-			'    src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=' + (this.window.isAutoplay() ? '1' : '0') + '" ' +
+		return '<iframe width="100%"' +
+			'    height="200px"' +
+			'    src="https://www.youtube.com/embed/' + id + '?autoplay=' + (this.window.isAutoplay() ? '1' : '0') + '" ' +
 			'    title="YouTube video player" ' +
 			'    frameborder="0" ' +
 			'    allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" ' +

@@ -19,7 +19,7 @@ export class MusicPlayerComponent implements OnInit {
 
 	private loadingMessage: HTMLElement
 	private gameNotRunningMessage: HTMLElement
-	private playerContainer: HTMLElement
+	private mainContainer: HTMLElement
 
 	private levelInfoContainer: HTMLElement
 	private notInALevel: HTMLElement
@@ -64,7 +64,7 @@ export class MusicPlayerComponent implements OnInit {
 
 		this.loadingMessage = document.getElementById('loading-message')
 		this.gameNotRunningMessage = document.getElementById('gamenotrunning-message')
-		this.playerContainer = document.getElementById('player-container')
+		this.mainContainer = document.getElementById('main-container')
 
 		this.levelInfoContainer = document.getElementById('level-info-container')
 		this.notInALevel = document.getElementById('not-in-a-level')
@@ -78,9 +78,9 @@ export class MusicPlayerComponent implements OnInit {
 		this.playerIconsLabel = document.getElementById('available-on-label')
 		this.playerIconsContainer = document.getElementById('player-icons-container')
 
-		this.playerIcons['soundcloud'] = document.getElementById('player-icon-soundcloud')
-		this.playerIcons['bandcamp'] = document.getElementById('player-icon-bandcamp')
-		this.playerIcons['youtube'] = document.getElementById('player-icon-youtube')
+		this.playerIcons.set('soundcloud', document.getElementById('player-icon-soundcloud'))
+		this.playerIcons.set('bandcamp', document.getElementById('player-icon-bandcamp'))
+		this.playerIcons.set('youtube', document.getElementById('player-icon-youtube'))
 
 		this.emptyMessage = document.getElementById('empty-message')
 
@@ -137,8 +137,8 @@ export class MusicPlayerComponent implements OnInit {
 
 	private updateIcons(): void {
 		for (const provider of Array.from(this.playerIcons.keys())) {
-			this.playerIcons[provider].classList.add('disabled')
-			this.playerIcons[provider].classList.remove('selected')
+			this.playerIcons.get(provider).classList.add('disabled')
+			this.playerIcons.get(provider).classList.remove('selected')
 		}
 
 		if (this.musicOptions.length === 0) {
@@ -151,11 +151,11 @@ export class MusicPlayerComponent implements OnInit {
 		this.emptyMessage.style.display = 'none'
 
 		for (const option of this.musicOptions) {
-			this.playerIcons[option.provider].classList.remove('disabled')
+			this.playerIcons.get(option.provider).classList.remove('disabled')
 			if (option === this.dragger.getPreferedOption(this.musicOptions)) {
-				this.playerIcons[option.provider].classList.add('selected')
+				this.playerIcons.get(option.provider).classList.add('selected')
 			} else {
-				this.playerIcons[option.provider].classList.remove('selected')
+				this.playerIcons.get(option.provider).classList.remove('selected')
 			}
 		}
 	}
@@ -173,13 +173,13 @@ export class MusicPlayerComponent implements OnInit {
 			this.webSocket = null
 			this.gameNotRunningMessage.classList.remove('hidden')
 			this.loadingMessage.classList.add('hidden')
-			this.playerContainer.classList.add('hidden')
+			this.mainContainer.classList.add('hidden')
 		}
 
 		this.webSocket.onopen = event => {
 			console.log('WebSocket connection successful')
 			this.webSocket.send('WebPlayer')
-			this.playerContainer.classList.remove('hidden')
+			this.mainContainer.classList.remove('hidden')
 			this.loadingMessage.classList.add('hidden')
 			this.gameNotRunningMessage.classList.add('hidden')
 		}

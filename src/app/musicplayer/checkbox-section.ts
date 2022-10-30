@@ -2,36 +2,25 @@
  * Section of the music player meant to let the user configure its experience
  * with checkbox options
  */
-import { PlayerSettings } from './player-settings';
+import { PlayerSettings } from './player-settings'
 
 export class CheckboxSection {
 
-	private readonly autoPlayCheckbox: HTMLInputElement;
-	private readonly restartSongCheckbox: HTMLInputElement;
+	private readonly autoPlayCheckbox: HTMLInputElement
 
-	private readonly settings: PlayerSettings = new PlayerSettings();
+	private readonly settings: PlayerSettings = new PlayerSettings()
 
 	constructor() {
-		this.autoPlayCheckbox = <HTMLInputElement>document.getElementById('music_autoplay');
-		this.restartSongCheckbox = <HTMLInputElement>document.getElementById('music_restartondeath');
+		this.autoPlayCheckbox = <HTMLInputElement>document.getElementById('music_autoplay')
 
-		this.autoPlayCheckbox.checked = this.settings.isAutoplay();
-		this.restartSongCheckbox.checked = this.settings.isRestartOnReset();
+		this.autoPlayCheckbox.checked = this.settings.isAutoplay()
 
 		this.autoPlayCheckbox.onchange = (event: Event) => {
-			this.settings.setAutoplay((event.target as HTMLInputElement).checked);
-		};
-
-		this.restartSongCheckbox.onchange = (event: Event) => {
-			this.settings.setRestartOnReset((event.target as HTMLInputElement).checked);
-		};
+			this.settings.setAutoplay((event.target as HTMLInputElement).checked)
+		}
 	}
 
 	public isAutoplay(): boolean {
-		return this.autoPlayCheckbox.checked;
-	}
-
-	public isRestart(): boolean {
-		return this.restartSongCheckbox.checked;
+		return this.autoPlayCheckbox.checked
 	}
 }

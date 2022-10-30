@@ -9,7 +9,7 @@
 			MakerKing not detected. You must have MakerKing running to use the music player.
 		</span>
 		
-		<div id="player-container" class="hidden">
+		<div id="main-container" class="hidden">
 			<div class="row">
 				<div class="col-md-6 col-lg-8 main-column">
 					
@@ -46,37 +46,53 @@
 							</p>
 						</div>
 					</div>
+					
+					<div class="row">
+						<div class="col-sm-12 secondary-column">
+							<div class="column-container">
+								<div class="column-spacer"></div>
+								<p id="empty-message" style="display: none">
+									When a level with external music is joined, the prefered music player will appear
+									here!
+								</p>
+								<div id="player-container" class="embed-player-container">
+									<!-- Embed player injected here -->
+								</div>
+							</div>
+						</div>
+					</div>
+					
 				</div>
+			
 				<div class="col-md-6 col-lg-4 main-column">
 					<h2>Music player preference</h2>
 					<span class="drag-info">Drag to reorder</span>
 					<div class="player-drag-container" id="draggable-container">
-						<div class="draggable-player" id="draggable-soundcloud">
+						<div class="draggable-player" id="draggable-soundcloud" draggable="true">
 							<img class="draggable-icon" src="../../assets/music/soundcloud.png" alt="SoundCloud"/>
 							<span>
 								SoundCloud
 							</span>
 							<img class="drag-icon" src="../../assets/music/drag_icon.svg" alt="Drag" />
 						</div>
-						<div class="draggable-player" id="draggable-bandcamp">
+						<div class="draggable-player" id="draggable-bandcamp" draggable="true">
 							<img class="draggable-icon" src="../../assets/music/bandcamp.png" alt="Bandcamp"/>
 							<span>
 								Bandcamp
 							</span>
-							<img class="draggable-icon" class="drag-icon" src="../../assets/music/drag_icon.svg" alt="Drag" />
+							<img class="drag-icon" src="../../assets/music/drag_icon.svg" alt="Drag" />
 						</div>
-						<div class="draggable-player" id="draggable-youtube">
+						<div class="draggable-player" id="draggable-youtube" draggable="true">
 							<img class="draggable-icon" src="../../assets/music/youtube.png" alt="YouTube"/>
 							<span>
 								YouTube
 							</span>
-							<img class="draggable-icon" class="drag-icon" src="../../assets/music/drag_icon.svg" alt="Drag" />
+							<img class="drag-icon" src="../../assets/music/drag_icon.svg" alt="Drag" />
 						</div>
 					</div>
 					<div class="music-settings-container">
 						<form>
 							<input type="checkbox" id="music_autoplay" name="music_autoplay" /><label class="checkbox-label" for="music_autoplay">Play level music auto</label><br />
-							<input type="checkbox" id="music_restartondeath" name="music_restartondeath" /><label class="checkbox-label" for="music_restartondeath">Restart song on level reset</label><br />
 						</form>
 					</div>
 				</div>
