@@ -9,6 +9,7 @@ import { PlayerPreferenceSection } from './player-preference-section'
 import { MusicOption } from './music-option'
 import { HttpClient } from '@angular/common/http'
 
+const WEBSOCKET_TIMEOUT = 1000 // 1 second
 
 @Component({
 	selector: 'app-music-player',
@@ -37,6 +38,8 @@ export class MusicPlayerComponent implements OnInit {
 	private emptyMessage: HTMLElement
 
 	private webSocket: WebSocket
+	private lastReceived: Date
+	private firstMessage: boolean
 
 	private checkboxSection: CheckboxSection
 	private dragger: PlayerPreferenceSection
@@ -160,12 +163,24 @@ export class MusicPlayerComponent implements OnInit {
 		}
 	}
 
-	public connect(): void {
-		if (this.webSocket != null)
+	private connect(): void {
+		if (this.webSocket != null) {
+			if (this.lastReceived.getTime() < new Date().getTime() - WEBSOCKET_TIMEOUT) {
+				console.log('Timed out waiting for a response from client')
+				this.webSocket = null
+				this.gameNotRunningMessage.classList.remove('hidden')
+				this.loadingMessage.classList.add('hidden')
+				this.mainContainer.classList.add('hidden')
+				this.player.updatePlayer(null)
+			} else {
+				this.webSocket.send('WebPlayer')
+			}
 			return
+		}
 
 		console.log('Connecting to WebSocket...')
 
+		this.firstMessage = true
 		this.webSocket = new WebSocket('ws://localhost:1770')
 
 		this.webSocket.onerror = event => {
@@ -174,6 +189,7 @@ export class MusicPlayerComponent implements OnInit {
 			this.gameNotRunningMessage.classList.remove('hidden')
 			this.loadingMessage.classList.add('hidden')
 			this.mainContainer.classList.add('hidden')
+			this.player.updatePlayer(null)
 		}
 
 		this.webSocket.onopen = event => {
@@ -185,8 +201,13 @@ export class MusicPlayerComponent implements OnInit {
 		}
 
 		this.webSocket.onmessage = event => {
+			this.lastReceived = new Date()
 			const json = JSON.parse(event.data)
 			const level = json.currentLevel || json.level
+
+			if (json.eventType === undefined && !this.firstMessage)
+				return
+			this.firstMessage = false
 
 			if (level === undefined || level === null) {
 				switch (json.eventType) {
