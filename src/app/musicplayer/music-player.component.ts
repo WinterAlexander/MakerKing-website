@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { StatsService } from '../stats/stats.service'
-import { AccountService } from '../user/account.service'
 import { EmbedPlayerSection } from './embed-player-section'
 import { CheckboxSection } from './checkbox-section'
 import { PlayerPreferenceSection } from './player-preference-section'
@@ -52,12 +51,10 @@ export class MusicPlayerComponent implements OnInit {
 
 	private inEditor = false
 
-
 	constructor(private title: Title,
 				private statsService: StatsService,
 				private router: Router,
 				private activatedRoute: ActivatedRoute,
-				public accountService: AccountService,
 				private readonly http: HttpClient) {
 		this.webSocket = null
 		this.lastReceived = null
@@ -191,13 +188,10 @@ export class MusicPlayerComponent implements OnInit {
 			return
 		}
 
-		console.log('Connecting to WebSocket...')
-
 		this.lastReceived = null
 		this.webSocket = new WebSocket('ws://localhost:1770')
 
 		this.webSocket.onerror = event => {
-			console.log('Error on attempt to do a WebSocket connection')
 			this.webSocket = null
 			this.gameNotRunningMessage.classList.remove('hidden')
 			this.loadingMessage.classList.add('hidden')
@@ -206,7 +200,6 @@ export class MusicPlayerComponent implements OnInit {
 		}
 
 		this.webSocket.onopen = event => {
-			console.log('WebSocket connection successful')
 			this.webSocket.send('WebPlayer')
 			this.mainContainer.classList.remove('hidden')
 			this.loadingMessage.classList.add('hidden')
