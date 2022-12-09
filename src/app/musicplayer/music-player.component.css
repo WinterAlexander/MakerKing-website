@@ -145,3 +145,18 @@ div.level-info-box {
 .hidden {
     display: none;
 }
+
+
+#start-button {
+    width: 20%;
+    font-size: xx-large;
+    background-color: #ff3385;
+    margin: auto;
+    display: block;
+}
+
+#start-button:hover,
+#start-button:focus,
+#start-button:active {
+    background-color: #99003d;
+}

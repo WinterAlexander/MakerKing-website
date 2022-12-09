@@ -9,7 +9,7 @@ import { PlayerPreferenceSection } from './player-preference-section'
 import { MusicOption } from './music-option'
 import { HttpClient } from '@angular/common/http'
 
-const WEBSOCKET_TIMEOUT = 1000 // 1 second
+const WEBSOCKET_TIMEOUT = 5000 // 1 second
 
 @Component({
 	selector: 'app-music-player',
@@ -18,6 +18,8 @@ const WEBSOCKET_TIMEOUT = 1000 // 1 second
 })
 export class MusicPlayerComponent implements OnInit {
 
+	private startMessage: HTMLElement
+	private startButton: HTMLElement
 	private loadingMessage: HTMLElement
 	private gameNotRunningMessage: HTMLElement
 	private mainContainer: HTMLElement
@@ -39,7 +41,6 @@ export class MusicPlayerComponent implements OnInit {
 
 	private webSocket: WebSocket
 	private lastReceived: Date
-	private firstMessage: boolean
 
 	private checkboxSection: CheckboxSection
 	private dragger: PlayerPreferenceSection
@@ -59,12 +60,15 @@ export class MusicPlayerComponent implements OnInit {
 				public accountService: AccountService,
 				private readonly http: HttpClient) {
 		this.webSocket = null
+		this.lastReceived = null
 	}
 
 
 	ngOnInit(): void {
 		this.title.setTitle('MakerKing - Music Player')
 
+		this.startMessage = document.getElementById('start-message')
+		this.startButton = document.getElementById('start-button')
 		this.loadingMessage = document.getElementById('loading-message')
 		this.gameNotRunningMessage = document.getElementById('gamenotrunning-message')
 		this.mainContainer = document.getElementById('main-container')
@@ -93,7 +97,11 @@ export class MusicPlayerComponent implements OnInit {
 		this.dragger = new PlayerPreferenceSection(this.updateUI.bind(this))
 		this.player = new EmbedPlayerSection(this, this.http)
 
-		setInterval(this.connect.bind(this), 500)
+		this.startButton.onclick = () => {
+			setInterval(this.connect.bind(this), 500)
+			this.startMessage.classList.add('hidden')
+			this.loadingMessage.classList.remove('hidden')
+		}
 	}
 
 	public setLevel(level: any): void {
@@ -165,6 +173,11 @@ export class MusicPlayerComponent implements OnInit {
 
 	private connect(): void {
 		if (this.webSocket != null) {
+
+			if (this.lastReceived == null)
+				return
+
+
 			if (this.lastReceived.getTime() < new Date().getTime() - WEBSOCKET_TIMEOUT) {
 				console.log('Timed out waiting for a response from client')
 				this.webSocket = null
@@ -180,7 +193,7 @@ export class MusicPlayerComponent implements OnInit {
 
 		console.log('Connecting to WebSocket...')
 
-		this.firstMessage = true
+		this.lastReceived = null
 		this.webSocket = new WebSocket('ws://localhost:1770')
 
 		this.webSocket.onerror = event => {
@@ -201,13 +214,14 @@ export class MusicPlayerComponent implements OnInit {
 		}
 
 		this.webSocket.onmessage = event => {
-			this.lastReceived = new Date()
 			const json = JSON.parse(event.data)
 			const level = json.currentLevel || json.level
 
-			if (json.eventType === undefined && !this.firstMessage)
+			if (json.eventType === undefined && this.lastReceived != null) {
+				this.lastReceived = new Date()
 				return
-			this.firstMessage = false
+			}
+			this.lastReceived = new Date()
 
 			if (level === undefined || level === null) {
 				switch (json.eventType) {
