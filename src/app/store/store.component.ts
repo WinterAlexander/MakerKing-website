@@ -1,13 +1,13 @@
-import { Component, NgZone, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { IPayPalConfig } from 'ngx-paypal';
-import { StoreItem } from './storeitem';
-import { AccountService } from '../user/account.service';
-import { Router } from '@angular/router';
-import { StoreService } from './store.service';
-import { MatDialog } from '@angular/material/dialog';
-import { HttpErrorResponse } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { Component, NgZone, OnInit, TemplateRef, ViewChild } from '@angular/core'
+import { Title } from '@angular/platform-browser'
+import { IPayPalConfig } from 'ngx-paypal'
+import { StoreItem } from './storeitem'
+import { AccountService } from '../user/account.service'
+import { Router } from '@angular/router'
+import { StoreService } from './store.service'
+import { MatDialog } from '@angular/material/dialog'
+import { HttpErrorResponse } from '@angular/common/http'
+import { environment } from '../../environments/environment'
 
 @Component({
 	selector: 'app-store',
@@ -25,11 +25,11 @@ export class StoreComponent implements OnInit {
 		'order_already_processed': 'Error code #6 The order has already been processed. This is not normal, please contact us.',
 		'order_doesnt_exists': 'Error code #7 The order couldn\'t be processed because it doesn\'t exist on our servers. Please contact us to signal this anormality.',
 		'order_already_cancelled': 'Error code #8 The order was already cancelled when trying to cancel it. This is not normal please contact us.'
-	};
+	}
 
-	private static unknownError = 'Error code #0 an unexpected error occurred with our servers.';
+	private static unknownError = 'Error code #0 an unexpected error occurred with our servers.'
 
-	public payPalConfig?: IPayPalConfig;
+	public payPalConfig?: IPayPalConfig
 	storeItems: StoreItem[] = [
 		new StoreItem(0, 700, 'frisbee coins', '../../assets/store/coins0.png', '3.49'),
 		new StoreItem(1, 1350, 'frisbee coins', '../../assets/store/coins1.png', '6.49'),
@@ -37,12 +37,12 @@ export class StoreComponent implements OnInit {
 		new StoreItem(3, 5500, 'frisbee coins', '../../assets/store/coins3.png', '24.99'),
 		new StoreItem(4, 10000, 'frisbee coins', '../../assets/store/coins4.png', '39.99'),
 		new StoreItem(5, 30000, 'frisbee coins', '../../assets/store/coins5.png', '99.99')
-	];
+	]
 
-	selected?: StoreItem;
-	error?: string;
+	selected?: StoreItem
+	error?: string
 
-	@ViewChild('errorDialog') errorDialog: TemplateRef<any>;
+	@ViewChild('errorDialog') errorDialog: TemplateRef<any>
 
 	constructor(private ngZone: NgZone,
 				private title: Title,
@@ -52,7 +52,7 @@ export class StoreComponent implements OnInit {
 				private dialog: MatDialog) {}
 
 	ngOnInit() {
-		this.title.setTitle('MakerKing - Buy coins for cosmetics');
+		this.title.setTitle('MakerKing - Buy coins for cosmetics')
 
 		this.payPalConfig = {
 			currency: 'USD',
@@ -69,50 +69,50 @@ export class StoreComponent implements OnInit {
 			onClientAuthorization: (data) => {
 				this.storeService.processOrder(this.userService.getToken(), data.id)
 					.then(() => {
-						this.ngZone.run(() => this.router.navigateByUrl('/thankyou'));
+						this.ngZone.run(() => this.router.navigateByUrl('/thankyou'))
 					})
 					.catch(errorResponse => {
-						this.ngZone.run(() => this.handle(errorResponse));
-						return Promise.reject(errorResponse);
-					});
+						this.ngZone.run(() => this.handle(errorResponse))
+						return Promise.reject(errorResponse)
+					})
 			},
 			onCancel: (data, actions) => {
 				this.storeService.cancelOrder(this.userService.getToken(), data.orderID)
 					.then(() => {
-						console.log('Order cancelled');
+						console.log('Order cancelled')
 					})
 					.catch(errorResponse => {
-						this.ngZone.run(() => this.handle(errorResponse));
-						return Promise.reject(errorResponse);
-					});
+						this.ngZone.run(() => this.handle(errorResponse))
+						return Promise.reject(errorResponse)
+					})
 			},
 			onError: err => {},
 			onClick: (data, actions) => {},
-		};
+		}
 	}
 
 	private createOrder(data): Promise<string> {
 		return this.storeService.createOrder(this.selected, this.userService.getToken())
 			.catch(errorResponse => {
-				this.handle(errorResponse);
-				return Promise.reject(errorResponse);
-			});
+				this.handle(errorResponse)
+				return Promise.reject(errorResponse)
+			})
 	}
 
 	private handle(errorResponse: HttpErrorResponse): void {
 		if (errorResponse.status === 400) {
-			this.error = StoreComponent.errorMap[errorResponse.error.error];
+			this.error = StoreComponent.errorMap[errorResponse.error.error]
 		} else {
-			this.error = StoreComponent.unknownError;
+			this.error = StoreComponent.unknownError
 		}
-		this.dialog.open(this.errorDialog);
+		this.dialog.open(this.errorDialog)
 	}
 
 	public select(item: StoreItem) {
-		this.selected = item;
+		this.selected = item
 	}
 
 	public getUserService(): AccountService {
-		return this.userService;
+		return this.userService
 	}
 }

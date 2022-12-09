@@ -1,25 +1,25 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { Injectable } from '@angular/core'
+import { HttpClient, HttpParams } from '@angular/common/http'
+import { environment } from '../../environments/environment'
 
 @Injectable()
 export class AccountService {
 	constructor(private http: HttpClient) {}
 
 	public login(username: string, password: string): Promise<void> {
-		this.logout();
+		this.logout()
 
-		let params = new HttpParams();
-		params = params.append('username', username);
-		params = params.append('password', password);
+		let params = new HttpParams()
+		params = params.append('username', username)
+		params = params.append('password', password)
 
 		return this.http.post(environment.server + '/login', params).toPromise()
 			.then((response: any) => {
-				localStorage.setItem('token', response.token);
-				localStorage.setItem('username', response.username);
-				localStorage.setItem('userId', response.userId);
-				return Promise.resolve();
-			});
+				localStorage.setItem('token', response.token)
+				localStorage.setItem('username', response.username)
+				localStorage.setItem('userId', response.userId)
+				return Promise.resolve()
+			})
 	}
 
 	/**
@@ -27,45 +27,45 @@ export class AccountService {
 	 */
 	public validateToken(): Promise<boolean> {
 		if (!this.isLogged()) {
-			this.logout();
-			return Promise.resolve(false);
+			this.logout()
+			return Promise.resolve(false)
 		}
 
-		let params = new HttpParams();
-		params = params.append('token', localStorage.getItem('token'));
-		params = params.append('username', localStorage.getItem('username'));
-		params = params.append('userId', localStorage.getItem('userId'));
+		let params = new HttpParams()
+		params = params.append('token', localStorage.getItem('token'))
+		params = params.append('username', localStorage.getItem('username'))
+		params = params.append('userId', localStorage.getItem('userId'))
 
 		return this.http.post(environment.server + '/validatetoken', params).toPromise()
 			.then((response: any) => {
-				return true;
+				return true
 			}).catch((e: any) => {
-				this.logout();
-				return false;
-			});
+				this.logout()
+				return false
+			})
 	}
 
 	public logout(): void {
-		localStorage.removeItem('token');
-		localStorage.removeItem('username');
-		localStorage.removeItem('userId');
+		localStorage.removeItem('token')
+		localStorage.removeItem('username')
+		localStorage.removeItem('userId')
 	}
 
 	public isLogged(): boolean {
 		return localStorage.getItem('token') != null &&
 			localStorage.getItem('username') != null &&
-			localStorage.getItem('userId') != null;
+			localStorage.getItem('userId') != null
 	}
 
 	public getUsername(): string {
-		return localStorage.getItem('username');
+		return localStorage.getItem('username')
 	}
 
 	public getUserId(): string {
-		return localStorage.getItem('userId');
+		return localStorage.getItem('userId')
 	}
 
 	public getToken(): string {
-		return localStorage.getItem('token');
+		return localStorage.getItem('token')
 	}
 }

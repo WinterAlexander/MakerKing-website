@@ -6,6 +6,6 @@ export class StoreItem {
 				public price: string) {}
 
 	public getName(): string {
-		return this.quantity.toLocaleString() + ' ' + this.itemType;
+		return this.quantity.toLocaleString() + ' ' + this.itemType
 	}
 }

@@ -20,7 +20,7 @@
 				<a class="white-link" href="/player?id={{player.userId}}"><span>{{player.username}}</span></a>
 			</div>
 			<div class="col-9">
-				<span>{{player.editing ? "Editing" : "Playing on"}} <a class="white-link" href="/level?id={{player.levelId}}">{{player.levelName}} #{{player.levelId}}</a></span>
+				<span>{{player.editing ? "Editing" : "Playing on"}} <a class="white-link" href="/level?id={{player.levelId}}">{{player.levelName}} {{player.levelId == -1 ? 'a new level' : '#' + player.levelId}}</a></span>
 			</div>
 		</div>
 	</div>

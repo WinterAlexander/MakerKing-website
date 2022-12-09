@@ -1,0 +1,162 @@
+
+
+
+/* Player Icon */
+
+img.player-icon {
+    width: 34px;
+    margin-right: 5px;
+    display: inline-block;
+    padding: 2px;
+    border-radius: 10%;
+}
+
+img.player-icon.disabled {
+    display: none;
+}
+
+img.player-icon.selected {
+    background-color: white;
+}
+
+/* Player dragger */
+
+div.draggable-player {
+    width: 96%;
+    background-color: #3385ff;
+    padding: 2%;
+    margin: 2%;
+    border: 3px white solid;
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 3px #0000008a;
+    border-radius: 3px;
+}
+
+div.draggable-player > span {
+    /* font-family: "Roboto Mono", Helvetica, sans-serif; */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: white;
+    width: 76%;
+    display: inline-block;
+    margin-left: 4px;
+}
+
+img.draggable-icon {
+    width: 10%;
+    background-color: white;
+    border: 3px white solid;
+    box-shadow: 1px 1px 3px #0000008a;
+    border-radius: 3px;
+}
+
+span.drag-info {
+    /* font-family: "Roboto Mono", Helvetica, sans-serif; */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    /* color: #999999; */
+}
+
+div.player-drag-container {
+    /* background-color: #5a5a5a; */
+}
+
+/* Main */
+
+
+main {
+    height: 100%;
+    padding: 38px;
+    color: #d5d5d5;
+}
+
+div#player-container, div#player-container > div.row {
+    height: 100%;
+}
+
+div.main-column, div.secondary-column {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+h1 {
+    /* font-family: "Roboto Mono", Helvetica, sans-serif; */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: #d5d5d5;
+}
+
+h2 {
+    /* font-family: "Roboto Mono", Helvetica, sans-serif; */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: white;
+}
+
+div.column-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+div.column-spacer {
+    flex-grow: 1;
+}
+
+div.music-settings-container {
+    /* background-color: #5a5a5a; */
+    color: white;
+    /* font-family: "Roboto Mono", Helvetica, sans-serif; */
+    font-size: 18px;
+    padding: 10px;
+}
+
+label.checkbox-label {
+    margin-left: 5px;
+}
+
+/* Level info section */
+
+h2.level-info-title {
+    margin-bottom: 10px;
+}
+
+p.level-info-line {
+
+    color: white;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+div.level-info-box {
+    /* background-color: #5a5a5a; */
+    padding: 5px;
+}
+
+.level-info-keyword {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#start-button {
+    width: 20%;
+    font-size: xx-large;
+    background-color: #ff3385;
+    margin: auto;
+    display: block;
+}
+
+#start-button:hover,
+#start-button:focus,
+#start-button:active {
+    background-color: #99003d;
+}

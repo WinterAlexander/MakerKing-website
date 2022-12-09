@@ -3,15 +3,15 @@
  * the MakerKing server backend
  */
 export class Reward {
-	id: string;
-	url: string;
-	name: string;
-	description: string;
-	items: RewardItem[];
-	needKey: boolean;
+	id: string
+	url: string
+	name: string
+	description: string
+	items: RewardItem[]
+	needKey: boolean
 }
 
 export class RewardItem {
-	name: string;
-	image: string; // path to image
+	name: string
+	image: string // path to image
 }

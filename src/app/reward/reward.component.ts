@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {Reward} from './reward';
-import {ActivatedRoute, Router} from '@angular/router';
-import {RewardService} from './reward.service';
+import {Component, OnInit} from '@angular/core'
+import {Title} from '@angular/platform-browser'
+import {Reward} from './reward'
+import {ActivatedRoute, Router} from '@angular/router'
+import {RewardService} from './reward.service'
 
 @Component({
 	selector: 'app-reward',
@@ -93,13 +93,13 @@ export class RewardComponent implements OnInit {
 			],
 			needKey: true
 		},
-	];
+	]
 
-	currentReward: Reward = undefined;
-	response: string = undefined;
+	currentReward: Reward = undefined
+	response: string = undefined
 
-	formUsername: string;
-	formKey?: string;
+	formUsername: string
+	formKey?: string
 
 	constructor(private title: Title,
 				private activatedRoute: ActivatedRoute,
@@ -108,51 +108,51 @@ export class RewardComponent implements OnInit {
 
 	ngOnInit() {
 		this.activatedRoute.queryParams.subscribe(params => {
-			const rewardId = params['id'];
-			const reward = this.rewards.find(r => r.url === rewardId);
+			const rewardId = params['id']
+			const reward = this.rewards.find(r => r.url === rewardId)
 
 			if (reward === undefined) {
-				this.router.navigate(['/']);
-				return;
+				this.router.navigate(['/'])
+				return
 			}
 
-			this.currentReward = reward;
-			this.title.setTitle('MakerKing - ' + reward.name);
-		});
+			this.currentReward = reward
+			this.title.setTitle('MakerKing - ' + reward.name)
+		})
 	}
 
 	claimReward() {
 		this.rewardService.claimReward(this.formUsername, this.currentReward.id, this.formKey).then(res => {
-			this.response = 'You successfully obtained the reward! Logout and login again to refresh your in-game inventory.';
+			this.response = 'You successfully obtained the reward! Logout and login again to refresh your in-game inventory.'
 			// this.response = "Vous avez obtenu la récompense! Déconnectez et reconnectez vous du jeu pour mettre à jour votre inventaire."
 		}).catch(error => {
 			switch (error.error) {
 				case 'reward_not_found':
-					this.response = 'This reward is not out yet! Please wait for the 0.9 update.';
-					break;
+					this.response = 'This reward is not out yet! Please wait for the 0.9 update.'
+					break
 
 				case 'reward_already_claimed':
-					this.response = 'You have already claimed this reward.';
-					// this.response = "Vous avez déjà réclamé cette récompense.";
-					break;
+					this.response = 'You have already claimed this reward.'
+					// this.response = "Vous avez déjà réclamé cette récompense."
+					break
 
 				case 'user_not_found':
-					this.response = 'This username could not be found. Make sure you entered it correctly.';
-					// this.response = "Ce pseudonyme n'a pas pu être trouvé, assurez vous de l'avoir entré correctement.";
-					break;
+					this.response = 'This username could not be found. Make sure you entered it correctly.'
+					// this.response = "Ce pseudonyme n'a pas pu être trouvé, assurez vous de l'avoir entré correctement."
+					break
 
 				case 'invalid_key':
-					this.response = 'Provided key is invalid. Make sure you entered it correctly.';
-					break;
+					this.response = 'Provided key is invalid. Make sure you entered it correctly.'
+					break
 
 				case 'require_no_key':
 				case 'require_key':
-					this.response = 'Internal error, please contact an administrator.';
-					break;
+					this.response = 'Internal error, please contact an administrator.'
+					break
 
 				default:
-					this.response = error.error;
+					this.response = error.error
 			}
-		});
+		})
 	}
 }

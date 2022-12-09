@@ -1,0 +1,114 @@
+<div class="container space-filler">
+	<div class="content-container">
+		
+		
+		<span id="start-message">
+			This music player is a web application that will play music tracks from MakerKing levels in your browser.
+			To use it, click the button below and keep this web page open as you play the game!
+			<br />
+			<br />
+			Note: Bandcamp does not support autoplay so you will have to manually play bandcamp tracks.
+			<br />
+			<br />
+			<button id="start-button" type="button" class="btn regular-btn">Launch</button>
+		</span>
+		
+		<span id="loading-message" class="hidden">
+			Loading...
+		</span>
+		
+		<span id="gamenotrunning-message" class="hidden">
+			MakerKing not detected. You must have MakerKing running to use the music player.
+		</span>
+		
+		<div id="main-container" class="hidden">
+			<div class="row">
+				<div class="col-md-6 col-lg-8 main-column">
+					
+					<!-- Level info container -->
+					<div id="level-info-container">
+						<h2 class="level-info-title">Level Info</h2>
+						<div class="level-info-box">
+							<p class="level-info-line">
+								<span id="level-name" class="level-info-keyword"></span> by <span id="level-author" class="level-info-keyword"></span>
+							</p>
+							<p class="level-info-line">
+								Level song: <span id="track-name" class="level-info-keyword"></span> by <span id="track-author" class="level-info-keyword"></span>
+							</p>
+							<p id="available-on-label" class="level-info-line">
+							
+							</p>
+							<div id="player-icons-container" class="player-icon-container">
+								<img id="player-icon-soundcloud" class="player-icon disabled" src="../../assets/music/soundcloud.png" alt="SoundCloud" />
+								<img id="player-icon-bandcamp" class="player-icon disabled" src="../../assets/music/bandcamp.png" alt="Bandcamp" />
+								<img id="player-icon-youtube" class="player-icon disabled" src="../../assets/music/youtube.png" alt="YouTube" />
+							</div>
+						</div>
+					</div>
+					
+					<!-- When not in a level -->
+					<div id="not-in-a-level" class="hidden">
+						<h2 class="level-info-title">Not in a Level</h2>
+						<div class="level-info-box">
+							<p class="level-info-line">
+								To use the MakerKing music player, make sure the game is running and join a level that has external music sources enabled.
+							</p>
+							<p class="level-info-line" id="game-state-line">
+							
+							</p>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-12 secondary-column">
+							<div class="column-container">
+								<div class="column-spacer"></div>
+								<p id="empty-message" style="display: none">
+									When a level with external music is joined, the prefered music player will appear
+									here!
+								</p>
+								<div id="player-container" class="embed-player-container">
+									<!-- Embed player injected here -->
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			
+				<div class="col-md-6 col-lg-4 main-column">
+					<h2>Music player preference</h2>
+					<span class="drag-info">Drag to reorder</span>
+					<div class="player-drag-container" id="draggable-container">
+						<div class="draggable-player" id="draggable-soundcloud" draggable="true">
+							<img class="draggable-icon" src="../../assets/music/soundcloud.png" alt="SoundCloud"/>
+							<span>
+								SoundCloud
+							</span>
+							<img class="drag-icon" src="../../assets/music/drag_icon.svg" alt="Drag" />
+						</div>
+						<div class="draggable-player" id="draggable-bandcamp" draggable="true">
+							<img class="draggable-icon" src="../../assets/music/bandcamp.png" alt="Bandcamp"/>
+							<span>
+								Bandcamp
+							</span>
+							<img class="drag-icon" src="../../assets/music/drag_icon.svg" alt="Drag" />
+						</div>
+						<div class="draggable-player" id="draggable-youtube" draggable="true">
+							<img class="draggable-icon" src="../../assets/music/youtube.png" alt="YouTube"/>
+							<span>
+								YouTube
+							</span>
+							<img class="drag-icon" src="../../assets/music/drag_icon.svg" alt="Drag" />
+						</div>
+					</div>
+					<div class="music-settings-container">
+						<form>
+							<input type="checkbox" id="music_autoplay" name="music_autoplay" /><label class="checkbox-label" for="music_autoplay">Play level music auto</label><br />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

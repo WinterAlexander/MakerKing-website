@@ -4,9 +4,9 @@
 
 export const environment = {
 	production: false,
-	server: 'http://makerkinggame.com:8000',
+	server: 'http://test.makerkinggame.com:9000',
 	paypalClientId: 'AX91wn4oiEHoD-g0bL2yFguc1WC4PMcffleEPMOTEoyln_G5f0C99doFsSFIPoIzh2KDrwYT0P7KPBGN'
-};
+}
 
 /*
  * In development mode, to ignore zone related error stack frames such as
