@@ -1,5 +1,6 @@
 <div class="container space-filler">
-	<div *ngIf="currentReward !== undefined" class="content-container">
+	<div class="dirt_header"></div>
+	<div *ngIf="currentReward !== undefined" class="content-container dirt_body">
 		<h1>{{currentReward.name}}</h1>
 		<p>
 			{{currentReward.description}}
@@ -35,4 +36,5 @@
 			{{response}}
 		</p>
 	</div>
+	<div class="dirt_footer"></div>
 </div>
