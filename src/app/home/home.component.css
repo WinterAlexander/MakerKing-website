@@ -1,5 +1,6 @@
 .home-container {
     text-align: center;
+    padding-top: 36px;
 }
 
 .btn-cta {
@@ -58,11 +59,14 @@
 }
 
 .youtube-player {
-    width: calc((100vh - 330px) / 9 * 16);
-    height: calc(100vh - 330px);
+    width: calc((100vh - 430px) / 9 * 16);
+    height: calc(100vh - 430px);
 
     min-width: 320px;
     min-height: 180px;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 5px 0px;
 }
 
 @media screen and (max-width: 767px) {

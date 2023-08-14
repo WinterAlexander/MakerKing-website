@@ -1,5 +1,6 @@
 <div class="container space-filler">
-	<div class="content-container" *ngIf="level != null">
+	<div class="dirt_header"></div>
+	<div class="content-container dirt_body" *ngIf="level != null">
 		<h1>{{level.levelName}}</h1>
 		<ul class="level-details">
 			<li>
@@ -64,7 +65,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="content-container" *ngIf="level == null">
+	<div class="content-container dirt_body" *ngIf="level == null">
 		<span>Loading...</span>
 	</div>
+	<div class="dirt_footer"></div>
 </div>

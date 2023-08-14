@@ -1,5 +1,6 @@
 <div class="container space-filler">
-	<div class="content-container" *ngIf="stats != null">
+	<div class="dirt_header"></div>
+	<div class="content-container dirt_body" *ngIf="stats != null">
 		<h1>{{stats.playerName}}</h1>
 		<ul class="player-details">
 			<li *ngIf="stats.score > 0">
@@ -19,7 +20,8 @@
 			</li>
 		</ul>
 	</div>
-	<div class="content-container" *ngIf="stats == null">
+	<div class="content-container dirt_body" *ngIf="stats == null">
 		<span>Loading...</span>
 	</div>
+	<div class="dirt_footer"></div>
 </div>
