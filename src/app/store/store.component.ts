@@ -30,14 +30,7 @@ export class StoreComponent implements OnInit {
 	private static unknownError = 'Error code #0 an unexpected error occurred with our servers.'
 
 	public payPalConfig?: IPayPalConfig
-	storeItems: StoreItem[] = [
-		new StoreItem(0, 700, 'frisbee coins', '../../assets/store/coins0.png', '3.49'),
-		new StoreItem(1, 1350, 'frisbee coins', '../../assets/store/coins1.png', '6.49'),
-		new StoreItem(2, 3200, 'frisbee coins', '../../assets/store/coins2.png', '14.99'),
-		new StoreItem(3, 5500, 'frisbee coins', '../../assets/store/coins3.png', '24.99'),
-		new StoreItem(4, 10000, 'frisbee coins', '../../assets/store/coins4.png', '39.99'),
-		new StoreItem(5, 30000, 'frisbee coins', '../../assets/store/coins5.png', '99.99')
-	]
+	storeItems: StoreItem[]
 
 	selected?: StoreItem
 	error?: string
@@ -53,6 +46,9 @@ export class StoreComponent implements OnInit {
 
 	ngOnInit() {
 		this.title.setTitle('MakerKing - Buy coins for cosmetics')
+
+		this.storeService.fetchOffers('USD')
+				.then((res) => this.storeItems = res)
 
 		this.payPalConfig = {
 			currency: 'USD',

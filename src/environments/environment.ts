@@ -4,7 +4,7 @@
 
 export const environment = {
 	production: false,
-	server: 'http://test.makerkinggame.com:9000',
+	server: 'http://localhost:8000',
 	paypalClientId: 'AX91wn4oiEHoD-g0bL2yFguc1WC4PMcffleEPMOTEoyln_G5f0C99doFsSFIPoIzh2KDrwYT0P7KPBGN'
 }
 
