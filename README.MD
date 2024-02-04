@@ -2,4 +2,4 @@
 
 Website used to promote the game!
 
-Accessible from http://makerkinggame.com/
+Accessible from https://makerkinggame.com/
