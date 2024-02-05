@@ -58,8 +58,9 @@ export class StoreService {
 					result.push(new StoreItem(offer.id,
 							offer.frisbeeCoins,
 							'frisbee coins',
-							'../../assets/store/coins${index}.png',
+							'../../assets/store/coins' + index.toString() + '.png',
 							(offer.centPrice / 100.0).toString()))
+					index++
 				})
 
 				return Promise.resolve(result)
