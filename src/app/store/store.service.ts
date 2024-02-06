@@ -11,11 +11,8 @@ export class StoreService {
 		let params = new HttpParams()
 		params = params.append('token', token)
 		params = params.append('offerId', item.offerId.toString())
-		params = params.append('quantity', item.quantity.toString())
-		params = params.append('itemType', item.itemType)
-		params = params.append('price', item.price)
 
-		return this.http.post(environment.server + '/paypalcreateorder', params)
+		return this.http.post(environment.server + '/paypal/order/create', params)
 			.toPromise()
 			.then((response: any) => {
 				return response.orderId
@@ -28,7 +25,7 @@ export class StoreService {
 		params = params.append('token', token)
 		params = params.append('orderId', orderId)
 
-		return this.http.post(environment.server + '/paypalprocessorder', params)
+		return this.http.post(environment.server + '/paypal/order/process', params)
 			.toPromise()
 			.then((response: any) => {
 				return Promise.resolve()
@@ -41,10 +38,32 @@ export class StoreService {
 		params = params.append('token', token)
 		params = params.append('orderId', orderId)
 
-		return this.http.post(environment.server + '/paypalcancelorder', params)
+		return this.http.post(environment.server + '/paypal/order/cancel', params)
 			.toPromise()
 			.then((response: any) => {
 				return Promise.resolve()
+			})
+	}
+
+	public fetchOffers(currency: string) : Promise<StoreItem[]> {
+		let params = new HttpParams()
+		params = params.append('currency', currency)
+
+		return this.http.post(environment.server + '/paypal/offers', params)
+			.toPromise()
+			.then((response: any) => {
+				let result = []
+				let index = 0
+				response.offers.forEach((offer) => {
+					result.push(new StoreItem(offer.id,
+							offer.frisbeeCoins,
+							'frisbee coins',
+							'../../assets/store/coins' + index.toString() + '.png',
+							(offer.centPrice / 100.0).toString()))
+					index++
+				})
+
+				return Promise.resolve(result)
 			})
 	}
 }
