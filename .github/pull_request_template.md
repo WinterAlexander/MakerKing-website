@@ -8,6 +8,9 @@ FILL
 FILL
 
 
+### Contributor License Agreement
+- [ ] I have signed the Contributor License Agreement (email contact@makerkinggame.com for this process)
+
 ### Self-review
 - [ ] I did an in-depth self-review of the content of this pull request.
 
