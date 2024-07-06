@@ -3,4 +3,4 @@ User-agent: *
 Allow: /*.html$
 Disallow: /thankyou/
 Disallow: /store/
-Sitemap: http://makerkinggame.com/sitemap.xml
+Sitemap: https://makerking.net/sitemap.xml
