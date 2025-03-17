@@ -13,7 +13,7 @@ export class StatsService {
 	constructor(private http: HttpClient) {}
 
 	public getGlobalPlayerStats(): Promise<GlobalPlayerStats> {
-		return this.http.get(environment.server + '/globalplayerstats').toPromise()
+		return this.http.get(environment.server + '/serverstats').toPromise()
 			.then((response: any) => {
 				return response
 			})
