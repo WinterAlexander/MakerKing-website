@@ -54,6 +54,10 @@ div.game_comments_widget > h2 {
     height: 100px;
 }
 
+.game_metadata {
+    display: none;
+}
+
 h2#instructions,
 h2#download,
 section#devlog > h2,

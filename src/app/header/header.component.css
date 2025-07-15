@@ -96,13 +96,13 @@
 }
 
 .btn-news {
-    background-color: #ffce00;
+    background-color: #ff9529;
 }
 
 .btn-news:hover,
 .btn-news:focus,
 .btn-news:active {
-    background-color: #896900;
+    background-color: #c37220;
 }
 
 .btn-leaderboard {

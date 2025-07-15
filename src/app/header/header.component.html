@@ -32,9 +32,7 @@
 					<div *ngIf="loginReady" class="login-container">
 						<span *ngIf="userService.isLogged()" class="header-text-container">
 							<span class="logged-text">
-								Logged in as
-								<br />
-								{{userService.getUsername()}}.
+								Hi {{userService.getUsername()}}!
 							</span>
 							<button type="button" class="btn regular-btn btn-login" (click)="userService.logout()">Logout</button>
 						</span>
@@ -58,14 +56,14 @@
 		</div>
 		
 		<div class="header-btn-section">
+            <a class="header-btn-link" href="https://green-frisbee.itch.io/makerking/devlog">
+                <button type="button" class="btn regular-btn btn-news head-btn">News</button>
+            </a>
+
 			<a class="header-btn-link" href="/supportus">
 				<button type="button" class="btn regular-btn btn-store head-btn">Support us</button>
 			</a>
-			<!--
-			<a class="header-btn-link" href="/news">
-				<button type="button" class="btn regular-btn btn-news head-btn">News</button>
-			</a>
-			-->
+
 			<a class="header-btn-link" href="/leaderboard">
 				<button type="button" class="btn regular-btn btn-leaderboard head-btn">Leaderboard</button>
 			</a>

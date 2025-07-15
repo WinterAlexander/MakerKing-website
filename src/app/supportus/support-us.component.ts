@@ -1,5 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core'
 import { Title } from '@angular/platform-browser'
+import {DISCORD_ADDRESS} from "../social-constants";
 
 @Component({
 	selector: 'app-support-us',
@@ -14,4 +15,6 @@ export class SupportUsComponent implements OnInit {
 	ngOnInit() {
 		this.title.setTitle('MakerKing - Support us with frisbee coins')
 	}
+
+	public readonly DISCORD_ADDRESS = DISCORD_ADDRESS;
 }

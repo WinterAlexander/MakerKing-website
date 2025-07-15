@@ -59,7 +59,7 @@
 }
 
 .youtube-player {
-    width: calc((100vh - 430px) / 9 * 16);
+    width: min(calc((100vh - 430px) / 9 * 16), 100%);
     height: calc(100vh - 430px);
 
     min-width: 320px;

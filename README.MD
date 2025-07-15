@@ -4,6 +4,14 @@ Website used to promote the game!
 
 Accessible from https://makerking.net/
 
+## Run
+
+To run the website during testing, run the following command:
+
+```sh
+ng serve
+```
+
 ## Build
 
 To build the website, run the following command:
