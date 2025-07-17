@@ -34,7 +34,9 @@
 							<span class="logged-text">
 								Hi {{userService.getUsername()}}!
 							</span>
-							<button type="button" class="btn regular-btn btn-login" (click)="userService.logout()">Logout</button>
+							<button type="button" class="btn regular-btn btn-login" (click)="userService.logout()">
+                                Logout
+                            </button>
 						</span>
 						<span *ngIf="!userService.isLogged()" class="header-text-container">
 							<span *ngIf="error" class="login-error">
@@ -57,18 +59,30 @@
 		
 		<div class="header-btn-section">
             <a class="header-btn-link" href="https://green-frisbee.itch.io/makerking/devlog">
-                <button type="button" class="btn regular-btn btn-news head-btn">News</button>
+                <button type="button" class="btn regular-btn btn-news head-btn">
+                    <img class="header-btn-icon" src="../../assets/nav_icons/news.png" alt="News" />
+                    News
+                </button>
             </a>
 
 			<a class="header-btn-link" href="/supportus">
-				<button type="button" class="btn regular-btn btn-store head-btn">Support us</button>
+				<button type="button" class="btn regular-btn btn-store head-btn">
+                    <img class="header-btn-icon" src="../../assets/nav_icons/supportus.png" alt="Support us" />
+                    Support us
+                </button>
 			</a>
 
 			<a class="header-btn-link" href="/leaderboard">
-				<button type="button" class="btn regular-btn btn-leaderboard head-btn">Leaderboard</button>
+				<button type="button" class="btn regular-btn btn-leaderboard head-btn">
+                    <img class="header-btn-icon" src="../../assets/nav_icons/leaderboard.png" alt="Leaderboard" />
+                    Leaderboard
+                </button>
 			</a>
 			<a class="header-btn-link" href="/press">
-				<button type="button" class="btn regular-btn head-btn">Press Kit</button>
+				<button type="button" class="btn regular-btn head-btn">
+                    <img class="header-btn-icon" src="../../assets/nav_icons/presskit.png" alt="Press kit" />
+                    Press Kit
+                </button>
 			</a>
 		</div>
 	</div>

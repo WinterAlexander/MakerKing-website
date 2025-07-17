@@ -11,6 +11,10 @@
     margin: 2px;
 }
 
+.header-btn-icon {
+    width: 30px;
+}
+
 .head-padding {
     height: 20px;
 }
@@ -59,8 +63,7 @@
 }
 
 .logged-text {
-    display: inline-block;
-    padding-right: 10px;
+    display: block;
     text-align: center;
 }
 
@@ -73,6 +76,12 @@
 .head-btn {
     width: 100%;
     font-size: x-large;
+}
+
+.btn:hover > .header-btn-icon,
+.btn:focus > .header-btn-icon,
+.btn:active > .header-btn-icon {
+    filter: brightness(80%);
 }
 
 .btn-home {
@@ -117,7 +126,7 @@
 
 
 .header-login-section {
-    text-align: center;
+    text-align: right;
 }
 
 .player-list-link {
@@ -135,7 +144,6 @@
 .btn-login {
     font-size: large;
     padding-top: 0;
-    margin-bottom: 25px;
     text-shadow: 1px 1px 1px black;
 }
 

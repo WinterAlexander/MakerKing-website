@@ -9,6 +9,7 @@ Accessible from https://makerking.net/
 To run the website during testing, run the following command:
 
 ```sh
+export NODE_OPTIONS=--openssl-legacy-provider
 ng serve
 ```
 
