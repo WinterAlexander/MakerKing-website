@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core'
+import { AfterViewInit, Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 
 @Component({
 	selector: 'app-news',
 	templateUrl: './news.component.html',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	styleUrls: [ './news.component.css' ],
 })
 export class NewsComponent implements OnInit, AfterViewInit {

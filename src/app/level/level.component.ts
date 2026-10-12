@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { Level } from './level'
 import { StatsService } from '../stats/stats.service'
 import { LevelLeaderboardEntry } from './levelleaderboardentry'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { AccountService } from '../user/account.service'
+import { DecimalPipe, NgClass } from '@angular/common'
 
 const PAGE_SIZE = 25
 
 @Component({
 	selector: 'app-level',
 	templateUrl: './level.component.html',
-	styleUrls: ['./level.component.css']
+	styleUrls: ['./level.component.css'],
+	changeDetection: ChangeDetectionStrategy.Eager,
+	imports: [NgClass, DecimalPipe]
 })
 export class LevelComponent implements OnInit {
 

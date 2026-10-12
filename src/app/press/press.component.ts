@@ -1,14 +1,17 @@
-import {Component, OnInit} from '@angular/core'
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core'
 import {Title} from '@angular/platform-browser'
 import {
 	DISCORD_ADDRESS, TWITTER_ADDRESS, EMAIL_ADDRESS, FACEBOOK_ADDRESS, REDDIT_ADDRESS,
 	YOUTUBE_ADDRESS, ITCHIO_ADDRESS
 } from '../social-constants'
+import {SafePipe} from '../../util/safepipe'
 
 @Component({
 	selector: 'app-press',
 	templateUrl: './press.component.html',
-	styleUrls: ['./press.component.css']
+	styleUrls: ['./press.component.css'],
+	changeDetection: ChangeDetectionStrategy.Eager,
+	imports: [SafePipe]
 })
 export class PressComponent implements OnInit {
 	twitterAddress: string = TWITTER_ADDRESS

@@ -1,13 +1,17 @@
-import {Component, OnInit} from '@angular/core'
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core'
 import {Title} from '@angular/platform-browser'
 import {Reward} from './reward'
 import {ActivatedRoute, Router} from '@angular/router'
 import {RewardService} from './reward.service'
+import {FormsModule} from '@angular/forms'
+import {SafePipe} from '../../util/safepipe'
 
 @Component({
 	selector: 'app-reward',
 	templateUrl: './reward.component.html',
-	styleUrls: ['./reward.component.css']
+	styleUrls: ['./reward.component.css'],
+	changeDetection: ChangeDetectionStrategy.Eager,
+	imports: [FormsModule, SafePipe]
 })
 export class RewardComponent implements OnInit {
 	rewards: Reward[] = [

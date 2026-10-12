@@ -1,5 +1,6 @@
 import { MusicOption } from './music-option'
 import { HttpClient } from '@angular/common/http'
+import { lastValueFrom } from 'rxjs'
 import { BandcampId } from './bandcamp-id'
 import { MusicPlayerComponent } from './music-player.component'
 import { environment } from '../../environments/environment'
@@ -99,8 +100,7 @@ export class EmbedPlayerSection {
 		if (this.soundcloudIdMap.has(url))
 			return Promise.resolve(this.soundcloudIdMap.get(url))
 
-		return this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=soundcloud', { responseType: 'text' })
-			.toPromise()
+		return lastValueFrom(this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=soundcloud', { responseType: 'text' }))
 			.then((responseBody: string) => {
 
 			this.soundcloudIdMap.set(url, responseBody)
@@ -113,8 +113,7 @@ export class EmbedPlayerSection {
 			return Promise.resolve(this.bandcampIdMap.get(url))
 		}
 
-		return this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=bandcamp', { responseType: 'text' })
-			.toPromise()
+		return lastValueFrom(this.http.get(environment.server + '/songid?url=' + encodeURIComponent(url) + '&provider=bandcamp', { responseType: 'text' }))
 			.then((responseBody: string) => {
 
 			const parts = responseBody.split(',')

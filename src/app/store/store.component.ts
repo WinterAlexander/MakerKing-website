@@ -1,18 +1,21 @@
-import { Component, NgZone, OnInit, TemplateRef, ViewChild } from '@angular/core'
+import { Component, NgZone, OnInit, TemplateRef, ViewChild, ChangeDetectionStrategy } from '@angular/core'
 import { Title } from '@angular/platform-browser'
-import { IPayPalConfig } from 'ngx-paypal'
+import { IPayPalConfig, NgxPayPalModule } from 'ngx-paypal'
 import { StoreItem } from './storeitem'
 import { AccountService } from '../user/account.service'
 import { Router } from '@angular/router'
 import { StoreService } from './store.service'
-import { MatDialog } from '@angular/material/dialog'
+import { MatDialog, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose } from '@angular/material/dialog'
 import { HttpErrorResponse } from '@angular/common/http'
 import { environment } from '../../environments/environment'
+import { NgClass } from '@angular/common'
 
 @Component({
 	selector: 'app-store',
 	templateUrl: './store.component.html',
-	styleUrls: ['./store.component.css']
+	styleUrls: ['./store.component.css'],
+	changeDetection: ChangeDetectionStrategy.Eager,
+	imports: [NgClass, NgxPayPalModule, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose]
 })
 export class StoreComponent implements OnInit {
 

@@ -4,7 +4,7 @@
 /out-tsc
 *.js
 *.js.map
-!karma.conf.js
+!eslint.config.js
 
 # dependencies
 /node_modules
@@ -35,10 +35,6 @@
 npm-debug.log
 testem.log
 /typings
-
-# e2e
-/e2e/*.js
-/e2e/*.map
 
 # System Files
 .DS_Store

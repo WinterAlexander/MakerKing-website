@@ -1,40 +1,52 @@
 <div class="container space-filler">
 	<div class="dirt_header"></div>
-	<div *ngIf="currentReward !== undefined" class="content-container dirt_body">
-		<h1>{{currentReward.name}}</h1>
-		<p>
-			{{currentReward.description}}
-		</p>
-		
-		<h2>
-			Content of the reward:
-			<!--Contenu de la récompense:-->
-		</h2>
-		
-		<div class="reward-item-container">
-			<div *ngFor="let item of currentReward.items" class="reward-item">
-				<img [src]="item.image | safe" alt="{{item.name}}" title="{{item.name}}" />
-				<span>{{item.name}}</span>
+	@if (currentReward !== undefined) {
+		<div class="content-container dirt_body">
+			<h1>{{currentReward.name}}</h1>
+			<p>
+				{{currentReward.description}}
+			</p>
+			
+			<h2>
+				Content of the reward:
+				<!--Contenu de la récompense:-->
+			</h2>
+			
+			<div class="reward-item-container">
+				@for (item of currentReward.items; track item) {
+					<div class="reward-item">
+						<img [src]="item.image | safe" alt="{{item.name}}" title="{{item.name}}" />
+						<span>{{item.name}}</span>
+					</div>
+				}
 			</div>
+			
+			@if (!currentReward.needKey) {
+				<p>
+					Please enter your MakerKing username to claim the reward
+					<!--Entrez votre nom pour réclamer votre récompense-->
+				</p>
+			}
+			@if (currentReward.needKey) {
+				<p>
+					Please enter your MakerKing username and giveaway key to claim the reward
+					<!--Entrez votre nom pour réclamer votre récompense-->
+				</p>
+			}
+			<form class="claim-form">
+				<input type="text" placeholder="Username" name="username" [(ngModel)]="formUsername" />
+				@if (currentReward.needKey) {
+					<input type="text" placeholder="Key" name="key" [(ngModel)]="formKey" />
+				}
+				<button type="button" class="btn regular-btn reward-claim-button" (click)="claimReward()">Claim<!--Réclamer--></button>
+			</form>
+			
+			@if (response !== undefined) {
+				<p>
+					{{response}}
+				</p>
+			}
 		</div>
-		
-		<p *ngIf="!currentReward.needKey" >
-			Please enter your MakerKing username to claim the reward
-			<!--Entrez votre nom pour réclamer votre récompense-->
-		</p>
-		<p *ngIf="currentReward.needKey" >
-			Please enter your MakerKing username and giveaway key to claim the reward
-			<!--Entrez votre nom pour réclamer votre récompense-->
-		</p>
-		<form class="claim-form">
-			<input type="text" placeholder="Username" name="username" [(ngModel)]="formUsername" />
-			<input *ngIf="currentReward.needKey" type="text" placeholder="Key" name="key" [(ngModel)]="formKey" />
-			<button type="button" class="btn regular-btn reward-claim-button" (click)="claimReward()">Claim<!--Réclamer--></button>
-		</form>
-		
-		<p *ngIf="response !== undefined">
-			{{response}}
-		</p>
-	</div>
+	}
 	<div class="dirt_footer"></div>
 </div>

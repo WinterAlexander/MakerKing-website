@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core'
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core'
 import {Title} from '@angular/platform-browser'
 import { DISCORD_ADDRESS, EMAIL_ADDRESS } from '../social-constants'
 
 @Component({
 	selector: 'app-about',
 	templateUrl: './about.component.html',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	styleUrls: [ './about.component.css' ]
 })
 export class AboutComponent implements OnInit {

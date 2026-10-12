@@ -18,24 +18,30 @@
 			</div>
 		</div>
 
-		<div class="row entry-container" *ngFor="let entry of entries" [ngClass]="{'own-entry': entry.username === accountService.getUsername() }">
-			<div class="col-2">
-				<span>#{{entry.rank}}</span>
+		@for (entry of entries; track entry) {
+			<div class="row entry-container" [ngClass]="{'own-entry': entry.username === accountService.getUsername() }">
+				<div class="col-2">
+					<span>#{{entry.rank}}</span>
+				</div>
+				<div class="col-7">
+					<a class="white-link" href="/player?id={{entry.userId}}"><span>{{entry.username}}</span></a>
+				</div>
+				<div class="col-3">
+					<span class="score-span">{{entry.score | number: '1.0-0'}}</span>
+				</div>
 			</div>
-			<div class="col-7">
-				<a class="white-link" href="/player?id={{entry.userId}}"><span>{{entry.username}}</span></a>
-			</div>
-			<div class="col-3">
-				<span class="score-span">{{entry.score | number: '1.0-0'}}</span>
-			</div>
-		</div>
+		}
 
 		<div class="row" style="padding-top: 10px">
 			<div class="col-6">
-				<button *ngIf="getPageNumber() > 1" type="button" class="btn regular-btn page-btn" (click)="prevPage()">Previous</button>
+				@if (getPageNumber() > 1) {
+					<button type="button" class="btn regular-btn page-btn" (click)="prevPage()">Previous</button>
+				}
 			</div>
 			<div class="col-6" style="text-align: right">
-				<button *ngIf="!isLastPage()" type="button" class="btn regular-btn page-btn" (click)="nextPage()">Next</button>
+				@if (!isLastPage()) {
+					<button type="button" class="btn regular-btn page-btn" (click)="nextPage()">Next</button>
+				}
 			</div>
 		</div>
 	</div>

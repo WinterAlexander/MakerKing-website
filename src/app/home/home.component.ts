@@ -1,13 +1,15 @@
-import {Component, OnInit} from '@angular/core'
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core'
 import {Title} from '@angular/platform-browser'
-import {DeviceDetectorService} from 'ngx-device-detector'
 import {ITCHIO_ADDRESS} from '../social-constants'
 import {STEAM_ADDRESS} from '../social-constants'
+import {SafePipe} from '../../util/safepipe'
 
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
-	styleUrls: ['./home.component.css']
+	styleUrls: ['./home.component.css'],
+	changeDetection: ChangeDetectionStrategy.Eager,
+	imports: [SafePipe]
 })
 export class HomeComponent implements OnInit {
 	videoAddress: string = 'https://www.youtube.com/embed/RIf3geGWJVA' +
@@ -18,8 +20,7 @@ export class HomeComponent implements OnInit {
 	itchAddress: string = ITCHIO_ADDRESS
 	steamAddress: string = STEAM_ADDRESS
 
-	constructor(private title: Title,
-				private deviceService: DeviceDetectorService) {
+	constructor(private title: Title) {
 	}
 
 	ngOnInit() {

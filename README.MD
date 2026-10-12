@@ -6,11 +6,13 @@ Accessible from https://makerking.net/
 
 ## Run
 
-To run the website during testing, run the following command:
+Requires Node.js 22.22.3+, 24.15+ or 26+.
+
+To run the website during testing, run the following commands:
 
 ```sh
-export NODE_OPTIONS=--openssl-legacy-provider
-ng serve
+npm install
+npm start
 ```
 
 ## Build
@@ -18,8 +20,16 @@ ng serve
 To build the website, run the following command:
 
 ```sh
-export NODE_OPTIONS=--openssl-legacy-provider
-ng build --prod
+npm run build
+```
+
+The production build is written to `dist/makerking-web`.
+
+## Test
+
+```sh
+npm test
+npm run lint
 ```
 
 

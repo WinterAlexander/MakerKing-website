@@ -1,27 +1,47 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
+import { environment } from '../environments/environment';
+
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+  beforeEach(async () => {
+    localStorage.clear();
+    await TestBed.configureTestingModule({
+      imports: [AppComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     }).compileComponents();
-  }));
-  it('should create the app', async(() => {
+  });
+
+  it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
+    const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
+  });
+
+  it('should render the navigation buttons and the footer', async () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to jumpai-web!');
-  }));
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const buttons = Array.from(compiled.querySelectorAll('app-header .head-btn')).map(b => b.textContent?.trim());
+    expect(buttons).toEqual(['News', 'Support us', 'Leaderboard', 'Press Kit']);
+    expect(compiled.querySelector('app-footer .copyright')?.textContent).toContain('Green Frisbee Games Inc.');
+  });
+
+  it('should display the server stats and the login form in the header', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    TestBed.inject(HttpTestingController)
+      .expectOne(environment.server + '/serverstats')
+      .flush({ onlinePlayers: 3, registeredPlayers: 1234 });
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const header = (fixture.nativeElement as HTMLElement).querySelector('app-header') as HTMLElement;
+    expect(header.textContent).toContain('1234 players registered');
+    expect(header.textContent).toContain('3 players online');
+    expect(header.querySelector('#username')).toBeTruthy();
+    expect(header.querySelector('#password')).toBeTruthy();
+  });
 });

@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import { Title } from '@angular/platform-browser'
-import { ActivatedRoute, Params, Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { StatsService } from '../stats/stats.service'
 import { EmbedPlayerSection } from './embed-player-section'
 import { CheckboxSection } from './checkbox-section'
 import { PlayerPreferenceSection } from './player-preference-section'
 import { MusicOption } from './music-option'
 import { HttpClient } from '@angular/common/http'
+import { FormsModule } from '@angular/forms'
 
 const WEBSOCKET_TIMEOUT = 5000 // 1 second
 
 @Component({
 	selector: 'app-music-player',
 	templateUrl: './music-player.component.html',
-	styleUrls: ['./music-player.component.css']
+	styleUrls: ['./music-player.component.css'],
+	changeDetection: ChangeDetectionStrategy.Eager,
+	imports: [FormsModule]
 })
 export class MusicPlayerComponent implements OnInit {
 

@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import { AccountService } from '../user/account.service'
 import { StatsService } from '../stats/stats.service'
+import { FormsModule } from '@angular/forms'
 
 @Component({
 	selector: 'app-header',
 	templateUrl: './header.component.html',
-	styleUrls: ['./header.component.css']
+	styleUrls: ['./header.component.css'],
+	changeDetection: ChangeDetectionStrategy.Eager,
+	imports: [FormsModule]
 })
 export class HeaderComponent implements OnInit {
 	playersOnline: number = null

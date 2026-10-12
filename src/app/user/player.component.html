@@ -1,27 +1,33 @@
 <div class="container space-filler">
 	<div class="dirt_header"></div>
-	<div class="content-container dirt_body" *ngIf="stats != null">
-		<h1>{{stats.playerName}}</h1>
-		<ul class="player-details">
-			<li *ngIf="stats.score > 0">
-				Rank: {{stats.scoreRank}} (Best: {{stats.bestRank}})
-			</li>
-			<li>
-				Score: {{stats.score}} (Best: {{stats.bestScore}})
-			</li>
-			<li>
-				Level cleared: {{stats.levelsCleared}}
-			</li>
-			<li>
-				World records: {{stats.worldRecords}}
-			</li>
-			<li>
-				Levels created: {{stats.levelsMade}}
-			</li>
-		</ul>
-	</div>
-	<div class="content-container dirt_body" *ngIf="stats == null">
-		<span>Loading...</span>
-	</div>
+	@if (stats != null) {
+		<div class="content-container dirt_body">
+			<h1>{{stats.playerName}}</h1>
+			<ul class="player-details">
+				@if (stats.score > 0) {
+					<li>
+						Rank: {{stats.scoreRank}} (Best: {{stats.bestRank}})
+					</li>
+				}
+				<li>
+					Score: {{stats.score}} (Best: {{stats.bestScore}})
+				</li>
+				<li>
+					Level cleared: {{stats.levelsCleared}}
+				</li>
+				<li>
+					World records: {{stats.worldRecords}}
+				</li>
+				<li>
+					Levels created: {{stats.levelsMade}}
+				</li>
+			</ul>
+		</div>
+	}
+	@if (stats == null) {
+		<div class="content-container dirt_body">
+			<span>Loading...</span>
+		</div>
+	}
 	<div class="dirt_footer"></div>
 </div>

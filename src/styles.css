@@ -1,7 +1,96 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@layer bootstrap, bootstrap-4-compat;
+@import 'bootstrap/dist/css/bootstrap.min.css' layer(bootstrap);
 @import url(https://fonts.googleapis.com/css?family=Lora);
 @import url(https://fonts.googleapis.com/css?family=Molengo);
+
+/*
+ * The site was designed with Bootstrap 4. Bootstrap 5 is loaded in a cascade layer so the site styles
+ * always take precedence over it (its button state selectors are more specific than ours), and the
+ * following rules restore the Bootstrap 4 defaults that changed in Bootstrap 5.
+ */
+@layer bootstrap-4-compat {
+    :root {
+        scroll-behavior: auto;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ol,
+    ul {
+        padding-left: 40px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    label {
+        margin-bottom: .5rem;
+    }
+
+    iframe:not([frameborder]) {
+        border: 2px inset;
+    }
+
+    .container,
+    .row {
+        --bs-gutter-x: 30px;
+    }
+
+    @media (min-width: 1400px) {
+        .container {
+            max-width: 1140px;
+        }
+    }
+
+    .row > [class^="col"],
+    .row > [class*=" col"] {
+        position: relative;
+    }
+
+    .row > :not([class^="col"]):not([class*=" col"]) {
+        flex-shrink: 1;
+        width: auto;
+        max-width: none;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .btn {
+        --bs-btn-border-radius: .25rem;
+    }
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+a:not([href]):not([class]),
+a:not([href]):not([class]):hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+}
 
 body {
     font-family: 'Baloo', cursive;

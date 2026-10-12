@@ -1,16 +1,19 @@
-import {Component, OnInit} from '@angular/core'
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core'
 import {Title} from '@angular/platform-browser'
 import {ActivatedRoute, Params, Router} from '@angular/router'
 import {StatsService} from '../stats/stats.service'
 import {GlobalLeaderboardEntry} from './globalleaderboardentry'
 import {AccountService} from '../user/account.service'
+import {DecimalPipe, NgClass} from '@angular/common'
 
 const PAGE_SIZE = 25
 
 @Component({
 	selector: 'app-leaderboard',
 	templateUrl: './leaderboard.component.html',
-	styleUrls: ['./leaderboard.component.css']
+	styleUrls: ['./leaderboard.component.css'],
+	changeDetection: ChangeDetectionStrategy.Eager,
+	imports: [NgClass, DecimalPipe]
 })
 export class LeaderboardComponent implements OnInit {
 

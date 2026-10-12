@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { StatsService } from '../stats/stats.service'
 import { PlayerStats } from './playerstats'
@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 @Component({
 	selector: 'app-player',
 	templateUrl: './player.component.html',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {

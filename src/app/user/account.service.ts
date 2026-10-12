@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpParams } from '@angular/common/http'
+import { lastValueFrom } from 'rxjs'
 import { environment } from '../../environments/environment'
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AccountService {
 	constructor(private http: HttpClient) {}
 
@@ -13,7 +14,7 @@ export class AccountService {
 		params = params.append('username', username)
 		params = params.append('password', password)
 
-		return this.http.post(environment.server + '/login', params).toPromise()
+		return lastValueFrom(this.http.post(environment.server + '/login', params))
 			.then((response: any) => {
 				localStorage.setItem('token', response.token)
 				localStorage.setItem('username', response.username)
@@ -36,7 +37,7 @@ export class AccountService {
 		params = params.append('username', localStorage.getItem('username'))
 		params = params.append('userId', localStorage.getItem('userId'))
 
-		return this.http.post(environment.server + '/validatetoken', params).toPromise()
+		return lastValueFrom(this.http.post(environment.server + '/validatetoken', params))
 			.then((response: any) => {
 				return true
 			}).catch((e: any) => {

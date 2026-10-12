@@ -3,27 +3,33 @@
 	<div class="content-container dirt_body">
 		<h1>Online players</h1>
 
-		<div class="row playerlist-header" *ngIf="players != null && players.length > 0">
-			<div class="col-3">
-				<span>Username</span>
+		@if (players != null && players.length > 0) {
+			<div class="row playerlist-header">
+				<div class="col-3">
+					<span>Username</span>
+				</div>
+				<div class="col-9">
+					<span>Level</span>
+				</div>
 			</div>
-			<div class="col-9">
-				<span>Level</span>
-			</div>
-		</div>
+		}
 		
-		<p *ngIf="players == null || players.length == 0">
-			No player is currently online.
-		</p>
+		@if (players == null || players.length === 0) {
+			<p>
+				No player is currently online.
+			</p>
+		}
 		
-		<div class="row player-box" *ngFor="let player of players">
-			<div class="col-3">
-				<a class="white-link" href="/player?id={{player.userId}}"><span>{{player.username}}</span></a>
+		@for (player of players; track player) {
+			<div class="row player-box">
+				<div class="col-3">
+					<a class="white-link" href="/player?id={{player.userId}}"><span>{{player.username}}</span></a>
+				</div>
+				<div class="col-9">
+					<span>{{player.editing ? "Editing" : "Playing on"}} <a class="white-link" href="/level?id={{player.levelId}}">{{player.levelName}} {{player.levelId === -1 ? 'a new level' : '#' + player.levelId}}</a></span>
+				</div>
 			</div>
-			<div class="col-9">
-				<span>{{player.editing ? "Editing" : "Playing on"}} <a class="white-link" href="/level?id={{player.levelId}}">{{player.levelName}} {{player.levelId == -1 ? 'a new level' : '#' + player.levelId}}</a></span>
-			</div>
-		</div>
+		}
 	</div>
 	<div class="dirt_footer"></div>
 </div>

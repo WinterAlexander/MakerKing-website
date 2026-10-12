@@ -1,9 +1,10 @@
-import {Component} from '@angular/core'
+import {Component, ChangeDetectionStrategy} from '@angular/core'
 import {DISCORD_ADDRESS, FACEBOOK_ADDRESS, REDDIT_ADDRESS, TWITTER_ADDRESS} from '../social-constants'
 
 @Component({
 	selector: 'app-footer',
 	templateUrl: './footer.component.html',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
